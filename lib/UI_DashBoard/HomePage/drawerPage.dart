@@ -34,7 +34,7 @@ class _DrawerPageState extends State<DrawerPage> {
       body: SafeArea(
         child: ListView(
           shrinkWrap: true,
-          physics: ScrollPhysics(),
+          physics: ClampingScrollPhysics(),
           children: [
             Container(
              padding: EdgeInsets.symmetric(vertical: 10.0),

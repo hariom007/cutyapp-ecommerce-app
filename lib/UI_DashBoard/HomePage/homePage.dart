@@ -1,5 +1,6 @@
 import 'package:cutyapp/UI_DashBoard/HomePage/drawerPage.dart';
 import 'package:cutyapp/UI_DashBoard/HomePage/filterPage.dart';
+import 'package:cutyapp/UI_DashBoard/HomePage/productDetailPage.dart';
 import 'package:cutyapp/Values/AppColors.dart';
 import 'package:flutter/material.dart';
 
@@ -76,6 +77,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           ListView(
             shrinkWrap: true,
+            physics: ClampingScrollPhysics(),
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
@@ -84,193 +86,203 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Expanded(
-                        child: Container(
-                          width: width,
-                          decoration: BoxDecoration(
-                              color: AppColors.white_00,
-                              borderRadius: BorderRadius.circular(7.0)
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 180,
-                                alignment: Alignment.topRight,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage('assets/icon/Image1.png'),
-                                    fit: BoxFit.contain
-                                  )
-                                ),
-                                child: IconButton(
-                                  icon: Icon(Icons.favorite,color: AppColors.grey_10,),
-                                  onPressed: (){
-
-                                  },
-                                ),
-                              ),
-                              Divider(
-                                color: AppColors.grey_70,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: [
-                                                RichText(
-                                                    text: TextSpan(
-                                                      style: TextStyle(
-                                                        color: AppColors.black,
-                                                        fontWeight: FontWeight.bold,
-                                                        fontFamily: 'Roboto-Regular',
-                                                        fontSize: 15
-                                                      ),
-                                                      children: [
-                                                        TextSpan(
-                                                          text: '75.99 '
-                                                        ),
-                                                        TextSpan(
-                                                          text: 'QAR '
-                                                        ),
-                                                      ]
-                                                    )
-                                                ),
-                                                Container(
-                                                  color: AppColors.primaryBackGroundColor,
-                                                  padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
-                                                  child: Text('-50%',
-                                                  style: TextStyle(
-                                                    fontSize: 12
-                                                  ),),
-                                                )
-
-                                              ],
-                                            ),
-                                            SizedBox(height: 3,),
-                                            Text('Baking Powder Clean',
-                                              style: TextStyle(
-                                                  fontSize: 16,
-                                                color: AppColors.black,
-                                              ),
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,),
-                                          ],
-                                        )
-                                    ),
-                                    Center(
-                                      child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductDetail()));
+                          },
+                          child: Container(
+                            width: width,
+                            decoration: BoxDecoration(
+                                color: AppColors.white_00,
+                                borderRadius: BorderRadius.circular(7.0)
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 180,
+                                  alignment: Alignment.topRight,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage('assets/icon/Image1.png'),
+                                      fit: BoxFit.contain
                                     )
-                                  ],
+                                  ),
+                                  child: IconButton(
+                                    icon: Icon(Icons.favorite,color: AppColors.grey_10,),
+                                    onPressed: (){
+
+                                    },
+                                  ),
                                 ),
-                              )
-                            ],
+                                Divider(
+                                  color: AppColors.grey_70,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                children: [
+                                                  RichText(
+                                                      text: TextSpan(
+                                                        style: TextStyle(
+                                                          color: AppColors.black,
+                                                          fontWeight: FontWeight.bold,
+                                                          fontFamily: 'Roboto-Regular',
+                                                          fontSize: 15
+                                                        ),
+                                                        children: [
+                                                          TextSpan(
+                                                            text: '75.99 '
+                                                          ),
+                                                          TextSpan(
+                                                            text: 'QAR '
+                                                          ),
+                                                        ]
+                                                      )
+                                                  ),
+                                                  Container(
+                                                    color: AppColors.primaryBackGroundColor,
+                                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
+                                                    child: Text('-50%',
+                                                    style: TextStyle(
+                                                      fontSize: 12
+                                                    ),),
+                                                  )
+
+                                                ],
+                                              ),
+                                              SizedBox(height: 3,),
+                                              Text('Baking Powder Clean',
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                  color: AppColors.black,
+                                                ),
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,),
+                                            ],
+                                          )
+                                      ),
+                                      Center(
+                                        child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         )
                     ),
                     SizedBox(width: 10,),
                     Expanded(
-                        child: Container(
-                          width: width,
-                          decoration: BoxDecoration(
-                              color: AppColors.white_00,
-                              borderRadius: BorderRadius.circular(7.0)
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 180,
-                                alignment: Alignment.topRight,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage('assets/icon/Image3.png'),
-                                        fit: BoxFit.contain
-                                    )
-                                ),
-                                child: IconButton(
-                                  icon: Icon(Icons.favorite,color: AppColors.red_50,),
-                                  onPressed: (){
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductDetail()));
+                          },
+                          child: Container(
+                            width: width,
+                            decoration: BoxDecoration(
+                                color: AppColors.white_00,
+                                borderRadius: BorderRadius.circular(7.0)
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 180,
+                                  alignment: Alignment.topRight,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage('assets/icon/Image3.png'),
+                                          fit: BoxFit.contain
+                                      )
+                                  ),
+                                  child: IconButton(
+                                    icon: Icon(Icons.favorite,color: AppColors.red_50,),
+                                    onPressed: (){
 
-                                  },
+                                    },
+                                  ),
                                 ),
-                              ),
-                              Divider(
-                                color: AppColors.grey_70,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: [
-                                                RichText(
-                                                    text: TextSpan(
-                                                        style: TextStyle(
-                                                            color: AppColors.black,
-                                                            fontWeight: FontWeight.bold,
-                                                            fontFamily: 'Roboto-Regular',
-                                                            fontSize: 15
-                                                        ),
-                                                        children: [
-                                                          TextSpan(
-                                                              text: '75.99 '
+                                Divider(
+                                  color: AppColors.grey_70,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                children: [
+                                                  RichText(
+                                                      text: TextSpan(
+                                                          style: TextStyle(
+                                                              color: AppColors.black,
+                                                              fontWeight: FontWeight.bold,
+                                                              fontFamily: 'Roboto-Regular',
+                                                              fontSize: 15
                                                           ),
-                                                          TextSpan(
-                                                              text: 'QAR '
-                                                          ),
-                                                        ]
-                                                    )
-                                                ),
-                                                Container(
-                                                  color: AppColors.primaryBackGroundColor,
-                                                  padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
-                                                  child: Text('-50%',
-                                                    style: TextStyle(
-                                                        fontSize: 12
-                                                    ),),
-                                                )
+                                                          children: [
+                                                            TextSpan(
+                                                                text: '75.99 '
+                                                            ),
+                                                            TextSpan(
+                                                                text: 'QAR '
+                                                            ),
+                                                          ]
+                                                      )
+                                                  ),
+                                                  Container(
+                                                    color: AppColors.primaryBackGroundColor,
+                                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
+                                                    child: Text('-50%',
+                                                      style: TextStyle(
+                                                          fontSize: 12
+                                                      ),),
+                                                  )
 
-                                              ],
-                                            ),
-                                            SizedBox(height: 3,),
-                                            Text('Baking Powder Clean',
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                color: AppColors.black,
+                                                ],
                                               ),
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,),
-                                          ],
-                                        )
-                                    ),
-                                    Center(
-                                      child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
+                                              SizedBox(height: 3,),
+                                              Text('Baking Powder Clean',
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: AppColors.black,
+                                                ),
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,),
+                                            ],
+                                          )
+                                      ),
+                                      Center(
+                                        child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         )
                     ),
@@ -284,193 +296,203 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Expanded(
-                        child: Container(
-                          width: width,
-                          decoration: BoxDecoration(
-                              color: AppColors.white_00,
-                              borderRadius: BorderRadius.circular(7.0)
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 180,
-                                alignment: Alignment.topRight,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage('assets/icon/Image3.png'),
-                                        fit: BoxFit.contain
-                                    )
-                                ),
-                                child: IconButton(
-                                  icon: Icon(Icons.favorite,color: AppColors.red_50,),
-                                  onPressed: (){
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductDetail()));
+                          },
+                          child: Container(
+                            width: width,
+                            decoration: BoxDecoration(
+                                color: AppColors.white_00,
+                                borderRadius: BorderRadius.circular(7.0)
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 180,
+                                  alignment: Alignment.topRight,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage('assets/icon/Image3.png'),
+                                          fit: BoxFit.contain
+                                      )
+                                  ),
+                                  child: IconButton(
+                                    icon: Icon(Icons.favorite,color: AppColors.red_50,),
+                                    onPressed: (){
 
-                                  },
+                                    },
+                                  ),
                                 ),
-                              ),
-                              Divider(
-                                color: AppColors.grey_70,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: [
-                                                RichText(
-                                                    text: TextSpan(
-                                                        style: TextStyle(
-                                                            color: AppColors.black,
-                                                            fontWeight: FontWeight.bold,
-                                                            fontFamily: 'Roboto-Regular',
-                                                            fontSize: 15
-                                                        ),
-                                                        children: [
-                                                          TextSpan(
-                                                              text: '75.99 '
+                                Divider(
+                                  color: AppColors.grey_70,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                children: [
+                                                  RichText(
+                                                      text: TextSpan(
+                                                          style: TextStyle(
+                                                              color: AppColors.black,
+                                                              fontWeight: FontWeight.bold,
+                                                              fontFamily: 'Roboto-Regular',
+                                                              fontSize: 15
                                                           ),
-                                                          TextSpan(
-                                                              text: 'QAR '
-                                                          ),
-                                                        ]
-                                                    )
-                                                ),
-                                                Container(
-                                                  color: AppColors.primaryBackGroundColor,
-                                                  padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
-                                                  child: Text('-50%',
-                                                    style: TextStyle(
-                                                        fontSize: 12
-                                                    ),),
-                                                )
+                                                          children: [
+                                                            TextSpan(
+                                                                text: '75.99 '
+                                                            ),
+                                                            TextSpan(
+                                                                text: 'QAR '
+                                                            ),
+                                                          ]
+                                                      )
+                                                  ),
+                                                  Container(
+                                                    color: AppColors.primaryBackGroundColor,
+                                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
+                                                    child: Text('-50%',
+                                                      style: TextStyle(
+                                                          fontSize: 12
+                                                      ),),
+                                                  )
 
-                                              ],
-                                            ),
-                                            SizedBox(height: 3,),
-                                            Text('Baking Powder Clean',
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                color: AppColors.black,
+                                                ],
                                               ),
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,),
-                                          ],
-                                        )
-                                    ),
-                                    Center(
-                                      child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
+                                              SizedBox(height: 3,),
+                                              Text('Baking Powder Clean',
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: AppColors.black,
+                                                ),
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,),
+                                            ],
+                                          )
+                                      ),
+                                      Center(
+                                        child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         )
                     ),
                     SizedBox(width: 10,),
                     Expanded(
-                        child: Container(
-                          width: width,
-                          decoration: BoxDecoration(
-                              color: AppColors.white_00,
-                              borderRadius: BorderRadius.circular(7.0)
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 180,
-                                alignment: Alignment.topRight,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage('assets/icon/Image1.png'),
-                                        fit: BoxFit.contain
-                                    )
-                                ),
-                                child: IconButton(
-                                  icon: Icon(Icons.favorite,color: AppColors.grey_10,),
-                                  onPressed: (){
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductDetail()));
+                          },
+                          child: Container(
+                            width: width,
+                            decoration: BoxDecoration(
+                                color: AppColors.white_00,
+                                borderRadius: BorderRadius.circular(7.0)
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 180,
+                                  alignment: Alignment.topRight,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage('assets/icon/Image1.png'),
+                                          fit: BoxFit.contain
+                                      )
+                                  ),
+                                  child: IconButton(
+                                    icon: Icon(Icons.favorite,color: AppColors.grey_10,),
+                                    onPressed: (){
 
-                                  },
+                                    },
+                                  ),
                                 ),
-                              ),
-                              Divider(
-                                color: AppColors.grey_70,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: [
-                                                RichText(
-                                                    text: TextSpan(
-                                                        style: TextStyle(
-                                                            color: AppColors.black,
-                                                            fontWeight: FontWeight.bold,
-                                                            fontFamily: 'Roboto-Regular',
-                                                            fontSize: 15
-                                                        ),
-                                                        children: [
-                                                          TextSpan(
-                                                              text: '75.99 '
+                                Divider(
+                                  color: AppColors.grey_70,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                children: [
+                                                  RichText(
+                                                      text: TextSpan(
+                                                          style: TextStyle(
+                                                              color: AppColors.black,
+                                                              fontWeight: FontWeight.bold,
+                                                              fontFamily: 'Roboto-Regular',
+                                                              fontSize: 15
                                                           ),
-                                                          TextSpan(
-                                                              text: 'QAR '
-                                                          ),
-                                                        ]
-                                                    )
-                                                ),
-                                                Container(
-                                                  color: AppColors.primaryBackGroundColor,
-                                                  padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
-                                                  child: Text('-50%',
-                                                    style: TextStyle(
-                                                        fontSize: 12
-                                                    ),),
-                                                )
+                                                          children: [
+                                                            TextSpan(
+                                                                text: '75.99 '
+                                                            ),
+                                                            TextSpan(
+                                                                text: 'QAR '
+                                                            ),
+                                                          ]
+                                                      )
+                                                  ),
+                                                  Container(
+                                                    color: AppColors.primaryBackGroundColor,
+                                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
+                                                    child: Text('-50%',
+                                                      style: TextStyle(
+                                                          fontSize: 12
+                                                      ),),
+                                                  )
 
-                                              ],
-                                            ),
-                                            SizedBox(height: 3,),
-                                            Text('Baking Powder Clean',
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                color: AppColors.black,
+                                                ],
                                               ),
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,),
-                                          ],
-                                        )
-                                    ),
-                                    Center(
-                                      child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
+                                              SizedBox(height: 3,),
+                                              Text('Baking Powder Clean',
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: AppColors.black,
+                                                ),
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,),
+                                            ],
+                                          )
+                                      ),
+                                      Center(
+                                        child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         )
                     ),
@@ -484,193 +506,203 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Expanded(
-                        child: Container(
-                          width: width,
-                          decoration: BoxDecoration(
-                              color: AppColors.white_00,
-                              borderRadius: BorderRadius.circular(7.0)
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 180,
-                                alignment: Alignment.topRight,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage('assets/icon/Image1.png'),
-                                        fit: BoxFit.contain
-                                    )
-                                ),
-                                child: IconButton(
-                                  icon: Icon(Icons.favorite,color: AppColors.grey_10,),
-                                  onPressed: (){
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductDetail()));
+                          },
+                          child: Container(
+                            width: width,
+                            decoration: BoxDecoration(
+                                color: AppColors.white_00,
+                                borderRadius: BorderRadius.circular(7.0)
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 180,
+                                  alignment: Alignment.topRight,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage('assets/icon/Image1.png'),
+                                          fit: BoxFit.contain
+                                      )
+                                  ),
+                                  child: IconButton(
+                                    icon: Icon(Icons.favorite,color: AppColors.grey_10,),
+                                    onPressed: (){
 
-                                  },
+                                    },
+                                  ),
                                 ),
-                              ),
-                              Divider(
-                                color: AppColors.grey_70,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: [
-                                                RichText(
-                                                    text: TextSpan(
-                                                        style: TextStyle(
-                                                            color: AppColors.black,
-                                                            fontWeight: FontWeight.bold,
-                                                            fontFamily: 'Roboto-Regular',
-                                                            fontSize: 15
-                                                        ),
-                                                        children: [
-                                                          TextSpan(
-                                                              text: '75.99 '
+                                Divider(
+                                  color: AppColors.grey_70,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                children: [
+                                                  RichText(
+                                                      text: TextSpan(
+                                                          style: TextStyle(
+                                                              color: AppColors.black,
+                                                              fontWeight: FontWeight.bold,
+                                                              fontFamily: 'Roboto-Regular',
+                                                              fontSize: 15
                                                           ),
-                                                          TextSpan(
-                                                              text: 'QAR '
-                                                          ),
-                                                        ]
-                                                    )
-                                                ),
-                                                Container(
-                                                  color: AppColors.primaryBackGroundColor,
-                                                  padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
-                                                  child: Text('-50%',
-                                                    style: TextStyle(
-                                                        fontSize: 12
-                                                    ),),
-                                                )
+                                                          children: [
+                                                            TextSpan(
+                                                                text: '75.99 '
+                                                            ),
+                                                            TextSpan(
+                                                                text: 'QAR '
+                                                            ),
+                                                          ]
+                                                      )
+                                                  ),
+                                                  Container(
+                                                    color: AppColors.primaryBackGroundColor,
+                                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
+                                                    child: Text('-50%',
+                                                      style: TextStyle(
+                                                          fontSize: 12
+                                                      ),),
+                                                  )
 
-                                              ],
-                                            ),
-                                            SizedBox(height: 3,),
-                                            Text('Baking Powder Clean',
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                color: AppColors.black,
+                                                ],
                                               ),
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,),
-                                          ],
-                                        )
-                                    ),
-                                    Center(
-                                      child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
+                                              SizedBox(height: 3,),
+                                              Text('Baking Powder Clean',
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: AppColors.black,
+                                                ),
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,),
+                                            ],
+                                          )
+                                      ),
+                                      Center(
+                                        child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         )
                     ),
                     SizedBox(width: 10,),
                     Expanded(
-                        child: Container(
-                          width: width,
-                          decoration: BoxDecoration(
-                              color: AppColors.white_00,
-                              borderRadius: BorderRadius.circular(7.0)
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 180,
-                                alignment: Alignment.topRight,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage('assets/icon/Image3.png'),
-                                        fit: BoxFit.contain
-                                    )
-                                ),
-                                child: IconButton(
-                                  icon: Icon(Icons.favorite,color: AppColors.red_50,),
-                                  onPressed: (){
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductDetail()));
+                          },
+                          child: Container(
+                            width: width,
+                            decoration: BoxDecoration(
+                                color: AppColors.white_00,
+                                borderRadius: BorderRadius.circular(7.0)
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 180,
+                                  alignment: Alignment.topRight,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage('assets/icon/Image3.png'),
+                                          fit: BoxFit.contain
+                                      )
+                                  ),
+                                  child: IconButton(
+                                    icon: Icon(Icons.favorite,color: AppColors.red_50,),
+                                    onPressed: (){
 
-                                  },
+                                    },
+                                  ),
                                 ),
-                              ),
-                              Divider(
-                                color: AppColors.grey_70,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: [
-                                                RichText(
-                                                    text: TextSpan(
-                                                        style: TextStyle(
-                                                            color: AppColors.black,
-                                                            fontWeight: FontWeight.bold,
-                                                            fontFamily: 'Roboto-Regular',
-                                                            fontSize: 15
-                                                        ),
-                                                        children: [
-                                                          TextSpan(
-                                                              text: '75.99 '
+                                Divider(
+                                  color: AppColors.grey_70,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                children: [
+                                                  RichText(
+                                                      text: TextSpan(
+                                                          style: TextStyle(
+                                                              color: AppColors.black,
+                                                              fontWeight: FontWeight.bold,
+                                                              fontFamily: 'Roboto-Regular',
+                                                              fontSize: 15
                                                           ),
-                                                          TextSpan(
-                                                              text: 'QAR '
-                                                          ),
-                                                        ]
-                                                    )
-                                                ),
-                                                Container(
-                                                  color: AppColors.primaryBackGroundColor,
-                                                  padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
-                                                  child: Text('-50%',
-                                                    style: TextStyle(
-                                                        fontSize: 12
-                                                    ),),
-                                                )
+                                                          children: [
+                                                            TextSpan(
+                                                                text: '75.99 '
+                                                            ),
+                                                            TextSpan(
+                                                                text: 'QAR '
+                                                            ),
+                                                          ]
+                                                      )
+                                                  ),
+                                                  Container(
+                                                    color: AppColors.primaryBackGroundColor,
+                                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
+                                                    child: Text('-50%',
+                                                      style: TextStyle(
+                                                          fontSize: 12
+                                                      ),),
+                                                  )
 
-                                              ],
-                                            ),
-                                            SizedBox(height: 3,),
-                                            Text('Baking Powder Clean',
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                color: AppColors.black,
+                                                ],
                                               ),
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,),
-                                          ],
-                                        )
-                                    ),
-                                    Center(
-                                      child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
+                                              SizedBox(height: 3,),
+                                              Text('Baking Powder Clean',
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: AppColors.black,
+                                                ),
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,),
+                                            ],
+                                          )
+                                      ),
+                                      Center(
+                                        child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         )
                     ),
