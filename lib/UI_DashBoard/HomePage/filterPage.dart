@@ -41,18 +41,6 @@ class _FilterPageState extends State<FilterPage> {
                   ),
                   GestureDetector(
                     onTap: (){
-                      showBottomSheet(
-                        backgroundColor: Colors.black.withOpacity(0.5),
-                        context: context,
-
-                        builder: (context) {
-                          return Container(
-                            height: height*0.7,
-                          );
-                        },
-                      ).closed.whenComplete(() {
-                        //do whatever you want after closing the bottom sheet
-                      });
                     },
                     child: CircleAvatar(
                       radius: 40,
@@ -80,6 +68,57 @@ class _FilterPageState extends State<FilterPage> {
       ),
       drawer: Drawer(
         child: DrawerPage(),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 30),
+        child: Container(
+          height: height,
+          decoration: BoxDecoration(
+          color: AppColors.white_00,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30.0),
+              topRight: Radius.circular(30.0),
+            )
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(height: 50.0,),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context,true);
+                    },
+                    child: Container(
+                      height: 60,
+                      width: 70,
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/icon/Rectangle2.png'),
+                              fit: BoxFit.fill
+                          ),
+                      ),
+                      child: Center(
+                        child: Icon(Icons.arrow_back_ios_outlined,size: 20,color: AppColors.white_00,),
+                      ),
+                    ),
+                  ),
+                  Text("   Filter",
+                  style: TextStyle(
+                    color: AppColors.black,
+                    fontFamily: 'Montserrat-semibold',
+                    fontSize: 16
+                  ),)
+                ],
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -1,3 +1,7 @@
+import 'package:cutyapp/MyProfilePage/OrderHistory/orderHistoryList.dart';
+import 'package:cutyapp/MyProfilePage/editProfile.dart';
+import 'package:cutyapp/MyProfilePage/myWishList.dart';
+import 'package:cutyapp/MyProfilePage/termsCondtion.dart';
 import 'package:cutyapp/Values/AppColors.dart';
 import 'package:flutter/material.dart';
 class DrawerPage extends StatefulWidget {
@@ -40,7 +44,11 @@ class _DrawerPageState extends State<DrawerPage> {
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Icon(Icons.clear),
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.pop(context,true);
+                      },
+                        child: Icon(Icons.clear)),
                   ),
                   Center(
                     child: Column(
@@ -61,7 +69,11 @@ class _DrawerPageState extends State<DrawerPage> {
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold
                             ),),
-                            Icon(Icons.edit,size: 20,)
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> EditProfile()));
+                              },
+                                child: Icon(Icons.edit,size: 20,))
                           ],
                         ),
                         SizedBox(height: 6,),
@@ -96,12 +108,11 @@ class _DrawerPageState extends State<DrawerPage> {
                             ),),
                           leading: Icon(Icons.favorite_outline_rounded,color: AppColors.white_00,),
                           onTap: (){
-
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> MyWishListPage()));
                           },
                         ),
                         ListTile(
                           onTap: (){
-
                           },
                           dense: true,
                           title: Text('Get Notifications',
@@ -155,7 +166,7 @@ class _DrawerPageState extends State<DrawerPage> {
                             ),),
                           leading: Image.asset('assets/icon/clipboard_list.png',color: AppColors.white_00,),
                           onTap: (){
-
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderHistoryList()));
                           },
                         ),
                         Container(
@@ -231,7 +242,7 @@ class _DrawerPageState extends State<DrawerPage> {
                                   ),),
                                 leading: Image.asset('assets/icon/Heart.png',color: AppColors.black,),
                                 onTap: (){
-
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> TermsConditions()));
                                 },
                               ),
                               ListTile(
