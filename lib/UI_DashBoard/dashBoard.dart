@@ -2,6 +2,7 @@ import 'package:cutyapp/UI_DashBoard/WishListPage/wishListPage.dart';
 import 'package:cutyapp/Values/AppColors.dart';
 import 'package:flutter/material.dart';
 
+import 'HomePage/drawerPage.dart';
 import 'HomePage/homePage.dart';
 
 class DashBoard extends StatefulWidget {
@@ -24,6 +25,7 @@ class _DashBoardState extends State<DashBoard> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+
           floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           floatingActionButton: Container(
               height: 80,

@@ -1,3 +1,5 @@
+import 'package:cutyapp/UI_DashBoard/HomePage/drawerPage.dart';
+import 'package:cutyapp/UI_DashBoard/HomePage/filterPage.dart';
 import 'package:cutyapp/Values/AppColors.dart';
 import 'package:flutter/material.dart';
 
@@ -7,12 +9,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      key: _scaffoldKey,
       appBar: PreferredSize(
           preferredSize: Size. fromHeight(50.0), // here the desired height.
           child: AppBar(
@@ -36,12 +41,17 @@ class _HomePageState extends State<HomePage> {
                           color: AppColors.primaryBackGroundColor
                       ),),
                   ),
-                  CircleAvatar(
-                    radius: 40,
-                    backgroundColor: AppColors.primaryBackGroundColor,
-                    child: Image.asset('assets/icon/filter.png',
-                      color: AppColors.white_00,
-                      height: 28,
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> FilterPage()));
+                    },
+                    child: CircleAvatar(
+                      radius: 40,
+                      backgroundColor: AppColors.primaryBackGroundColor,
+                      child: Image.asset('assets/icon/filter.png',
+                        color: AppColors.white_00,
+                        height: 28,
+                      ),
                     ),
                   ),
                   Expanded(
@@ -49,9 +59,7 @@ class _HomePageState extends State<HomePage> {
                         alignment: Alignment.centerRight,
                         child: IconButton(
                           icon: Icon(Icons.menu,color: AppColors.black,),
-                          onPressed: (){
-
-                          },
+                          onPressed: () => _scaffoldKey.currentState.openDrawer(),
                         ),
                       )
                   )
@@ -61,12 +69,14 @@ class _HomePageState extends State<HomePage> {
             ),
           )
       ),
+      drawer: Drawer(
+        child: DrawerPage(),
+      ),
       body: Stack(
         children: [
           ListView(
             shrinkWrap: true,
             children: [
-
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
                 child: Row(

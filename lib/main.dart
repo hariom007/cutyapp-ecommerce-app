@@ -1,4 +1,6 @@
+import 'package:cutyapp/MyProfilePage/OrderHistory/orderHistoryList.dart';
 import 'package:cutyapp/MyProfilePage/editProfile.dart';
+import 'package:cutyapp/MyProfilePage/termsCondtion.dart';
 import 'package:cutyapp/SplashScreen/splashscreen.dart';
 import 'package:cutyapp/UI_DashBoard/dashBoard.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +16,8 @@ class CutyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: SplashScreen(),
-      home: EditProfile(),
+      home: SplashScreen(),
+      // home: TermsConditions(),
       title: 'Cuty App',
       theme: ThemeData(
           primaryColor: AppColors.primaryColor,
