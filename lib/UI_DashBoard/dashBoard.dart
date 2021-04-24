@@ -25,11 +25,10 @@ class _DashBoardState extends State<DashBoard> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-
           floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           floatingActionButton: Container(
-              height: 80,
-              width: 80,
+              height: 70,
+              width: 70,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
               ),
@@ -54,7 +53,7 @@ class _DashBoardState extends State<DashBoard> {
                             fontSize: 12
                         ),),
                     ),
-                    Image.asset('assets/icon/cart.png',height: 40,width: 40,color: AppColors.white_00,),
+                    Image.asset('assets/icon/cart.png',height: 30,width: 30,color: AppColors.white_00,),
                   ],
                 ),
               )

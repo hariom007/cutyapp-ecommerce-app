@@ -35,7 +35,7 @@ class _FilterPageState extends State<FilterPage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: PreferredSize(
-          preferredSize: Size. fromHeight(50.0), // here the desired height.
+          preferredSize: Size. fromHeight(65.0), // here the desired height.
           child: AppBar(
             automaticallyImplyLeading: false, // hides leading widget
             flexibleSpace: Container(
@@ -61,11 +61,12 @@ class _FilterPageState extends State<FilterPage> {
                     onTap: (){
                     },
                     child: CircleAvatar(
-                      radius: 40,
+                      radius: 40.0,
                       backgroundColor: AppColors.primaryBackGroundColor,
                       child: Image.asset('assets/icon/filter.png',
                         color: AppColors.white_00,
-                        height: 28,
+                        height: 28.0,
+                        width: 28.0,
                       ),
                     ),
                   ),
@@ -89,24 +90,21 @@ class _FilterPageState extends State<FilterPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 30),
-        child:ListView(
-          shrinkWrap: true,
-          physics: ClampingScrollPhysics(),
-          children: [
-            Container(
-              height: height,
-              decoration: BoxDecoration(
-                  color: AppColors.white_00,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30.0),
-                    topRight: Radius.circular(30.0),
-                  )
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+        child:Container(
+          decoration: BoxDecoration(
+              color: AppColors.white_00,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30.0),
+                topRight: Radius.circular(30.0),
+              )
+          ),
+          child: Stack(
+            children: [
+              ListView(
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
                 children: [
-                  SizedBox(height: 50.0,),
+                  SizedBox(height: 30.0,),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -341,7 +339,7 @@ class _FilterPageState extends State<FilterPage> {
                           child: RaisedButton(
                             onPressed: (){
                             },
-                            padding: EdgeInsets.symmetric(vertical: 15,horizontal: 30),
+                            padding: EdgeInsets.symmetric(vertical: 10,horizontal: 0),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(6.0),
                             ),
@@ -360,7 +358,7 @@ class _FilterPageState extends State<FilterPage> {
                           child: RaisedButton(
                             onPressed: (){
                             },
-                            padding: EdgeInsets.symmetric(vertical: 15,horizontal: 30),
+                            padding: EdgeInsets.symmetric(vertical: 10,horizontal: 0),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(6.0),
                             ),
@@ -376,11 +374,12 @@ class _FilterPageState extends State<FilterPage> {
                           ),),
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(height: 30,)
                 ],
               ),
-            ),
-          ],
+            ],
+          )
         )
       ),
     );

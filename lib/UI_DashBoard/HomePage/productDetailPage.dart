@@ -245,6 +245,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                   style: TextStyle(color: Colors.white),
                                   iconEnabledColor:Colors.black,
                                   iconSize: 26.0,
+                                  underline: SizedBox(),
                                   icon: Icon(Icons.keyboard_arrow_down_sharp),
                                   items: <String>[
                                     '1', '2', '3',
@@ -273,7 +274,7 @@ class _ProductDetailState extends State<ProductDetail> {
 
                             ],
                           ),
-                          SizedBox(height: 20.0,),
+                          SizedBox(height: 10.0,),
                           TextField(
                             decoration: InputDecoration(
                               hintText: 'Product description',
@@ -291,7 +292,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             ),
                           ),
                           SizedBox(height: 20.0,),
-                          Divider(),
+                          Divider(color: AppColors.grey_70,height: 20.0,),
                           Text('Reviews',
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,

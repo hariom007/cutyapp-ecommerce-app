@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cutyapp/MyNavigator/myNavigator.dart';
+import 'package:cutyapp/Values/AppColors.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -31,7 +32,14 @@ class _SplashScreenState extends State<SplashScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-
+              Center(child: Text('Cuty',
+                style: TextStyle(
+                    fontFamily: 'Parisienne-Regular',
+                    fontSize: 60,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.white_00
+                ),),),
+              SizedBox(height: 100,),
               Center(child: Image.asset('assets/icon/cuty.png',height: 250,width: 300,fit: BoxFit.fill,)),
             ],
           )

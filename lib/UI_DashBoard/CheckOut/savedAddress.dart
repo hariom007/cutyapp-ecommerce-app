@@ -203,9 +203,9 @@ class _SavedAddressState extends State<SavedAddress> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 60,),
+                  SizedBox(height: 40,),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -222,7 +222,7 @@ class _SavedAddressState extends State<SavedAddress> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(Icons.location_searching,size: 16.0,color: AppColors.primaryBackGroundColor,),
-                                  Text('  Choose your location',style: TextStyle(
+                                  Text(' Choose your location',style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: AppColors.primaryBackGroundColor,
                                       fontSize: 12,
@@ -235,7 +235,7 @@ class _SavedAddressState extends State<SavedAddress> {
                               },
                             )
                         ),
-                        SizedBox(width: 10.0,),
+                        SizedBox(width: 5.0,),
                         Expanded(
                             child: RaisedButton(
                               color: AppColors.appColor3,
@@ -248,10 +248,10 @@ class _SavedAddressState extends State<SavedAddress> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(Icons.add,size: 16.0,color: AppColors.white_00,),
-                                  Text('   Add a new address',style: TextStyle(
+                                  Text('Add a new address',style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: AppColors.white_00,
-                                      fontSize: 14,
+                                      fontSize: 12,
                                       fontFamily: 'Montserrat-semibold'
                                   ),),
                                 ],
@@ -268,7 +268,7 @@ class _SavedAddressState extends State<SavedAddress> {
 
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Text('1 Saved Address',
+                    child: Text('1. Saved Address',
                     style: TextStyle(
                       fontSize: 16.0
                     ),),
@@ -314,6 +314,7 @@ class _SavedAddressState extends State<SavedAddress> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
+                            SizedBox(height: 10.0,),
                             Text('No, 118 yakasa Quartes kano',
                               style: TextStyle(
                                   fontSize: 16.0,

@@ -20,11 +20,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: PreferredSize(
-          preferredSize: Size. fromHeight(50.0), // here the desired height.
+          preferredSize: Size. fromHeight(65.0), // here the desired height.
           child: AppBar(
             automaticallyImplyLeading: false, // hides leading widget
             flexibleSpace: Container(
-              height: 100,
+              // height: 100.0,
               width: width,
               padding: EdgeInsets.only(top: 40,left: 10,right: 10,bottom: 5),
               decoration: BoxDecoration(
@@ -47,11 +47,12 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> FilterPage()));
                     },
                     child: CircleAvatar(
-                      radius: 40,
+                      radius: 40.0,
                       backgroundColor: AppColors.primaryBackGroundColor,
                       child: Image.asset('assets/icon/filter.png',
                         color: AppColors.white_00,
-                        height: 28,
+                        height: 28.0,
+                        width: 28.0,
                       ),
                     ),
                   ),

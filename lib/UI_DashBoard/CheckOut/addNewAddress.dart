@@ -355,7 +355,9 @@ class _AddNewAddressState extends State<AddNewAddress> {
                         ),),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(height: 35,),
+
 
                 ],
               ),

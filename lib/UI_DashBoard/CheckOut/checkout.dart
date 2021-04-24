@@ -1,3 +1,4 @@
+import 'package:cutyapp/MyNavigator/myNavigator.dart';
 import 'package:cutyapp/UI_DashBoard/CheckOut/savedAddress.dart';
 import 'package:cutyapp/Values/AppColors.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +71,7 @@ class _CheckOutState extends State<CheckOut> {
                                 children: [
                                   CircleAvatar(
                                     radius: 30.0,
-                                    backgroundColor: AppColors.appColor7,
+                                    backgroundColor: AppColors.white_00,
                                     child: Text('1',
                                       style: TextStyle(
                                           fontSize: 18
@@ -186,7 +187,7 @@ class _CheckOutState extends State<CheckOut> {
                                 children: [
                                   CircleAvatar(
                                     radius: 30.0,
-                                    backgroundColor: AppColors.white_00,
+                                    backgroundColor: AppColors.appColor7,
                                     child: Text('3',
                                       style: TextStyle(
                                           fontSize: 18
@@ -203,7 +204,7 @@ class _CheckOutState extends State<CheckOut> {
                   ),
                   SizedBox(height: 40,),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -220,7 +221,7 @@ class _CheckOutState extends State<CheckOut> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(Icons.location_searching,size: 16.0,color: AppColors.primaryBackGroundColor,),
-                                  Text('  Choose your location',style: TextStyle(
+                                  Text(' Choose your location',style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: AppColors.primaryBackGroundColor,
                                       fontSize: 12,
@@ -233,7 +234,7 @@ class _CheckOutState extends State<CheckOut> {
                               },
                             )
                         ),
-                        SizedBox(width: 10.0,),
+                        SizedBox(width: 5.0,),
                         Expanded(
                             child: RaisedButton(
                               color: AppColors.appColor3,
@@ -246,10 +247,10 @@ class _CheckOutState extends State<CheckOut> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(Icons.add,size: 16.0,color: AppColors.white_00,),
-                                  Text('   Add a new address',style: TextStyle(
+                                  Text('Add a new address',style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: AppColors.white_00,
-                                      fontSize: 14,
+                                      fontSize: 12,
                                       fontFamily: 'Montserrat-semibold'
                                   ),),
                                 ],
@@ -487,7 +488,7 @@ class _CheckOutState extends State<CheckOut> {
                             borderRadius: BorderRadius.circular(10.0)
                         ),
                         onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> SavedAddress()));
+                          MyNavigator.goToDashBoard(context);
                         },
                         child: Text('Save',
                           style: TextStyle(
