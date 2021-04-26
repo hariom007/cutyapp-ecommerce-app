@@ -28,7 +28,13 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Container(
         height: height,
-          child: Column(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/icons/splashscreen.png'),
+              fit: BoxFit.fill
+            )
+          ),
+          /*child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -42,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
               SizedBox(height: 100,),
               Center(child: Image.asset('assets/icon/cuty.png',height: 250,width: 300,fit: BoxFit.fill,)),
             ],
-          )
+          )*/
       ),
     );
   }

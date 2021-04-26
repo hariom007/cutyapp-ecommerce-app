@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:country_pickers/country.dart';
 import 'package:country_pickers/country_picker_dialog.dart';
 import 'package:country_pickers/utils/utils.dart';
@@ -12,7 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  Country _country= CountryPickerUtils.getCountryByPhoneCode('91');
+  Country _country= CountryPickerUtils.getCountryByPhoneCode('974');
 
   TextEditingController mobileNumberController = TextEditingController();
 
@@ -57,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
           );
         },
         priorityList: [
-          CountryPickerUtils.getCountryByIsoCode('IN'),
+          CountryPickerUtils.getCountryByIsoCode('QA'),
           CountryPickerUtils.getCountryByIsoCode('DE'),
         ],
       ),
@@ -121,12 +123,18 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                     child: GestureDetector(
                                       onTap: (){
-                                        _openCountryPickerDialog();
+                                        // _openCountryPickerDialog();
                                       },
                                       child: Row(
                                         children: [
-                                          CountryPickerUtils.getDefaultFlagImage(_country),
-                                          Text("  +${_country.phoneCode}  ",
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            height: 30.0,
+                                            child: Image.asset('assets/icons/qatar.png'),
+                                          ),
+                                          Text("  +974 ",
                                             style: TextStyle(
                                                 fontSize: 15,
                                                 color: AppColors.black,
@@ -191,7 +199,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   Spacer(),
-                  Image.asset('assets/icon/cuty.png',height: 250,width: 300,fit: BoxFit.fill,)
+                  Image.asset('assets/icons/cuty3.png',height: 250,width: 300,fit: BoxFit.fill,)
                 ],
               ),
             ),

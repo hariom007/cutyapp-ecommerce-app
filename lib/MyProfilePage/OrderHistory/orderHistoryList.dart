@@ -61,7 +61,7 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                             Container(
                               height: 140,
                               width: 100,
-                              child: Image.asset('assets/icon/Image1.png',
+                              child: Image.asset('assets/icons/product2.png',
                                 fit: BoxFit.contain,),
                             ),
                             Expanded(
@@ -188,7 +188,7 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                             Container(
                               height: 140,
                               width: 100,
-                              child: Image.asset('assets/icon/Image1.png',
+                              child: Image.asset('assets/icons/product2.png',
                                 fit: BoxFit.contain,),
                             ),
                             Expanded(

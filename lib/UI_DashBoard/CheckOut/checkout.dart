@@ -25,6 +25,75 @@ class _CheckOutState extends State<CheckOut> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(200.0),
+        child: AppBar(
+          elevation: 0,
+          automaticallyImplyLeading: false, // hides leading widget
+          flexibleSpace: Container(
+            width: width,
+            color: AppColors.primaryBackGroundColor,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(height: 15.0,),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context,true);
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('assets/icon/Rectangle9.png'),
+                                fit: BoxFit.fill
+                            ),
+                          ),
+                          child: Center(
+                            child: Icon(Icons.arrow_back_ios_outlined,size: 20,color: AppColors.primaryBackGroundColor,),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(child: Container()),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 60.0,top: 40.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset('assets/icon/checkout.png',),
+                          SizedBox(height: 15,),
+                          Text('Checkout',style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'Montserrat-Thin',
+                              fontWeight: FontWeight.bold
+                          ),),
+
+                        ],
+                      ),
+                    ),
+                    Expanded(child: Container()),
+
+                  ],
+                ),
+                Container(
+                  height: 100.0,
+                  child: Image.asset('assets/icons/step3.png',fit: BoxFit.fill,),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -33,8 +102,8 @@ class _CheckOutState extends State<CheckOut> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: 80,),
-                  Row(
+                  // SizedBox(height: 80,),
+                  /*Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -201,8 +270,8 @@ class _CheckOutState extends State<CheckOut> {
                         ),
                       ],
                     ),
-                  ),
-                  SizedBox(height: 40,),
+                  ),*/
+                  SizedBox(height: 20,),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Row(
@@ -505,7 +574,7 @@ class _CheckOutState extends State<CheckOut> {
               ),
             ),
           ),
-          Positioned(
+          /*Positioned(
             top: 40,
             left: 0,
             child: GestureDetector(
@@ -527,7 +596,7 @@ class _CheckOutState extends State<CheckOut> {
                 ),
               ),
             ),
-          ),
+          ),*/
         ],
       ),
     );

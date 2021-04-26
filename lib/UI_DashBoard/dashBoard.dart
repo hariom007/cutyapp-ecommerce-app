@@ -12,6 +12,7 @@ class DashBoard extends StatefulWidget {
 
 class _DashBoardState extends State<DashBoard> {
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   int _currentIndex = 0;
   int _pState = 0;
@@ -21,10 +22,11 @@ class _DashBoardState extends State<DashBoard> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
-    var pages = [new  HomePage(), new  WishListPage(),];
+    var pages = [new  HomePage(scaffoldKey: _scaffoldKey,), new  WishListPage(),];
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+          key: _scaffoldKey,
           floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           floatingActionButton: Container(
               height: 70,
@@ -58,7 +60,9 @@ class _DashBoardState extends State<DashBoard> {
                 ),
               )
           ),
-
+          drawer: Drawer(
+            child: DrawerPage(),
+          ),
           body: pages[_currentIndex],
           bottomNavigationBar: new BottomNavigationBar(
             type: BottomNavigationBarType.fixed,

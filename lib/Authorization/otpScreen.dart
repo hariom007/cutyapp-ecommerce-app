@@ -48,8 +48,10 @@ class _OTPScreenState extends State<OTPScreen> {
                         fontFamily: 'Montserrat-SemiBold',
                       ),
                       backgroundColor: AppColors.primaryBackGroundColor,
-                      autoFocus: true,
+                      autoFocus: false,
                       enablePinAutofill: true,
+                      animationCurve: Curves.elasticOut,
+
                       pinTheme: PinTheme(
                           activeColor: AppColors.black,
                           inactiveColor: AppColors.white_00,
@@ -59,7 +61,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           borderRadius: BorderRadius.circular(5),
                           activeFillColor: AppColors.red_00
                       ),
-                      animationType: AnimationType.slide,
+                      animationType: AnimationType.scale,
                       animationDuration: Duration(milliseconds: 300),
                       // errorAnimationController: errorController, // Pass it here
                     ),
@@ -121,7 +123,7 @@ class _OTPScreenState extends State<OTPScreen> {
                     ),
                   ),
                   Spacer(),
-                  Image.asset('assets/icon/cuty.png',height: 250,width: 300,fit: BoxFit.fill,)
+                  Image.asset('assets/icons/cuty4.png',height: 250,width: 300,fit: BoxFit.fill,)
                 ],
 
               ),

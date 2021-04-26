@@ -32,7 +32,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                       fontSize: 20),
                     ),
                     SizedBox(height: 6,),
-                    Text('اختار اللغة',
+                    Text('زبان منتخب کریں',
                     style: TextStyle(
                       fontFamily: 'Montserrat-SemiBold',
                       fontSize: 20),
@@ -68,7 +68,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                                     CircleAvatar(
                                       radius: 25,
                                       backgroundColor: AppColors.white_00,
-                                      child: Image.asset('assets/icon/india.png',fit: BoxFit.fill,),
+                                      child: Image.asset('assets/icons/us.png',fit: BoxFit.fill,),
                                     ),
                                     SizedBox(height: 5,),
                                     Text('English',
@@ -111,10 +111,10 @@ class _SelectLanguageState extends State<SelectLanguage> {
                                     CircleAvatar(
                                       radius: 25,
                                       backgroundColor: AppColors.white_00,
-                                      child: Image.asset('assets/icon/liberia.png',fit: BoxFit.fill,),
+                                      child: Image.asset('assets/icons/urdu.png',fit: BoxFit.fill,),
                                     ),
                                     SizedBox(height: 5,),
-                                    Text('عربى',
+                                    Text('اردو',
                                       style: TextStyle(
                                           fontFamily: 'Montserrat-SemiBold',
                                           fontSize: 14,
@@ -135,7 +135,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
                 )),
               ),
               // Spacer(),
-              Center(child: Image.asset('assets/icon/cuty.png',height: 250,width: 300,fit: BoxFit.fill,)),
+              Center(child: Image.asset('assets/icons/cuty2.png',height: 250,width: 300,fit: BoxFit.fill,)),
             ],
           )
       ),

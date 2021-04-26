@@ -12,255 +12,286 @@ class _MyWishListPageState extends State<MyWishListPage> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(height: 80,),
-                  Row(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(110.0),
+        child: AppBar(
+          elevation: 0,
+          automaticallyImplyLeading: false, // hides leading widget
+          flexibleSpace: Container(
+            width: width,
+            color: AppColors.primaryBackGroundColor,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 5.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context,true);
+                    },
+                    child: Container(
+                      height: 60,
+                      width: 70,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/icon/Rectangle9.png'),
+                            fit: BoxFit.fill
+                        ),
+                      ),
+                      child: Center(
+                        child: Icon(Icons.arrow_back_ios_outlined,size: 20,color: AppColors.primaryBackGroundColor,),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(child: Container()),
+                Padding(
+                  padding: const EdgeInsets.only(right: 60.0,top: 40.0),
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/icon/wishlist_shopping1.png',color: AppColors.white_00,),
-                          SizedBox(height: 15,),
-                          Text('My WishList',style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: 'Montserrat-Thin',
-                              fontWeight: FontWeight.bold
-                          ),)
-                        ],
-                      )
+                      Image.asset('assets/icon/wishlist_shopping1.png',color: AppColors.white_00,),
+                      SizedBox(height: 15,),
+                      Text('My WishList',style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Montserrat-Thin',
+                          fontWeight: FontWeight.bold
+                      ),)
+
                     ],
                   ),
-                  SizedBox(height: 10,),
-                  Text('You have 2 item in list',style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Montserrat-Thin',
-                      fontWeight: FontWeight.bold
-                  ),),
-                  SizedBox(height: 30,),
-                  Container(
-                    width: width,
-                    decoration: BoxDecoration(
-                        color: AppColors.white_00,
-                        borderRadius: BorderRadius.circular(5.0)
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: 140,
-                          width: 100,
-                          child: Image.asset('assets/icon/Image1.png',
-                            fit: BoxFit.contain,),
-                        ),
-                        Expanded(
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(top: 10),
-                                            child: Text('Teraa Naturi Rain',
-                                              overflow: TextOverflow.ellipsis,
-                                              maxLines: 1,
-                                              style: TextStyle(
-                                                  color: AppColors.black,
-                                                  fontSize: 18
-                                              ),),
-                                          )),
-                                      CircleAvatar(
-                                        radius: 10,
-                                        backgroundColor: AppColors.red_50,
-                                        child: Icon(Icons.clear,size: 10,),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(height: 5,),
-                                  RichText(
-                                      text: TextSpan(
-                                          style: TextStyle(
-                                              color: AppColors.black,
-                                              fontFamily: 'Roboto-Regular',
-                                              fontSize: 16
-                                          ),
-                                          children: [
-                                            TextSpan(
-                                                text: '75.99 '
-                                            ),
-                                            TextSpan(
-                                                text: 'QAR '
-                                            ),
-                                          ]
-                                      )
-                                  ),
-                                  SizedBox(height: 20,),
-                                  Container(
-                                    width: 200,
-                                    padding: EdgeInsets.symmetric(horizontal: 30,vertical: 8),
-                                    decoration: BoxDecoration(
-                                        border: Border.all(color: AppColors.primaryBackGroundColor),
-                                        borderRadius: BorderRadius.circular(5.0)
-                                    ),
-                                    child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Image.asset('assets/icon/cart.png',color: AppColors.primaryBackGroundColor,),
-                                        Text('   ADD TO CART',style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: AppColors.primaryBackGroundColor,
-                                            fontSize: 14,
-                                            fontFamily: 'Roboto-Regular'
-                                        ),),
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 15,),
-                  Container(
-                    width: width,
-                    decoration: BoxDecoration(
-                        color: AppColors.white_00,
-                        borderRadius: BorderRadius.circular(5.0)
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: 140,
-                          width: 100,
-                          child: Image.asset('assets/icon/Image1.png',
-                            fit: BoxFit.contain,),
-                        ),
-                        Expanded(
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(top: 10),
-                                            child: Text('Teraa Naturi Rain',
-                                              overflow: TextOverflow.ellipsis,
-                                              maxLines: 1,
-                                              style: TextStyle(
-                                                  color: AppColors.black,
-                                                  fontSize: 18
-                                              ),),
-                                          )),
-                                      CircleAvatar(
-                                        radius: 10,
-                                        backgroundColor: AppColors.red_50,
-                                        child: Icon(Icons.clear,size: 10,),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(height: 5,),
-                                  RichText(
-                                      text: TextSpan(
-                                          style: TextStyle(
-                                              color: AppColors.black,
-                                              fontFamily: 'Roboto-Regular',
-                                              fontSize: 16
-                                          ),
-                                          children: [
-                                            TextSpan(
-                                                text: '75.99 '
-                                            ),
-                                            TextSpan(
-                                                text: 'QAR '
-                                            ),
-                                          ]
-                                      )
-                                  ),
-                                  SizedBox(height: 20,),
-                                  Container(
-                                    width: 200,
-                                    padding: EdgeInsets.symmetric(horizontal: 30,vertical: 8),
-                                    decoration: BoxDecoration(
-                                        border: Border.all(color: AppColors.primaryBackGroundColor),
-                                        borderRadius: BorderRadius.circular(5.0)
-                                    ),
-                                    child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Image.asset('assets/icon/cart.png',color: AppColors.primaryBackGroundColor,),
-                                        Text('   ADD TO CART',style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: AppColors.primaryBackGroundColor,
-                                            fontSize: 14,
-                                            fontFamily: 'Roboto-Regular'
-                                        ),),
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
-                        )
-                      ],
-                    ),
-                  ),
+                ),
+                Expanded(child: Container()),
+
+              ],
+            ),
+          ),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              /*SizedBox(height: 80,),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/icon/wishlist_shopping1.png',color: AppColors.white_00,),
+                      SizedBox(height: 15,),
+                      Text('My WishList',style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Montserrat-Thin',
+                          fontWeight: FontWeight.bold
+                      ),)
+                    ],
+                  )
                 ],
-              ),
-            ),
-          ),
-          Positioned(
-            top: 60,
-            left: 0,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pop(context,true);
-              },
-              child: Container(
-                height: 60,
-                width: 70,
-                padding: EdgeInsets.symmetric(horizontal: 10),
+              ),*/
+              SizedBox(height: 10,),
+              Text('You have 2 item in list',style: TextStyle(
+                  fontSize: 18,
+                  fontFamily: 'Montserrat-Thin',
+                  fontWeight: FontWeight.bold
+              ),),
+              SizedBox(height: 30,),
+              Container(
+                width: width,
                 decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('assets/icon/Rectangle9.png'),
-                        fit: BoxFit.fill
-                    )
+                    color: AppColors.white_00,
+                    borderRadius: BorderRadius.circular(5.0)
                 ),
-                child: Center(
-                  child: Icon(Icons.arrow_back_ios_outlined,size: 20,color: AppColors.primaryBackGroundColor,),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 140,
+                      width: 100,
+                      child: Image.asset('assets/icons/product1.png',
+                        fit: BoxFit.contain,),
+                    ),
+                    Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: Text('Teraa Naturi Rain',
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                              color: AppColors.black,
+                                              fontSize: 18
+                                          ),),
+                                      )),
+                                  CircleAvatar(
+                                    radius: 10,
+                                    backgroundColor: AppColors.red_50,
+                                    child: Icon(Icons.clear,size: 10,),
+                                  )
+                                ],
+                              ),
+                              SizedBox(height: 5,),
+                              RichText(
+                                  text: TextSpan(
+                                      style: TextStyle(
+                                          color: AppColors.black,
+                                          fontFamily: 'Roboto-Regular',
+                                          fontSize: 16
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                            text: '75.99 '
+                                        ),
+                                        TextSpan(
+                                            text: 'QAR '
+                                        ),
+                                      ]
+                                  )
+                              ),
+                              SizedBox(height: 20,),
+                              Container(
+                                width: 200,
+                                padding: EdgeInsets.symmetric(horizontal: 30,vertical: 8),
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: AppColors.primaryBackGroundColor),
+                                    borderRadius: BorderRadius.circular(5.0)
+                                ),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset('assets/icon/cart.png',color: AppColors.primaryBackGroundColor,),
+                                    Text('   ADD TO CART',style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: AppColors.primaryBackGroundColor,
+                                        fontSize: 14,
+                                        fontFamily: 'Roboto-Regular'
+                                    ),),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                    )
+                  ],
                 ),
               ),
-            ),
+              SizedBox(height: 15,),
+              Container(
+                width: width,
+                decoration: BoxDecoration(
+                    color: AppColors.white_00,
+                    borderRadius: BorderRadius.circular(5.0)
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 140,
+                      width: 100,
+                      child: Image.asset('assets/icons/product1.png',
+                        fit: BoxFit.contain,),
+                    ),
+                    Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: Text('Teraa Naturi Rain',
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                              color: AppColors.black,
+                                              fontSize: 18
+                                          ),),
+                                      )),
+                                  CircleAvatar(
+                                    radius: 10,
+                                    backgroundColor: AppColors.red_50,
+                                    child: Icon(Icons.clear,size: 10,),
+                                  )
+                                ],
+                              ),
+                              SizedBox(height: 5,),
+                              RichText(
+                                  text: TextSpan(
+                                      style: TextStyle(
+                                          color: AppColors.black,
+                                          fontFamily: 'Roboto-Regular',
+                                          fontSize: 16
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                            text: '75.99 '
+                                        ),
+                                        TextSpan(
+                                            text: 'QAR '
+                                        ),
+                                      ]
+                                  )
+                              ),
+                              SizedBox(height: 20,),
+                              Container(
+                                width: 200,
+                                padding: EdgeInsets.symmetric(horizontal: 30,vertical: 8),
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: AppColors.primaryBackGroundColor),
+                                    borderRadius: BorderRadius.circular(5.0)
+                                ),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset('assets/icon/cart.png',color: AppColors.primaryBackGroundColor,),
+                                    Text('   ADD TO CART',style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: AppColors.primaryBackGroundColor,
+                                        fontSize: 14,
+                                        fontFamily: 'Roboto-Regular'
+                                    ),),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

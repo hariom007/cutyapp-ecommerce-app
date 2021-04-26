@@ -1,3 +1,4 @@
+import 'package:cutyapp/DarkMode/ThemeManager.dart';
 import 'package:cutyapp/MyProfilePage/OrderHistory/orderHistoryList.dart';
 import 'package:cutyapp/MyProfilePage/editProfile.dart';
 import 'package:cutyapp/MyProfilePage/termsCondtion.dart';
@@ -6,9 +7,15 @@ import 'package:cutyapp/UI_DashBoard/dashBoard.dart';
 import 'package:flutter/material.dart';
 import 'Authorization/select_language.dart';
 import 'Values/AppColors.dart';
+import 'package:provider/provider.dart';
 
 void main() {
+
   runApp(CutyApp());
+  /*return runApp(ChangeNotifierProvider<ThemeNotifier>(
+    create: (_) => new ThemeNotifier(),
+    child: CutyApp(),
+  ));*/
 }
 
 class CutyApp extends StatelessWidget {
@@ -17,7 +24,6 @@ class CutyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
-      // home: TermsConditions(),
       title: 'Cuty App',
       theme: ThemeData(
           primaryColor: AppColors.primaryColor,
@@ -47,10 +53,7 @@ class CutyApp extends StatelessWidget {
           )
       ),
       routes: <String,WidgetBuilder>{
-        // '/loginscreen' : (BuildContext context) => LoginPage(),
         '/dashBoard' : (BuildContext context) => DashBoard(),
-        // '/introScreen' : (BuildContext context) => IntroScreen(),
-        // '/homePage':  (BuildContext context) => HomePage(),
         '/selectLanguage':  (BuildContext context) => SelectLanguage(),
       },
     );

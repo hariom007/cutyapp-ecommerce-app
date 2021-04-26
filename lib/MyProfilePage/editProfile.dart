@@ -12,36 +12,83 @@ class _EditProfileState extends State<EditProfile> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(110.0),
+        child: AppBar(
+          elevation: 0,
+          automaticallyImplyLeading: false, // hides leading widget
+          flexibleSpace: Container(
+            width: width,
+            color: AppColors.primaryBackGroundColor,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 5.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context,true);
+                    },
+                    child: Container(
+                      height: 60,
+                      width: 70,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/icon/Rectangle9.png'),
+                              fit: BoxFit.fill
+                          ),
+                      ),
+                      child: Center(
+                        child: Icon(Icons.arrow_back_ios_outlined,size: 20,color: AppColors.primaryBackGroundColor,),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(child: Container()),
+                Padding(
+                  padding: const EdgeInsets.only(right: 60.0,top: 40.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/icons/person.png',height: 35.0,width: 35.0,),
+                      SizedBox(height: 5,),
+                      Text('Profile',style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Montserrat-Thin',
+                          fontWeight: FontWeight.bold
+                      ),),
+
+                    ],
+                  ),
+                ),
+                Expanded(child: Container()),
+
+              ],
+            ),
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           SingleChildScrollView(
+            physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
             child: Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: 80,),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/icon/wishlist_shopping1.png',color: AppColors.white_00,),
-                          SizedBox(height: 15,),
-                          Text('My WishList',style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: 'Montserrat-Thin',
-                              fontWeight: FontWeight.bold
-                          ),),
-
-                        ],
+                  /*Center(
+                    child: Container(
+                      transform: Matrix4.translationValues(0,20, 0),
+                      child: CircleAvatar(
+                        radius: 15.0,
+                        backgroundColor: AppColors.white_00,
+                        child: Icon(Icons.edit),
                       ),
-                    ],
-                  ),
-                  SizedBox(height: 20,),
+                    ),
+                  ),*/
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -49,11 +96,30 @@ class _EditProfileState extends State<EditProfile> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          CircleAvatar(
-                            radius: 60,
-                            backgroundColor: AppColors.white_00,
-                            child: Image.asset('assets/icon/team_circle.png',fit: BoxFit.fill,),
+                          Container(
+                            decoration: BoxDecoration(
+                                color: AppColors.white_00,
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    image: AssetImage('assets/icons/user.png')
+                                ),
+                                border: Border.all(color: AppColors.black,width: 0.5)
+                            ),
+                            height: 110,
+                            width: 110,
+                            child: Container(
+                              height: 20,
+                              alignment: Alignment.centerRight,
+                              width: 20,
+                              transform: Matrix4.translationValues(5,-30,0),
+                              child: CircleAvatar(
+                                radius: 15.0,
+                                backgroundColor: AppColors.white_00,
+                                child: Icon(Icons.edit,color: AppColors.black,size: 20,),
+                              ),
+                            ),
                           ),
+
                           SizedBox(height: 20,),
                           Text('Full Name',
                           style: TextStyle(
@@ -301,7 +367,7 @@ class _EditProfileState extends State<EditProfile> {
               ),
             ),
           ),
-          Positioned(
+          /*Positioned(
             top: 60,
             left: 0,
             child: GestureDetector(
@@ -323,7 +389,7 @@ class _EditProfileState extends State<EditProfile> {
                 ),
               ),
             ),
-          ),
+          ),*/
         ],
       ),
     );
