@@ -320,7 +320,10 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                     )
                 ),
                 child: Center(
-                  child: Icon(Icons.arrow_back_ios_outlined,size: 20,color: AppColors.primaryBackGroundColor,),
+                  child: Image.asset('assets/icons/back.png',
+                    height:19.0,
+                    width: 19.0,
+                    color: AppColors.primaryBackGroundColor,),
                 ),
               ),
             ),

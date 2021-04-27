@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                 )
               ),
               child: Padding(
-                padding: EdgeInsets.only(top: 40,left: 10,right: 10,bottom: 5),
+                padding: EdgeInsets.only(top: 20,left: 10,right: 10,bottom: 5),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                                             children: [
                                               GestureDetector(
                                                 onTap: () {
-                                                  Navigator.pop(context,true);
+                                                  Navigator.pop(context);
                                                 },
                                                 child: Container(
                                                   height: 60,
@@ -153,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                                                     ),
                                                   ),
                                                   child: Center(
-                                                    child: Icon(Icons.arrow_back_ios_outlined,size: 20,color: AppColors.white_00,),
+                                                    child:  Image.asset('assets/icons/back.png',),
                                                   ),
                                                 ),
                                               ),
@@ -167,246 +167,251 @@ class _HomePageState extends State<HomePage> {
                                             ],
                                           ),
                                         ),
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            SizedBox(height: 100,),
-                                            Padding(
-                                              padding: EdgeInsets.symmetric(horizontal: 15.0),
-                                              child: Text("Prize Range",
-                                                style: TextStyle(
-                                                    color: AppColors.black,
-                                                    fontSize: 16
-                                                ),),
-                                            ),
-                                            RangeSlider(
-                                              values: _currentRangeValues,
-                                              min: 0,
-                                              max: 1000,
-                                              activeColor: AppColors.primaryBackGroundColor,
-                                              inactiveColor: AppColors.white_90,
-                                              divisions: 1000,
-                                              labels: RangeLabels(
-                                                ""+_currentRangeValues.start.round().toString(),
-                                                _currentRangeValues.end.round().toString(),
-                                              ),
-                                              onChanged: (RangeValues values) {
-                                                state(() {
-                                                  _currentRangeValues = values;
-                                                });
-                                              },
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.symmetric(horizontal: 15.0),
-                                              child: Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.symmetric(horizontal: 10),
-                                                    child: Row(
-                                                      children: [
-                                                        RichText(
-                                                          text: TextSpan(
-                                                            style: TextStyle(
-                                                                fontFamily: 'Montserrat-SemiBold',
-                                                                color: AppColors.black,
-                                                                fontSize: 15
-                                                            ),
-                                                            children: [
-                                                              TextSpan(
-                                                                text: _currentRangeValues.start.round().toString(),
-                                                              ),
-                                                              TextSpan(
-                                                                  text: " QAR"
-                                                              )
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Spacer(),
-                                                        RichText(
-                                                          text: TextSpan(
-                                                            style: TextStyle(
-                                                                fontFamily: 'Montserrat-SemiBold',
-                                                                color: AppColors.black,
-                                                                fontSize: 15
-                                                            ),
-                                                            children: [
-                                                              TextSpan(
-                                                                text: _currentRangeValues.end.round().toString(),
-                                                              ),
-                                                              TextSpan(
-                                                                  text: " QAR"
-                                                              )
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(top: 100.0),
+                                          child: SingleChildScrollView(
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: [
+                                                // SizedBox(height: 100,),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(horizontal: 15.0),
+                                                  child: Text("Prize Range",
+                                                    style: TextStyle(
+                                                        color: AppColors.black,
+                                                        fontSize: 16
+                                                    ),),
+                                                ),
+                                                RangeSlider(
+                                                  values: _currentRangeValues,
+                                                  min: 0,
+                                                  max: 1000,
+                                                  activeColor: AppColors.primaryBackGroundColor,
+                                                  inactiveColor: AppColors.white_90,
+                                                  divisions: 1000,
+                                                  labels: RangeLabels(
+                                                    ""+_currentRangeValues.start.round().toString(),
+                                                    _currentRangeValues.end.round().toString(),
                                                   ),
-                                                  SizedBox(height: 20.0,),
-                                                  Text("Category",
-                                                    style: TextStyle(
-                                                        color: AppColors.black,
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: 16
-                                                    ),),
-                                                  SizedBox(height: 10.0,),
-
-                                                ],
-                                              ),
-                                            ),
-
-                                            Column(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: checkboxDataList.map<Widget>((data) {
-                                                      return Padding(
-                                                        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                                                        child: GestureDetector(
-                                                          onTap: (){
-                                                            state(() {
-                                                              data.checked = !data.checked;
-                                                            });
-                                                          },
-                                                          child: Row(
-                                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                                            mainAxisAlignment: MainAxisAlignment.start,
-                                                            children: [
-                                                              Expanded(
-                                                                  child: Text(data.displayId,
-                                                                    style: TextStyle(
-                                                                        color: AppColors.black
-                                                                    ),)
+                                                  onChanged: (RangeValues values) {
+                                                    state(() {
+                                                      _currentRangeValues = values;
+                                                    });
+                                                  },
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(horizontal: 15.0),
+                                                  child: Column(
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                    children: [
+                                                      Padding(
+                                                        padding: EdgeInsets.symmetric(horizontal: 10),
+                                                        child: Row(
+                                                          children: [
+                                                            RichText(
+                                                              text: TextSpan(
+                                                                style: TextStyle(
+                                                                    fontFamily: 'Montserrat-SemiBold',
+                                                                    color: AppColors.black,
+                                                                    fontSize: 15
+                                                                ),
+                                                                children: [
+                                                                  TextSpan(
+                                                                    text: _currentRangeValues.start.round().toString(),
+                                                                  ),
+                                                                  TextSpan(
+                                                                      text: " QAR"
+                                                                  )
+                                                                ],
                                                               ),
-                                                              Checkbox(
-                                                                value: data.checked,
-                                                                checkColor: AppColors.white_00,
-                                                                activeColor: AppColors.primaryBackGroundColor,
-                                                                onChanged: (bool val) {
-                                                                  state(() {
-                                                                    data.checked = !data.checked;
-                                                                  });
-                                                                },
+                                                            ),
+                                                            Spacer(),
+                                                            RichText(
+                                                              text: TextSpan(
+                                                                style: TextStyle(
+                                                                    fontFamily: 'Montserrat-SemiBold',
+                                                                    color: AppColors.black,
+                                                                    fontSize: 15
+                                                                ),
+                                                                children: [
+                                                                  TextSpan(
+                                                                    text: _currentRangeValues.end.round().toString(),
+                                                                  ),
+                                                                  TextSpan(
+                                                                      text: " QAR"
+                                                                  )
+                                                                ],
                                                               ),
-
-                                                            ],
-                                                          ),
+                                                            ),
+                                                          ],
                                                         ),
-                                                      );
-                                                },
-                                              ).toList(),
-                                            ),
+                                                      ),
+                                                      SizedBox(height: 20.0,),
+                                                      Text("Category",
+                                                        style: TextStyle(
+                                                            color: AppColors.black,
+                                                            fontWeight: FontWeight.bold,
+                                                            fontSize: 16
+                                                        ),),
+                                                      SizedBox(height: 10.0,),
 
-                                            Padding(
-                                              padding: EdgeInsets.symmetric(horizontal: 15.0),
-                                              child: Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                children: [
-                                                  SizedBox(height: 20.0,),
-                                                  Text("Category 2",
-                                                    style: TextStyle(
-                                                        color: AppColors.black,
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: 16
-                                                    ),),
-                                                ],
-                                              ),
-                                            ),
+                                                    ],
+                                                  ),
+                                                ),
 
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                  children: checkboxDataList.map<Widget>((data) {
+                                                          return Padding(
+                                                            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                                                            child: GestureDetector(
+                                                              onTap: (){
+                                                                state(() {
+                                                                  data.checked = !data.checked;
+                                                                });
+                                                              },
+                                                              child: Row(
+                                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                children: [
+                                                                  Expanded(
+                                                                      child: Text(data.displayId,
+                                                                        style: TextStyle(
+                                                                            color: AppColors.black
+                                                                        ),)
+                                                                  ),
+                                                                  Checkbox(
+                                                                    value: data.checked,
+                                                                    checkColor: AppColors.white_00,
+                                                                    activeColor: AppColors.primaryBackGroundColor,
+                                                                    onChanged: (bool val) {
+                                                                      state(() {
+                                                                        data.checked = !data.checked;
+                                                                      });
+                                                                    },
+                                                                  ),
 
-                                            Column(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              children: radioDataList.map<Widget>((data) {
-                                                return Padding(
-                                                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                                                  child: GestureDetector(
-                                                    onTap: (){
-                                                      state(() {
-                                                        selectedRadio = data.id;
-                                                      });
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          );
                                                     },
-                                                    child: Row(
-                                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                                      mainAxisAlignment: MainAxisAlignment.start,
-                                                      children: [
-                                                        Expanded(
-                                                            child: Text(data.displayId,
-                                                              style: TextStyle(
-                                                                  color: AppColors.black
-                                                              ),)
-                                                        ),
-                                                        Radio<int>(
+                                                  ).toList(),
+                                                ),
 
-                                                          activeColor: AppColors.primaryBackGroundColor,
-                                                          value: data.id,
-                                                          groupValue: selectedRadio,
-                                                          onChanged: (int value) {
-                                                            state(() {
-                                                              selectedRadio = value;
-                                                            });
-                                                          },
-                                                        )
-
-                                                      ],
-                                                    ),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(horizontal: 15.0),
+                                                  child: Column(
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                    children: [
+                                                      SizedBox(height: 20.0,),
+                                                      Text("Category 2",
+                                                        style: TextStyle(
+                                                            color: AppColors.black,
+                                                            fontWeight: FontWeight.bold,
+                                                            fontSize: 16
+                                                        ),),
+                                                    ],
                                                   ),
-                                                );
-                                              },
-                                              ).toList(),
-                                            ),
+                                                ),
 
 
-                                            SizedBox(height: 10.0,),
-                                            Padding(
-                                              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                                              child: Row(
-                                                children: [
-                                                  Expanded(
-                                                    child: RaisedButton(
-                                                      onPressed: (){
-                                                      },
-                                                      padding: EdgeInsets.symmetric(vertical: 10,horizontal: 0),
-                                                      shape: RoundedRectangleBorder(
-                                                        borderRadius: BorderRadius.circular(6.0),
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                  children: radioDataList.map<Widget>((data) {
+                                                    return Padding(
+                                                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                                                      child: GestureDetector(
+                                                        onTap: (){
+                                                          state(() {
+                                                            selectedRadio = data.id;
+                                                          });
+                                                        },
+                                                        child: Row(
+                                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                                          mainAxisAlignment: MainAxisAlignment.start,
+                                                          children: [
+                                                            Expanded(
+                                                                child: Text(data.displayId,
+                                                                  style: TextStyle(
+                                                                      color: AppColors.black
+                                                                  ),)
+                                                            ),
+                                                            Radio<int>(
+
+                                                              activeColor: AppColors.primaryBackGroundColor,
+                                                              value: data.id,
+                                                              groupValue: selectedRadio,
+                                                              onChanged: (int value) {
+                                                                state(() {
+                                                                  selectedRadio = value;
+                                                                });
+                                                              },
+                                                            )
+
+                                                          ],
+                                                        ),
                                                       ),
-                                                      color: AppColors.appColor3,
-                                                      child: Text('RESET',
-                                                          style: TextStyle(
-                                                              fontFamily: 'Montserrat-Semibold',
-                                                              fontWeight: FontWeight.bold,
-                                                              fontSize: 16,
-                                                              color: AppColors.white_00
-                                                          )
-                                                      ),
-                                                    ),),
-                                                  SizedBox(width: 10.0,),
-                                                  Expanded(
-                                                    child: RaisedButton(
-                                                      onPressed: (){
-                                                      },
-                                                      padding: EdgeInsets.symmetric(vertical: 10,horizontal: 0),
-                                                      shape: RoundedRectangleBorder(
-                                                        borderRadius: BorderRadius.circular(6.0),
-                                                      ),
-                                                      color: AppColors.primaryBackGroundColor,
-                                                      child: Text('RESET',
-                                                          style: TextStyle(
-                                                              fontFamily: 'Montserrat-Semibold',
-                                                              fontWeight: FontWeight.bold,
-                                                              fontSize: 16,
-                                                              color: AppColors.white_00
-                                                          )
-                                                      ),
-                                                    ),),
-                                                ],
-                                              ),
+                                                    );
+                                                  },
+                                                  ).toList(),
+                                                ),
+
+
+                                                SizedBox(height: 10.0,),
+                                                Padding(
+                                                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                                                  child: Row(
+                                                    children: [
+                                                      Expanded(
+                                                        child: RaisedButton(
+                                                          onPressed: (){
+                                                          },
+                                                          padding: EdgeInsets.symmetric(vertical: 10,horizontal: 0),
+                                                          shape: RoundedRectangleBorder(
+                                                            borderRadius: BorderRadius.circular(6.0),
+                                                          ),
+                                                          color: AppColors.appColor3,
+                                                          child: Text('RESET',
+                                                              style: TextStyle(
+                                                                  fontFamily: 'Montserrat-Semibold',
+                                                                  fontWeight: FontWeight.bold,
+                                                                  fontSize: 16,
+                                                                  color: AppColors.white_00
+                                                              )
+                                                          ),
+                                                        ),),
+                                                      SizedBox(width: 10.0,),
+                                                      Expanded(
+                                                        child: RaisedButton(
+                                                          onPressed: (){
+                                                          },
+                                                          padding: EdgeInsets.symmetric(vertical: 10,horizontal: 0),
+                                                          shape: RoundedRectangleBorder(
+                                                            borderRadius: BorderRadius.circular(6.0),
+                                                          ),
+                                                          color: AppColors.primaryBackGroundColor,
+                                                          child: Text('RESET',
+                                                              style: TextStyle(
+                                                                  fontFamily: 'Montserrat-Semibold',
+                                                                  fontWeight: FontWeight.bold,
+                                                                  fontSize: 16,
+                                                                  color: AppColors.white_00
+                                                              )
+                                                          ),
+                                                        ),),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(height: 30,)
+                                              ],
                                             ),
-                                            SizedBox(height: 30,)
-                                          ],
+                                          ),
                                         ),
                                       ],
                                     )
@@ -419,7 +424,7 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         height: 45.0,
                         width: 45.0,
-                        padding: EdgeInsets.all(7.0),
+                        padding: EdgeInsets.all(3.0),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                             boxShadow: [
@@ -433,7 +438,7 @@ class _HomePageState extends State<HomePage> {
                           color: AppColors.primaryBackGroundColor
                         ),
                         child: Image.asset('assets/icons/menu_icon.png',
-                        fit: BoxFit.contain,),
+                        fit: BoxFit.fill,),
                       )
                     ),
 
@@ -442,9 +447,9 @@ class _HomePageState extends State<HomePage> {
                           alignment: Alignment.centerRight,
                           child: IconButton(
                             icon: Image.asset('assets/icons/toggle_icon.png',
-                              height: 40.0,
-                              fit: BoxFit.fitHeight,
-                              width: 40.0,
+                              // height: 40.0,
+                              fit: BoxFit.fill,
+                              // width: 40.0,
                             ),
                             onPressed: () => widget.scaffoldKey.currentState.openDrawer(),
                           ),

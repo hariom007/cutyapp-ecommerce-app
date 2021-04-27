@@ -5,6 +5,7 @@ import 'package:cutyapp/MyProfilePage/myWishList.dart';
 import 'package:cutyapp/MyProfilePage/termsCondtion.dart';
 import 'package:cutyapp/Values/AppColors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 class DrawerPage extends StatefulWidget {
   @override
@@ -31,6 +32,7 @@ class _DrawerPageState extends State<DrawerPage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: AppColors.primaryBackGroundColor,
       body: ListView(
@@ -52,7 +54,7 @@ class _DrawerPageState extends State<DrawerPage> {
                         onTap: (){
                           Navigator.pop(context,true);
                         },
-                        child: Icon(Icons.clear)),
+                        child: Icon(Icons.clear,size: 22.0,)),
                   ),
                 ),
                 Center(
@@ -72,8 +74,8 @@ class _DrawerPageState extends State<DrawerPage> {
                                       image: AssetImage('assets/icons/user.png')
                                   )
                               ),
-                              height: 110,
-                              width: 110,
+                              height: 75,
+                              width: 77,
                             ),
                             SizedBox(height: 10,),
                             Row(
@@ -81,24 +83,28 @@ class _DrawerPageState extends State<DrawerPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text('Martin Roy ',style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 18,
+                                    fontFamily: 'Roboto-Medium',
                                     fontWeight: FontWeight.bold
                                 ),),
                                 GestureDetector(
                                     onTap: (){
                                       Navigator.push(context, MaterialPageRoute(builder: (context)=> EditProfile()));
                                     },
-                                    child: Icon(Icons.edit,size: 20,))
+                                    child: Image.asset('assets/icons/edit.png',
+                                      height:14.0,
+                                      width: 14.0,
+                                      color: AppColors.white_00,))
                               ],
                             ),
-                            SizedBox(height: 6,),
+                            SizedBox(height: 4,),
                             RichText(
                                 text: TextSpan(
                                     style: TextStyle(
                                         color: AppColors.white_00,
-                                        fontFamily: 'Roboto-Thin',
+                                        fontFamily: 'Roboto-Light',
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 16
+                                        fontSize: 13
                                     ),
                                     children: [
                                       TextSpan(
@@ -107,12 +113,12 @@ class _DrawerPageState extends State<DrawerPage> {
                                     ]
                                 )
                             ),
-                            SizedBox(height: 36,),
+                            SizedBox(height: 50.0,),
                             Text('General Setting',style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 18.0,
                             ),),
-                            SizedBox(height: 10,),
-                            ListTile(
+                            SizedBox(height: 33,),
+                            /*ListTile(
                               dense: true,
                               title: Text('My WishList',
                                 style: TextStyle(
@@ -121,69 +127,161 @@ class _DrawerPageState extends State<DrawerPage> {
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16
                                 ),),
-                              leading: Icon(Icons.favorite_outline_rounded,color: AppColors.white_00,),
+                              leading: Image.asset('assets/icons/heart_empty.png',
+                                height:19.0,
+                                width: 19.0,
+                                color: AppColors.white_00,),
                               onTap: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> MyWishListPage()));
                               },
-                            ),
-                            ListTile(
+                            ),*/
+
+                            GestureDetector(
                               onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> MyWishListPage()));
                               },
-                              dense: true,
-                              title: Text('Get Notifications',
-                                style: TextStyle(
-                                    color: AppColors.white_00,
-                                    fontFamily: 'Roboto-Thin',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16
-                                ),),
-                              leading: Icon(Icons.notifications_none,color: AppColors.white_00,),
-                              trailing:  Switch(
-                                value: isSwitched,
-                                onChanged: (bool isOn) {
-                                  print(isOn);
-                                  setState(() {
-                                    isSwitched = isOn;
-                                    Global.shared.isSwitched = isOn;
-                                    isOn =!isOn;
-                                    print(isSwitched);
-                                  });
-                                },
-                                activeColor: AppColors.primaryBackGroundColor,
-                                activeTrackColor: AppColors.white_00,
-                                inactiveTrackColor: AppColors.white_00,
-                                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                inactiveThumbColor: AppColors.primaryBackGroundColor,
+                              child: Container(
+                                height: 40.0,
+                                width: width,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 15.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Image.asset('assets/icons/heart_empty.png',
+                                        height:19.0,
+                                        width: 19.0,
+                                        color: AppColors.white_00,),
+                                      SizedBox(width: 10.0,),
+                                      Text('My WishList',
+                                        style: TextStyle(
+                                            color: AppColors.white_00,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontSize: 14
+                                        ),),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
-                            ListTile(
-                              dense: true,
-                              title: Text('Notify Messages',
-                                style: TextStyle(
-                                    color: AppColors.white_00,
-                                    fontFamily: 'Roboto-Thin',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16
-                                ),),
-                              leading: Image.asset('assets/icon/list.png',color: AppColors.white_00,),
+                            SizedBox(height: 8.0,),
+                            GestureDetector(
                               onTap: (){
-
                               },
+                              child: Container(
+                                height: 40.0,
+                                width: width,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 15.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Image.asset('assets/icons/notification.png',
+                                        height:19.0,
+                                        width: 19.0,
+                                        color: AppColors.white_00,),
+                                      SizedBox(width: 10.0,),
+                                      Expanded(
+                                        child: Text('Get Notifications',
+                                          style: TextStyle(
+                                              color: AppColors.white_00,
+                                              fontFamily: 'Roboto-Regular',
+                                              fontSize: 14
+                                          ),),
+                                      ),
+                                      Container(
+                                        width: 40.0,
+                                        child: FlutterSwitch(
+                                          width: 40.0,
+                                          height: 25.0,
+                                          valueFontSize: 12.0,
+                                          toggleSize: 18.0,
+                                          value: isSwitched,
+                                          activeColor: AppColors.white_00,
+                                          inactiveColor: AppColors.white_00,
+                                          activeToggleColor: AppColors.primaryBackGroundColor,
+                                          inactiveToggleColor: AppColors.primaryBackGroundColor,
+                                          onToggle: (bool isOn) {
+                                            setState(() {
+                                              isSwitched = isOn;
+                                              Global.shared.isSwitched = isOn;
+                                              isOn =!isOn;
+                                              print(isSwitched);
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      SizedBox(width: 14.0,),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
-                            ListTile(
-                              dense: true,
-                              title: Text('Order History',
-                                style: TextStyle(
-                                    color: AppColors.white_00,
-                                    fontFamily: 'Roboto-Thin',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16
-                                ),),
-                              leading: Image.asset('assets/icon/clipboard_list.png',color: AppColors.white_00,),
+                            SizedBox(height: 8.0,),
+                            GestureDetector(
+                              onTap: (){
+                              },
+                              child: Container(
+                                height: 40.0,
+                                width: width,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 15.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Image.asset('assets/icon/list.png',
+                                        height:19.0,
+                                        width: 19.0,
+                                        color: AppColors.white_00,),
+                                      SizedBox(width: 10.0,),
+                                      Text('Notify Messages',
+                                        style: TextStyle(
+                                            color: AppColors.white_00,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontSize: 14
+                                        ),),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 8.0,),
+                            InkWell(
+                              splashColor: AppColors.black,
+                              hoverColor: AppColors.black,
+                              focusColor: AppColors.appColor21,
                               onTap: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderHistoryList()));
                               },
+                              child: Container(
+                                height: 40.0,
+                                width: width,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 15.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Image.asset('assets/icon/clipboard_list.png',
+                                        height:19.0,
+                                        width: 19.0,
+                                        color: AppColors.white_00,),
+                                      SizedBox(width: 10.0,),
+                                      Text('Order History',
+                                        style: TextStyle(
+                                            color: AppColors.white_00,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontSize: 14
+                                        ),),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
+
                           ],
                         ),
                       ),
@@ -210,79 +308,150 @@ class _DrawerPageState extends State<DrawerPage> {
                     ),),
                   ),
                 ),
-                ListTile(
-                  dense: true,
-                  title: Text('Language',
-                    style: TextStyle(
-                        color: AppColors.black,
-                        fontFamily: 'Roboto-Thin',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16
-                    ),),
-                  leading: Image.asset('assets/icon/globe.png',color: AppColors.black,),
+                GestureDetector(
                   onTap: (){
-
                   },
-                ),
-                ListTile(
-                  onTap: (){
-
-                  },
-                  dense: true,
-                  title: Text('Dark Theme',
-                    style: TextStyle(
-                        color: AppColors.black,
-                        fontFamily: 'Roboto-Thin',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16
-                    ),),
-                  leading: Image.asset('assets/icon/moon.png',color: AppColors.black,),
-                  trailing:  Switch(
-                    value: isSwitched2,
-                    onChanged: (bool isOn) {
-                      print(isOn);
-                      setState(() {
-                        isSwitched2 = isOn;
-                        Global2.shared2.isSwitched2 = isOn;
-                        isOn =!isOn;
-                        print(isSwitched2);
-                      });
-                    },
-                    activeColor: AppColors.white_00,
-                    activeTrackColor: AppColors.primaryBackGroundColor,
-                    inactiveTrackColor: AppColors.primaryBackGroundColor,
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    inactiveThumbColor: AppColors.white_00,
+                  child: Container(
+                    height: 40.0,
+                    width: width,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset('assets/icon/globe.png',
+                            height:19.0,
+                            width: 19.0,
+                            color: AppColors.black,),
+                          SizedBox(width: 10.0,),
+                          Text('Language',
+                            style: TextStyle(
+                                color: AppColors.appColor18,
+                                fontFamily: 'Roboto-Regular',
+                                fontSize: 14
+                            ),),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-                ListTile(
-                  dense: true,
-                  title: Text('Privacy & Terms',
-                    style: TextStyle(
-                        color: AppColors.black,
-                        fontFamily: 'Roboto-Thin',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16
-                    ),),
-                  leading: Image.asset('assets/icon/Heart.png',color: AppColors.black,),
+
+                GestureDetector(
+                  onTap: (){
+                  },
+                  child: Container(
+                    height: 40.0,
+                    width: width,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset('assets/icon/moon.png',
+                            height:19.0,
+                            width: 19.0,
+                            color: AppColors.black,),
+                          SizedBox(width: 10.0,),
+                          Expanded(
+                            child: Text('Dark Theme',
+                              style: TextStyle(
+                                  color: AppColors.appColor18,
+                                  fontFamily: 'Roboto-Regular',
+                                  fontSize: 14
+                              ),),
+                          ),
+                          Container(
+                            width: 40.0,
+                            child: FlutterSwitch(
+                              width: 40.0,
+                              height: 25.0,
+                              valueFontSize: 12.0,
+                              toggleSize: 18.0,
+                              value: isSwitched2,
+                              activeColor: AppColors.appColor10,
+                              inactiveColor: AppColors.appColor10,
+                              activeToggleColor: AppColors.white_00,
+                              inactiveToggleColor: AppColors.white_00,
+                              onToggle: (bool isOn) {
+                                setState(() {
+                                  isSwitched2 = isOn;
+                                  Global2.shared2.isSwitched2 = isOn;
+                                  isOn =!isOn;
+                                  print(isSwitched2);
+                                });
+                              },
+                            ),
+                          ),
+                          SizedBox(width: 14.0,),
+
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+
+                GestureDetector(
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> TermsConditions()));
                   },
+                  child: Container(
+                    height: 40.0,
+                    width: width,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset('assets/icon/Heart.png',
+                            height:19.0,
+                            width: 19.0,
+                            color: AppColors.black,),
+                          SizedBox(width: 10.0,),
+                          Text('Privacy & Terms',
+                            style: TextStyle(
+                                color: AppColors.appColor18,
+                                fontFamily: 'Roboto-Regular',
+                                fontSize: 14
+                            ),),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
-                ListTile(
-                  dense: true,
-                  title: Text('Logout',
-                    style: TextStyle(
-                        color: AppColors.black,
-                        fontFamily: 'Roboto-Thin',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16
-                    ),),
-                  leading: Image.asset('assets/icon/logout.png',color: AppColors.black,),
-                  onTap: (){
 
+                GestureDetector(
+                  onTap: (){
                   },
+                  child: Container(
+                    height: 40.0,
+                    width: width,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset('assets/icon/logout.png',
+                            height:19.0,
+                            width: 19.0,
+                            color: AppColors.black,),
+                          SizedBox(width: 10.0,),
+                          Text('Logout',
+                            style: TextStyle(
+                                color: AppColors.appColor18,
+                                fontFamily: 'Roboto-Regular',
+                                fontSize: 14
+                            ),),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
+
                 SizedBox(height: 20,),
 
                 Center(
@@ -290,12 +459,12 @@ class _DrawerPageState extends State<DrawerPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/icon/whatsapp.png',color: AppColors.appColor4,),
+                      Image.asset('assets/icon/whatsapp.png',height:23.0,width: 24.0,color: AppColors.appColor4,),
                       Text('   CONTACT US',style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: AppColors.appColor4,
-                          fontSize: 16,
-                          fontFamily: 'Montserrat-Semibold'
+                          fontSize: 18.0,
+                          fontFamily: 'Roboto-Medium'
                       ),),
                     ],
                   ),

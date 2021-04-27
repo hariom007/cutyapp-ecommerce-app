@@ -36,6 +36,7 @@ dependencies:
   pull_to_refresh: ^1.6.5
   shared_preferences: ^2.0.5
   provider: ^5.0.0
+  flutter_switch: ^0.3.1
 
 dev_dependencies:
   flutter_test:
@@ -86,6 +87,11 @@ flutter:
     - family: Roboto-Black
       fonts:
         - asset: assets/fonts/Roboto-Black.ttf
+
+    - family: Roboto-Light
+      fonts:
+        - asset: assets/fonts/Roboto-Light.ttf
+
 
     - family: Montserrat-SemiBold
       fonts:

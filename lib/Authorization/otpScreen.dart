@@ -14,22 +14,22 @@ class _OTPScreenState extends State<OTPScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Stack(
         children: [
           SingleChildScrollView(
             child: Container(
               height: height,
-              alignment: Alignment.center,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: 200,),
-                  Text('Enter OTP',
-                    style: TextStyle(
-                        fontFamily: 'Montserrat-SemiBold',
-                        fontSize: 20),
+                  SizedBox(height: 150,),
+                  Center(
+                    child: Text('Enter OTP',
+                      style: TextStyle(
+                          fontFamily: 'Montserrat-SemiBold',
+                          fontSize: 20),
+                    ),
                   ),
                   SizedBox(height: 20,),
                   Padding(
@@ -123,9 +123,14 @@ class _OTPScreenState extends State<OTPScreen> {
                     ),
                   ),
                   Spacer(),
-                  Image.asset('assets/icons/cuty4.png',height: 250,width: 300,fit: BoxFit.fill,)
+                  Container(
+                    height: 200,
+                    width: width,
+                    child: Image.asset(
+                      'assets/icons/cuty4.png',
+                      height: 200,width: 200,fit: BoxFit.contain,),
+                  ),
                 ],
-
               ),
             ),
           ),

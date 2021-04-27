@@ -73,6 +73,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Stack(
         children: [
           SingleChildScrollView(
+            scrollDirection: Axis.vertical,
             child: Container(
               height: height,
               alignment: Alignment.center,
@@ -80,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: 130,),
+                  SizedBox(height: 120,),
                   Text('Login / Sign Up',
                     style: TextStyle(
                         fontFamily: 'Montserrat-SemiBold',
@@ -199,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   Spacer(),
-                  Image.asset('assets/icons/cuty3.png',height: 250,width: 300,fit: BoxFit.fill,)
+                  Image.asset('assets/icons/cuty3.png',height: 200,width: 200,fit: BoxFit.fill,)
                 ],
               ),
             ),

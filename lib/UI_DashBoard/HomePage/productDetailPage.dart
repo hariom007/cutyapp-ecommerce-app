@@ -8,8 +8,10 @@ class ProductDetail extends StatefulWidget {
   _ProductDetailState createState() => _ProductDetailState();
 }
 
-class _ProductDetailState extends State<ProductDetail> {
+class _ProductDetailState extends State<ProductDetail> with TickerProviderStateMixin {
   String _chosenValue;
+  TabController tabController;
+  int _tabIndex = 0;
 
   CarouselSlider carouselSlider;
   int _current = 0;
@@ -28,9 +30,33 @@ class _ProductDetailState extends State<ProductDetail> {
   }
 
   @override
+  void dispose() {
+    tabController = TabController(length: 2,vsync: this);
+    tabController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    tabController = TabController(length: 2,vsync: this);
+    tabController.addListener(_handleTabSelection);
+    super.initState();
+  }
+
+  _handleTabSelection() {
+    if (tabController.indexIsChanging) {
+      setState(() {
+        _tabIndex = tabController.index;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+    tabController.addListener(_handleTabSelection);
+
     return Scaffold(
       backgroundColor: AppColors.appColor6,
       body: Stack(
@@ -44,13 +70,13 @@ class _ProductDetailState extends State<ProductDetail> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    height: 350,
+                    height: 400.0,
                     color: AppColors.appColor6,
                     child: Column(
                       children: [
                         CarouselSlider(
                           options: CarouselOptions(
-                            height: 240.0,
+                            height: 296.0,
                             initialPage: 0,
                             enlargeCenterPage: false,
                             autoPlay: false,
@@ -81,6 +107,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(0),
                                         child: Image.asset(imgList,
+                                          height: 294,
                                           fit: BoxFit.contain,),
                                       ),
                                     ));
@@ -101,7 +128,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                 },
                                 child: _current == index ? Container(
                                   width: 70.0,
-                                  height: 85.0,
+                                  height: 75.0,
                                   decoration: BoxDecoration(
                                       color: AppColors.white_00,
                                       borderRadius: BorderRadius.circular(5.0),
@@ -126,7 +153,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                   },
                                   child: Container(
                                     width: 70.0,
-                                    height: 80.0,
+                                    height: 70.0,
                                     decoration: BoxDecoration(
                                         color: AppColors.white_00,
                                         borderRadius: BorderRadius.circular(5.0),
@@ -168,30 +195,30 @@ class _ProductDetailState extends State<ProductDetail> {
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
                                     style: TextStyle(
-                                        color: AppColors.black,
-                                        fontSize: 20
+                                        color: AppColors.appColor11,
+                                        fontSize: 23,
+                                      fontFamily: 'Roboto-Regular'
                                     ),),
                                 )),
                             CircleAvatar(
                               radius: 22,
                               backgroundColor: AppColors.appColor7,
-                              child: Icon(Icons.share,color: AppColors.black,size: 20,),
+                              child: Image.asset('assets/icons/share.png',height: 22.0,width: 22.0,),
                             )
                           ],
                         ),
-                        SizedBox(height: 10.0,),
+                        SizedBox(height: 4.0,),
                         Text(
                           'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.'
                           ,style: TextStyle(
-                            fontFamily: 'Roboto-Thin',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14.0,
-                            color: AppColors.black
+                            fontFamily: 'Roboto-regular',
+                            fontSize: 11.0,
+                            color: AppColors.appColor12
                         ),),
-                        SizedBox(height: 10.0,),
+                        SizedBox(height: 49.0,),
 
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
@@ -199,7 +226,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                     text: TextSpan(
                                         style: TextStyle(
                                             color: AppColors.black,
-                                            fontFamily: 'Roboto-Regular',
+                                            fontFamily: 'Roboto-Medium',
                                             fontSize: 18
                                         ),
                                         children: [
@@ -212,17 +239,15 @@ class _ProductDetailState extends State<ProductDetail> {
                                           TextSpan(
                                             text: '  89.99 QAR',
                                             style: TextStyle(
-                                                color: AppColors.primaryBackGroundColor,
-                                                fontFamily: 'Roboto-Regular',
-                                                fontSize: 16
+                                                color: AppColors.appColor13,
+                                                fontSize: 14
                                             ),
                                           ),
                                           TextSpan(
-                                            text: '    21% off ',
+                                            text: '  21% off ',
                                             style: TextStyle(
-                                                color: AppColors.appColor4,
-                                                fontFamily: 'Roboto-Regular',
-                                                fontSize: 16
+                                                color: AppColors.appColor14,
+                                                fontSize: 14
                                             ),
                                           ),
                                         ]
@@ -231,9 +256,9 @@ class _ProductDetailState extends State<ProductDetail> {
                             RichText(
                                 text: TextSpan(
                                     style: TextStyle(
-                                        color: AppColors.black,
+                                        color: AppColors.appColor15,
                                         fontFamily: 'Roboto-Regular',
-                                        fontSize: 16
+                                        fontSize: 14
                                     ),
                                     children: [
                                       TextSpan(
@@ -247,7 +272,6 @@ class _ProductDetailState extends State<ProductDetail> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 3,),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -256,15 +280,15 @@ class _ProductDetailState extends State<ProductDetail> {
                                 text: TextSpan(
                                     children: [
                                       WidgetSpan(
-                                          child: Image.asset('assets/icon/star.png',height: 15.0,)
+                                          child: Image.asset('assets/icon/star.png',height: 21.0,width: 20,)
                                       ),WidgetSpan(
-                                          child: Image.asset('assets/icon/star.png',height: 15.0,)
+                                          child: Image.asset('assets/icon/star.png',height: 21.0,width: 20,)
                                       ),WidgetSpan(
-                                          child: Image.asset('assets/icon/star.png',height: 15.0,)
+                                          child: Image.asset('assets/icon/star.png',height: 21.0,width: 20,)
                                       ),WidgetSpan(
-                                          child: Image.asset('assets/icon/star.png',height: 15.0,)
+                                          child: Image.asset('assets/icon/star.png',height: 21.0,width: 20,)
                                       ),WidgetSpan(
-                                          child: Image.asset('assets/icon/star_half.png',height: 15.0,)
+                                          child: Image.asset('assets/icon/star_half.png',height: 21.0,width: 20,)
                                       ),
                                     ]
                                 )
@@ -282,14 +306,18 @@ class _ProductDetailState extends State<ProductDetail> {
                                   maxLines: 1,
                                   style: TextStyle(
                                       color: AppColors.black,
-                                      fontSize: 18
+                                      fontSize: 14,
+                                    fontFamily: 'Roboto-Regular'
                                   ),)),
                             Container(
+                              height: 33.0,
+                              width: 64.0,
                               decoration: BoxDecoration(
                                   border: Border.all(width: 0.6),
                                   borderRadius: BorderRadius.circular(5.0)
                               ),
-                              padding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 5.0),
+                              alignment: Alignment.center,
+
                               child: DropdownButton<String>(
                                 focusColor:Colors.white,
                                 isDense: true,
@@ -310,9 +338,10 @@ class _ProductDetailState extends State<ProductDetail> {
                                   );
                                 }).toList(),
                                 hint:Text(
-                                  "1",
+                                  "2",
                                   style: TextStyle(
-                                      color: Colors.black,
+                                      color: AppColors.appColor15,
+                                      fontFamily: 'Roboto-Medium',
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500),
                                 ),
@@ -327,41 +356,106 @@ class _ProductDetailState extends State<ProductDetail> {
                           ],
                         ),
 
-                        SizedBox(height: 10.0,),
-                        TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Product description',
-                            suffixText: 'Shopping Info',
-                            hintStyle: TextStyle(
-                                color: AppColors.black,
-                                fontFamily: 'Roboto-Regular',
-                                fontSize: 16.0
+                        SizedBox(height:20.0,),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              child: Column(
+                                children: <Widget>[
+                                  TabBar(
+                                    controller: tabController,
+                                    labelColor: AppColors.appColor1,
+                                    unselectedLabelColor: AppColors.appColor17,
+                                    indicatorColor: AppColors.primaryBackGroundColor,
+                                    indicatorWeight: 0.7,
+                                    labelPadding: EdgeInsets.only(left: 0,),
+                                    // isScrollable: true,
+                                    indicatorSize: TabBarIndicatorSize.tab,
+                                    tabs: <Widget>[
+                                      Tab(
+                                        child: Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text('Product Description',
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                fontFamily: "Roboto-Medium"
+                                            ),),
+                                        ),
+                                      ),
+                                      Tab(
+                                        child: Align(
+                                          alignment: Alignment.centerRight,
+                                          child: Text('Shopping Info',
+                                            textAlign: TextAlign.end,
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                fontFamily: "Roboto-Medium"
+                                            ),),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 10,),
+                                  Container(
+                                    child: [
+                                      Container(
+                                          color:AppColors.white_00,
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(horizontal: 0,vertical: 0),
+                                            child: Column(
+                                              children: [
+                                                Text(
+                                                  'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.'
+                                                  'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.'
+                                                  ,style: TextStyle(
+                                                    fontFamily: 'Roboto-regular',
+                                                    fontSize: 11.0,
+                                                    color: AppColors.appColor12
+                                                ),),
+                                              ],
+                                            ),
+                                          )
+                                      ),
+                                      Container(
+                                          child: Padding(
+                                              padding: EdgeInsets.symmetric(horizontal: 0,vertical: 0),
+                                              child: Column(
+                                                children: [
+                                                  Text(
+                                                    'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.'
+                                                    'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.'
+                                                    ,style: TextStyle(
+                                                      fontFamily: 'Roboto-regular',
+                                                      fontSize: 11.0,
+                                                      color: AppColors.appColor12
+                                                  ),),
+                                                ],
+                                              )
+                                          )
+                                      ),
+                                    ]
+                                    [_tabIndex],
+                                  ),
+                                ],
+                              ),
                             ),
-                            focusColor: AppColors.black,
-                            suffixStyle: TextStyle(
-                                color: AppColors.black,
-                                fontFamily: 'Roboto-Regular',
-                                fontSize: 16.0
-                            ),
-                          ),
+                          ],
                         ),
                         SizedBox(height: 10.0,),
-                        Text(
-                          'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.'
-                          ,style: TextStyle(
-                            fontFamily: 'Roboto-Thin',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14.0,
-                            color: AppColors.black
-                        ),),
-                        SizedBox(height: 20.0,),
+
                         Divider(color: AppColors.grey_70,height: 10.0,),
+                        SizedBox(height: 10.0,),
                         Text('Reviews',
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
                           style: TextStyle(
-                              color: AppColors.black,
-                              fontSize: 18
+                              color: AppColors.appColor19,
+                              fontSize: 18,
+                            fontFamily: 'Roboto-Medium',
+
                           ),),
                         SizedBox(height: 10.0,),
                         Row(
@@ -373,49 +467,47 @@ class _ProductDetailState extends State<ProductDetail> {
                                   borderRadius: BorderRadius.circular(5.0),
                                   color: AppColors.primaryBackGroundColor
                               ),
-                              padding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 5.0),
+                              height: 41.0,
+                              width: 47.0,
+                              alignment: Alignment.center,
                               child: Text('4.6',
                                 style: TextStyle(
-                                    fontSize: 18
+                                    fontSize: 18,
+                                  fontFamily: 'Roboto-Medium',
                                 ),),
                             ),
 
                             RichText(
                                 text: TextSpan(
-                                    style: TextStyle(
-                                        color: AppColors.black,
-                                        fontFamily: 'Roboto-Regular',
-                                        fontSize: 16
-                                    ),
                                     children: [
-                                      TextSpan(text: "  "),
+                                      TextSpan(text: '  '),
                                       WidgetSpan(
-                                          child: Icon(Icons.star,color: AppColors.appColor9,)
+                                          child: Image.asset('assets/icon/star.png',height: 21.0,width: 20,)
                                       ),WidgetSpan(
-                                          child: Icon(Icons.star,color: AppColors.appColor9,)
+                                          child: Image.asset('assets/icon/star.png',height: 21.0,width: 20,)
                                       ),WidgetSpan(
-                                          child: Icon(Icons.star,color: AppColors.appColor9,)
+                                          child: Image.asset('assets/icon/star.png',height: 21.0,width: 20,)
                                       ),WidgetSpan(
-                                          child: Icon(Icons.star,color: AppColors.appColor9,)
+                                          child: Image.asset('assets/icon/star.png',height: 21.0,width: 20,)
                                       ),WidgetSpan(
-                                          child: Icon(Icons.star_half,color: AppColors.appColor9,)
+                                          child: Image.asset('assets/icon/star_half.png',height: 21.0,width: 20,)
                                       ),
                                     ]
                                 )
                             ),
                             Spacer(),
-
                             Text('Overall 510 Reviews',
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               style: TextStyle(
-                                  color: AppColors.black,
-                                  fontSize: 14
+                                  color: AppColors.appColor20,
+                                  fontFamily: 'Roboto-Light',
+                                  fontSize: 15
                               ),)
 
                           ],
                         ),
-                        SizedBox(height: 20.0,),
+                        SizedBox(height: 12.0,),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 0.0),
                           child: Container(
@@ -429,19 +521,19 @@ class _ProductDetailState extends State<ProductDetail> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
-                                  height: 120,
-                                  width: 100,
+                                  height: 55.0,
+                                  width: 47.0,
                                   child: Image.asset('assets/icons/user.png',
                                     fit: BoxFit.contain,),
                                 ),
                                 Expanded(
                                     child: Padding(
-                                      padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
+                                      padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 0),
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
-                                          SizedBox(height: 10),
+                                          SizedBox(height: 4.0),
                                           Row(
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             mainAxisAlignment: MainAxisAlignment.start,
@@ -459,7 +551,8 @@ class _ProductDetailState extends State<ProductDetail> {
                                                 maxLines: 1,
                                                 style: TextStyle(
                                                     color: AppColors.black,
-                                                    fontSize: 14
+                                                    fontSize: 12,
+                                                  fontFamily: 'Roboto-Regular'
                                                 ),)
                                             ],
                                           ),
@@ -473,15 +566,15 @@ class _ProductDetailState extends State<ProductDetail> {
                                                   ),
                                                   children: [
                                                     WidgetSpan(
-                                                        child: Icon(Icons.star,color: AppColors.appColor9,)
+                                                        child: Image.asset('assets/icon/star.png',height: 16.0,width: 16.0,)
                                                     ),WidgetSpan(
-                                                        child: Icon(Icons.star,color: AppColors.appColor9,)
+                                                        child: Image.asset('assets/icon/star.png',height: 16.0,width: 16.0,)
                                                     ),WidgetSpan(
-                                                        child: Icon(Icons.star,color: AppColors.appColor9,)
+                                                        child: Image.asset('assets/icon/star.png',height: 16.0,width: 16.0,)
                                                     ),WidgetSpan(
-                                                        child: Icon(Icons.star,color: AppColors.appColor9,)
+                                                        child: Image.asset('assets/icon/star.png',height: 16.0,width: 16.0,)
                                                     ),WidgetSpan(
-                                                        child: Icon(Icons.star_half,color: AppColors.appColor9,)
+                                                        child: Image.asset('assets/icon/star_half.png',height: 16.0,width: 16.0,)
                                                     ),
                                                   ]
                                               )
@@ -499,11 +592,12 @@ class _ProductDetailState extends State<ProductDetail> {
                         Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod'
                             'tempor incididunt ut labore',
                           style: TextStyle(
-                              color: AppColors.black,
-                              fontSize: 14
+                              color: AppColors.appColor20,
+                              fontSize: 12,
+                            fontFamily: 'Roboto-Light'
                           ),
                         ),
-                        Divider(color: AppColors.grey_70,height: 30,),
+                        Divider(color: AppColors.grey_70,height: 20,),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 0.0),
                           child: Container(
@@ -517,19 +611,19 @@ class _ProductDetailState extends State<ProductDetail> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
-                                  height: 120,
-                                  width: 100,
+                                  height: 55.0,
+                                  width: 47.0,
                                   child: Image.asset('assets/icons/user.png',
                                     fit: BoxFit.contain,),
                                 ),
                                 Expanded(
                                     child: Padding(
-                                      padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
+                                      padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 0),
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
-                                          SizedBox(height: 10),
+                                          SizedBox(height: 4.0),
                                           Row(
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             mainAxisAlignment: MainAxisAlignment.start,
@@ -547,7 +641,8 @@ class _ProductDetailState extends State<ProductDetail> {
                                                 maxLines: 1,
                                                 style: TextStyle(
                                                     color: AppColors.black,
-                                                    fontSize: 14.0
+                                                    fontSize: 12,
+                                                    fontFamily: 'Roboto-Regular'
                                                 ),)
                                             ],
                                           ),
@@ -561,15 +656,15 @@ class _ProductDetailState extends State<ProductDetail> {
                                                   ),
                                                   children: [
                                                     WidgetSpan(
-                                                        child: Icon(Icons.star,color: AppColors.appColor9,)
+                                                        child: Image.asset('assets/icon/star.png',height: 16.0,width: 16.0,)
                                                     ),WidgetSpan(
-                                                        child: Icon(Icons.star,color: AppColors.appColor9,)
+                                                        child: Image.asset('assets/icon/star.png',height: 16.0,width: 16.0,)
                                                     ),WidgetSpan(
-                                                        child: Icon(Icons.star,color: AppColors.appColor9,)
+                                                        child: Image.asset('assets/icon/star.png',height: 16.0,width: 16.0,)
                                                     ),WidgetSpan(
-                                                        child: Icon(Icons.star,color: AppColors.appColor9,)
+                                                        child: Image.asset('assets/icon/star.png',height: 16.0,width: 16.0,)
                                                     ),WidgetSpan(
-                                                        child: Icon(Icons.star_half,color: AppColors.appColor9,)
+                                                        child: Image.asset('assets/icon/star_half.png',height: 16.0,width: 16.0,)
                                                     ),
                                                   ]
                                               )
@@ -587,8 +682,9 @@ class _ProductDetailState extends State<ProductDetail> {
                         Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod'
                             'tempor incididunt ut labore',
                           style: TextStyle(
-                              color: AppColors.black,
-                              fontSize: 14
+                              color: AppColors.appColor20,
+                              fontSize: 12,
+                              fontFamily: 'Roboto-Light'
                           ),
                         ),
                         SizedBox(height: 10.0,),
@@ -601,7 +697,7 @@ class _ProductDetailState extends State<ProductDetail> {
             ),
           ),
           Positioned(
-            top: 60,
+            top: 40,
             left: 0,
             child: Container(
               width: width,
@@ -624,7 +720,10 @@ class _ProductDetailState extends State<ProductDetail> {
                           )
                       ),
                       child: Center(
-                        child: Icon(Icons.arrow_back_ios_outlined,size: 20,color: AppColors.primaryBackGroundColor,),
+                        child:Image.asset('assets/icons/back.png',
+                          height:19.0,
+                          width: 19.0,
+                          color: AppColors.primaryBackGroundColor,),
                       ),
                     ),
                   ),
@@ -635,7 +734,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       child: CircleAvatar(
                         radius: 30,
                         backgroundColor: AppColors.white_00,
-                        child: Image.asset('assets/icons/heart_unfill.png',height: 30.0,)
+                        child: Image.asset('assets/icons/heart_border.png',height: 30.0,)
                       ),
                     ),
                   )

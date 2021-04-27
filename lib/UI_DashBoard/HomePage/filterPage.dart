@@ -215,8 +215,9 @@ class _FilterPageState extends State<FilterPage> {
                         SizedBox(height: 20.0,),
                         Text("Category",
                           style: TextStyle(
-                              color: AppColors.black,
-                              fontSize: 16
+                              color: AppColors.appColor15,
+                              fontFamily: 'Roboto-Medium',
+                              fontSize: 18
                           ),),
                         SizedBox(height: 10.0,),
 
@@ -227,7 +228,13 @@ class _FilterPageState extends State<FilterPage> {
                     value: _isChecked,
                     dense: true,
                     onChanged: (bool val) => setState(() => _isChecked = val),
-                    title: Text("SubCategory 1"),
+                    title: Text("SubCategory 1",
+                      style: TextStyle(
+                        fontFamily: 'Roboto-Regular',
+                        color: AppColors.appColor15,
+                        fontSize: 14
+                      ),
+                    ),
                     activeColor: AppColors.primaryBackGroundColor,
                     controlAffinity: ListTileControlAffinity.trailing,
                   ),
@@ -235,7 +242,12 @@ class _FilterPageState extends State<FilterPage> {
                     value: _isChecked,
                     dense: true,
                     onChanged: (bool val) => setState(() => _isChecked = val),
-                    title: Text("SubCategory 2"),
+                    title: Text("SubCategory 2",
+                      style: TextStyle(
+                          fontFamily: 'Roboto-Regular',
+                          color: AppColors.appColor15,
+                          fontSize: 14
+                      ),),
                     activeColor: AppColors.primaryBackGroundColor,
                     controlAffinity: ListTileControlAffinity.trailing,
                   ),
@@ -243,7 +255,12 @@ class _FilterPageState extends State<FilterPage> {
                     value: _isChecked,
                     dense: true,
                     onChanged: (bool val) => setState(() => _isChecked = val),
-                    title: Text("SubCategory 3"),
+                    title: Text("SubCategory 3",
+                      style: TextStyle(
+                          fontFamily: 'Roboto-Regular',
+                          color: AppColors.appColor15,
+                          fontSize: 14
+                      ),),
                     activeColor: AppColors.primaryBackGroundColor,
                     controlAffinity: ListTileControlAffinity.trailing,
                   ),
@@ -251,7 +268,12 @@ class _FilterPageState extends State<FilterPage> {
                     value: _isChecked,
                     dense: true,
                     onChanged: (bool val) => setState(() => _isChecked = val),
-                    title: Text("SubCategory 4"),
+                    title: Text("SubCategory 4",
+                      style: TextStyle(
+                          fontFamily: 'Roboto-Regular',
+                          color: AppColors.appColor15,
+                          fontSize: 14
+                      ),),
                     activeColor: AppColors.primaryBackGroundColor,
                     controlAffinity: ListTileControlAffinity.trailing,
                   ),
@@ -264,8 +286,9 @@ class _FilterPageState extends State<FilterPage> {
                         SizedBox(height: 20.0,),
                         Text("Category 2",
                           style: TextStyle(
-                              color: AppColors.black,
-                              fontSize: 16
+                              color: AppColors.appColor15,
+                              fontSize: 18,
+                            fontFamily: 'Roboto-Medium'
                           ),),
                         SizedBox(height: 10.0,),
                       ],
@@ -275,9 +298,11 @@ class _FilterPageState extends State<FilterPage> {
                     value: 1,
                     groupValue: selectedRadioTile,
                     title: Text("SubCategory 1",
-                      style: TextStyle(
-                          color: AppColors.black
-                      ),),
+                        style: TextStyle(
+                            fontFamily: 'Roboto-Regular',
+                            color: AppColors.appColor15,
+                            fontSize: 14
+                        ),),
                     onChanged: (val) {
                       setSelectedRadioTile(val);
                     },
@@ -291,7 +316,9 @@ class _FilterPageState extends State<FilterPage> {
                     groupValue: selectedRadioTile,
                     title: Text("SubCategory 1",
                       style: TextStyle(
-                          color: AppColors.black
+                          fontFamily: 'Roboto-Regular',
+                          color: AppColors.appColor15,
+                          fontSize: 14
                       ),),
                     onChanged: (val) {
                       setSelectedRadioTile(val);
@@ -307,7 +334,9 @@ class _FilterPageState extends State<FilterPage> {
                     dense: true,
                     title: Text("SubCategory 1",
                       style: TextStyle(
-                          color: AppColors.black
+                          fontFamily: 'Roboto-Regular',
+                          color: AppColors.appColor15,
+                          fontSize: 14
                       ),),
                     onChanged: (val) {
                       setSelectedRadioTile(val);
@@ -322,7 +351,9 @@ class _FilterPageState extends State<FilterPage> {
                     groupValue: selectedRadioTile,
                     title: Text("SubCategory 1",
                       style: TextStyle(
-                          color: AppColors.black
+                          fontFamily: 'Roboto-Regular',
+                          color: AppColors.appColor15,
+                          fontSize: 14
                       ),),
                     onChanged: (val) {
                       setSelectedRadioTile(val);

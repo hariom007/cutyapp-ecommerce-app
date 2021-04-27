@@ -60,8 +60,14 @@ class _DashBoardState extends State<DashBoard> {
                 ),
               )
           ),
-          drawer: Drawer(
-            child: DrawerPage(),
+          drawer: ClipRRect(
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20.0),
+              bottomRight: Radius.circular(20.0),
+            ),
+            child: Drawer(
+              child: DrawerPage(),
+            ),
           ),
           body: pages[_currentIndex],
           bottomNavigationBar: new BottomNavigationBar(
