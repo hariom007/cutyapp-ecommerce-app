@@ -424,6 +424,7 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         height: 45.0,
                         width: 45.0,
+                        transform: Matrix4.translationValues(0, 8, 0),
                         padding: EdgeInsets.all(3.0),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,

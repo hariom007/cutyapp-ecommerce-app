@@ -364,39 +364,48 @@ class _ProductDetailState extends State<ProductDetail> with TickerProviderStateM
                             Container(
                               child: Column(
                                 children: <Widget>[
-                                  TabBar(
-                                    controller: tabController,
-                                    labelColor: AppColors.appColor1,
-                                    unselectedLabelColor: AppColors.appColor17,
-                                    indicatorColor: AppColors.primaryBackGroundColor,
-                                    indicatorWeight: 0.7,
-                                    labelPadding: EdgeInsets.only(left: 0,),
-                                    // isScrollable: true,
-                                    indicatorSize: TabBarIndicatorSize.tab,
-                                    tabs: <Widget>[
-                                      Tab(
-                                        child: Align(
-                                          alignment: Alignment.centerLeft,
-                                          child: Text('Product Description',
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                fontFamily: "Roboto-Medium"
-                                            ),),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      border: Border(
+                                        bottom: BorderSide(
+                                          color: AppColors.appColor22
+                                        )
+                                      )
+                                    ),
+                                    child: TabBar(
+                                      controller: tabController,
+                                      labelColor: AppColors.appColor1,
+                                      unselectedLabelColor: AppColors.appColor17,
+                                      indicatorColor: AppColors.primaryBackGroundColor,
+                                      // indicatorWeight: 0.7,
+                                      labelPadding: EdgeInsets.only(left: 0,),
+                                      // isScrollable: true,
+                                      indicatorSize: TabBarIndicatorSize.tab,
+                                      tabs: <Widget>[
+                                        Tab(
+                                          child: Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text('Product Description',
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontFamily: "Roboto-Medium"
+                                              ),),
+                                          ),
                                         ),
-                                      ),
-                                      Tab(
-                                        child: Align(
-                                          alignment: Alignment.centerRight,
-                                          child: Text('Shopping Info',
-                                            textAlign: TextAlign.end,
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                fontFamily: "Roboto-Medium"
-                                            ),),
+                                        Tab(
+                                          child: Align(
+                                            alignment: Alignment.centerRight,
+                                            child: Text('Shopping Info',
+                                              textAlign: TextAlign.end,
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontFamily: "Roboto-Medium"
+                                              ),),
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                   SizedBox(height: 10,),
                                   Container(
