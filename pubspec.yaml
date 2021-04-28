@@ -37,6 +37,8 @@ dependencies:
   shared_preferences: ^2.0.5
   provider: ^5.0.0
   flutter_switch: ^0.3.1
+  flutter_svg: ^0.22.0
+
 
 dev_dependencies:
   flutter_test:
@@ -104,6 +106,9 @@ flutter:
     - family: Parisienne-Regular
       fonts:
         - asset: assets/fonts/Parisienne-Regular.ttf
+    - family: Roboto-Bold
+      fonts:
+        - asset: assets/fonts/Roboto-Bold.ttf
 
   #
   # For details regarding fonts from package dependencies,

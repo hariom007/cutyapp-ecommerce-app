@@ -12,6 +12,64 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(110.0),
+        child: AppBar(
+          elevation: 0,
+          automaticallyImplyLeading: false, // hides leading widget
+          flexibleSpace: Container(
+            width: width,
+            color: AppColors.primaryBackGroundColor,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 5.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context,true);
+                    },
+                    child: Container(
+                      height: 60.0,
+                      width: 65.0,
+                      transform: Matrix4.translationValues(-3.0, 0, 0),
+                      child: Center(
+                        child:Image.asset('assets/icons/back_arrrow.png',
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(child: Container()),
+                Padding(
+                  padding: const EdgeInsets.only(right: 60.0,top: 22.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/icon/wishlist_shopping2.png',
+                        height: 35.0,width: 35.0,
+                        color: AppColors.white_00,
+                      ),
+                      SizedBox(height: 5,),
+                      Text('Order History',style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'Roboto-Light',
+                      ),),
+
+                    ],
+                  ),
+                ),
+                Expanded(child: Container()),
+
+              ],
+            ),
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -20,28 +78,7 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: 80,),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/icon/wishlist_shopping2.png',color: AppColors.white_00,),
-                          SizedBox(height: 15,),
-                          Text('Order History',style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: 'Montserrat-Thin',
-                              fontWeight: FontWeight.bold
-                          ),),
 
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20,),
                   GestureDetector(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderHistoryDetail()));
@@ -52,17 +89,26 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                         width: width,
                         decoration: BoxDecoration(
                             color: AppColors.white_00,
-                            borderRadius: BorderRadius.circular(5.0)
+                            borderRadius: BorderRadius.circular(10.0)
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
-                              height: 140,
+                              height: 110,
                               width: 100,
-                              child: Image.asset('assets/icons/product2.png',
-                                fit: BoxFit.contain,),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10.0),
+                                  bottomLeft: Radius.circular(10.0),
+                                ),
+                                child: Image.asset('assets/icons/product2.png',
+                                  fit: BoxFit.contain,),
+                              ),
                             ),
                             Expanded(
                                 child: Padding(
@@ -80,25 +126,28 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                                                 overflow: TextOverflow.ellipsis,
                                                 maxLines: 1,
                                                 style: TextStyle(
-                                                    color: AppColors.grey_60,
-                                                    fontSize: 12
+                                                    color: AppColors.appColor33,
+                                                    fontFamily: 'Roboto-Regular',
+                                                    fontSize: 10.0
                                                 ),)),
                                           Text('Yesterday',
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style: TextStyle(
-                                                color: AppColors.grey_60,
-                                                fontSize: 12
+                                                color: AppColors.appColor34,
+                                                fontSize: 10.0,
+                                              fontFamily: 'Roboto-Regular'
                                             ),)
                                         ],
                                       ),
                                       SizedBox(height: 5,),
-                                      Text('Teraa Naturi Rain',
+                                      Text('Terra Naturi Rein',
                                         overflow: TextOverflow.ellipsis,
                                         maxLines: 1,
                                         style: TextStyle(
-                                            color: AppColors.black,
-                                            fontSize: 18
+                                            color: AppColors.appColor35,
+                                            fontSize: 17.0,
+                                          fontFamily: 'Roboto-Regular'
                                         ),),
                                       SizedBox(height: 5,),
                                       RichText(
@@ -106,11 +155,11 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                                               style: TextStyle(
                                                   color: AppColors.black,
                                                   fontFamily: 'Roboto-Regular',
-                                                  fontSize: 14
+                                                  fontSize: 11
                                               ),
                                               children: [
                                                 TextSpan(
-                                                    text: '75.99 '
+                                                    text: '10 '
                                                 ),
                                                 TextSpan(
                                                     text: 'QAR '
@@ -131,12 +180,12 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                                                   text: TextSpan(
                                                       style: TextStyle(
                                                           color: AppColors.black,
-                                                          fontFamily: 'Roboto-Regular',
-                                                          fontSize: 16
+                                                          fontFamily: 'Roboto-Medium',
+                                                          fontSize: 14.0
                                                       ),
                                                       children: [
                                                         TextSpan(
-                                                            text: '2 '
+                                                            text: '20 '
                                                         ),
                                                         TextSpan(
                                                             text: 'QAR '
@@ -147,12 +196,16 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                                           Padding(
                                             padding: const EdgeInsets.only(top: 10),
                                             child: Container(
-                                              padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 5.0),
+                                              padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 4.5),
                                               decoration: BoxDecoration(
                                                 borderRadius: BorderRadius.circular(20.0),
                                                 color: AppColors.appColor4
                                               ),
-                                              child: Text('Successful'),
+                                              child: Text('Successful',
+                                              style: TextStyle(
+                                                fontSize: 11.0,
+                                                fontFamily: 'roboto-light'
+                                              ),),
                                             ),
 
                                           )
@@ -179,17 +232,26 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                         width: width,
                         decoration: BoxDecoration(
                             color: AppColors.white_00,
-                            borderRadius: BorderRadius.circular(5.0)
+                            borderRadius: BorderRadius.circular(10.0)
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
-                              height: 140,
+                              height: 110,
                               width: 100,
-                              child: Image.asset('assets/icons/product2.png',
-                                fit: BoxFit.contain,),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10.0),
+                                  bottomLeft: Radius.circular(10.0),
+                                ),
+                                child: Image.asset('assets/icons/product1.png',
+                                  fit: BoxFit.contain,),
+                              ),
                             ),
                             Expanded(
                                 child: Padding(
@@ -203,29 +265,32 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           Expanded(
-                                              child: Text('Order id: #2782HHDHJ',
+                                              child: Text('Order id: #555555HJ',
                                                 overflow: TextOverflow.ellipsis,
                                                 maxLines: 1,
                                                 style: TextStyle(
-                                                    color: AppColors.grey_60,
-                                                    fontSize: 12
+                                                    color: AppColors.appColor33,
+                                                    fontFamily: 'Roboto-Regular',
+                                                    fontSize: 10.0
                                                 ),)),
                                           Text('Yesterday',
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style: TextStyle(
-                                                color: AppColors.grey_60,
-                                                fontSize: 12
+                                                color: AppColors.appColor34,
+                                                fontSize: 10.0,
+                                                fontFamily: 'Roboto-Regular'
                                             ),)
                                         ],
                                       ),
                                       SizedBox(height: 5,),
-                                      Text('Teraa Naturi Rain',
+                                      Text('Golder Mask',
                                         overflow: TextOverflow.ellipsis,
                                         maxLines: 1,
                                         style: TextStyle(
-                                            color: AppColors.black,
-                                            fontSize: 18
+                                            color: AppColors.appColor35,
+                                            fontSize: 17.0,
+                                            fontFamily: 'Roboto-Regular'
                                         ),),
                                       SizedBox(height: 5,),
                                       RichText(
@@ -233,17 +298,17 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                                               style: TextStyle(
                                                   color: AppColors.black,
                                                   fontFamily: 'Roboto-Regular',
-                                                  fontSize: 14
+                                                  fontSize: 11
                                               ),
                                               children: [
                                                 TextSpan(
-                                                    text: '75.99 '
+                                                    text: '5 '
                                                 ),
                                                 TextSpan(
                                                     text: 'QAR '
                                                 ),
                                                 TextSpan(
-                                                    text: ' X 2 items '
+                                                    text: ' X 1 items '
                                                 ),
                                               ]
                                           )
@@ -258,12 +323,12 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                                                   text: TextSpan(
                                                       style: TextStyle(
                                                           color: AppColors.black,
-                                                          fontFamily: 'Roboto-Regular',
-                                                          fontSize: 16
+                                                          fontFamily: 'Roboto-Medium',
+                                                          fontSize: 14.0
                                                       ),
                                                       children: [
                                                         TextSpan(
-                                                            text: '2 '
+                                                            text: '5 '
                                                         ),
                                                         TextSpan(
                                                             text: 'QAR '
@@ -274,12 +339,16 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                                           Padding(
                                             padding: const EdgeInsets.only(top: 10),
                                             child: Container(
-                                              padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 5.0),
+                                              padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 4.5),
                                               decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(20.0),
-                                                color: AppColors.appColor5
+                                                  borderRadius: BorderRadius.circular(20.0),
+                                                  color: AppColors.appColor36
                                               ),
-                                              child: Text('Cancelled'),
+                                              child: Text('Cancelled',
+                                                style: TextStyle(
+                                                    fontSize: 11.0,
+                                                    fontFamily: 'roboto-light'
+                                                ),),
                                             ),
 
                                           )
@@ -299,32 +368,6 @@ class _OrderHistoryListState extends State<OrderHistoryList> {
                   SizedBox(height: 35,),
 
                 ],
-              ),
-            ),
-          ),
-          Positioned(
-            top: 60,
-            left: 0,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pop(context,true);
-              },
-              child: Container(
-                height: 60,
-                width: 70,
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('assets/icon/Rectangle9.png'),
-                        fit: BoxFit.fill
-                    )
-                ),
-                child: Center(
-                  child: Image.asset('assets/icons/back.png',
-                    height:19.0,
-                    width: 19.0,
-                    color: AppColors.primaryBackGroundColor,),
-                ),
               ),
             ),
           ),

@@ -11,6 +11,64 @@ class _TermsConditionsState extends State<TermsConditions> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(110.0),
+        child: AppBar(
+          elevation: 0,
+          automaticallyImplyLeading: false, // hides leading widget
+          flexibleSpace: Container(
+            width: width,
+            color: AppColors.primaryBackGroundColor,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 5.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context,true);
+                    },
+                    child: Container(
+                      height: 60.0,
+                      width: 65.0,
+                      transform: Matrix4.translationValues(-3.0, 0, 0),
+                      child: Center(
+                        child:Image.asset('assets/icons/back_arrrow.png',
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(child: Container()),
+                Padding(
+                  padding: const EdgeInsets.only(right: 60.0,top: 22.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/icon/wishlist_shopping2.png',
+                        height: 35.0,width: 35.0,
+                        color: AppColors.white_00,
+                      ),
+                      SizedBox(height: 5,),
+                      Text('Privacy & Terms',style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'Roboto-Light',
+                      ),),
+
+                    ],
+                  ),
+                ),
+                Expanded(child: Container()),
+
+              ],
+            ),
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -19,33 +77,12 @@ class _TermsConditionsState extends State<TermsConditions> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: 80,),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/icon/wishlist_shopping2.png',color: AppColors.white_00,),
-                          SizedBox(height: 15,),
-                          Text('Privacy & Terms',style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: 'Montserrat-Thin',
-                              fontWeight: FontWeight.bold
-                          ),),
-
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20,),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Text('Terms and Conditions',style: TextStyle(
+                    child: Text('Terms and Conditions',
+                      style: TextStyle(
                         fontSize: 18,
-                        fontWeight: FontWeight.bold
+                        fontFamily: 'Roboto-Medium'
                     ),),
                   ),
 
@@ -53,12 +90,13 @@ class _TermsConditionsState extends State<TermsConditions> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: RichText(
+                      textAlign: TextAlign.justify,
                         text: TextSpan(
                             style: TextStyle(
                                 color: AppColors.white_00,
-                                fontFamily: 'Roboto-Thin',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16
+                                fontFamily: 'Roboto-Light',
+                                height: 1.4,
+                                fontSize: 14.0
                             ),
                             children: [
                               TextSpan(
@@ -84,7 +122,7 @@ class _TermsConditionsState extends State<TermsConditions> {
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: Text('Disclaimer',style: TextStyle(
                         fontSize: 18,
-                        fontWeight: FontWeight.bold
+                        fontFamily: 'Roboto-Medium'
                     ),),
                   ),
 
@@ -92,12 +130,13 @@ class _TermsConditionsState extends State<TermsConditions> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: RichText(
+                      textAlign: TextAlign.justify,
                         text: TextSpan(
                             style: TextStyle(
                                 color: AppColors.white_00,
-                                fontFamily: 'Roboto-Thin',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16
+                                fontFamily: 'Roboto-Light',
+                                fontSize: 14.0,
+                                height: 1.4,
                             ),
                             children: [
                               TextSpan(
@@ -113,32 +152,6 @@ class _TermsConditionsState extends State<TermsConditions> {
                   SizedBox(height: 35,),
 
                 ],
-              ),
-            ),
-          ),
-          Positioned(
-            top: 60,
-            left: 0,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pop(context,true);
-              },
-              child: Container(
-                height: 60,
-                width: 70,
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('assets/icon/Rectangle9.png'),
-                        fit: BoxFit.fill
-                    )
-                ),
-                child: Center(
-                  child:Image.asset('assets/icons/back.png',
-                    height:19.0,
-                    width: 19.0,
-                    color: AppColors.primaryBackGroundColor,),
-                ),
               ),
             ),
           ),

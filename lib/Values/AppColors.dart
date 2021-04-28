@@ -47,6 +47,26 @@ class AppColors{
   static const Color appColor20 = Color(0xFF373636);
   static const Color appColor21 = Color(0xFFF187B7);
   static const Color appColor22 = Color(0xFFD5D5D5);
+  static const Color appColor23 = Color(0xFFC9C4C4);
+  static const Color appColor24 = Color(0xFF07B81F);
+  static const Color appColor25 = Color(0xFF303030);
+  static const Color appColor26 = Color(0xFFF54581);
+  static const Color appColor27 = Color(0xFFBBC2CA);
+  static const Color appColor28 = Color(0xFFF2F4F6);
+  static const Color appColor29 = Color(0xFF333333);
+  static const Color appColor30 = Color(0xFF21283B);
+  static const Color appColor31 = Color(0xFFDC0000);
+  static const Color appColor32 = Color(0xFFFB4E9B);
+  static const Color appColor33 = Color(0xFF979797);
+  static const Color appColor34 = Color(0xFF959595);
+  static const Color appColor35 = Color(0xFF21283B);
+  static const Color appColor36 = Color(0xFFEB5D1D);
+  static const Color appColor37 = Color(0xFF191919);
+  static const Color appColor38 = Color(0xFF4A4A4A);
+  static const Color appColor39 = Color(0xFF06BA0C);
+  static const Color appColor40 = Color(0xFFB5BBC9);
+  static const Color appColor41 = Color(0xFF3D3B3B);
+  static const Color appColor42 = Color(0xFFFF0000);
 
 
 
@@ -148,6 +168,6 @@ class AppColors{
 
 
 // black color
-  static const Color black = Colors.black;
+  static const Color  black = Colors.black;
 
 }

@@ -47,15 +47,15 @@ class _DashBoardState extends State<DashBoard> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CircleAvatar(
-                      radius: 10,
+                      radius: 8.0,
                       backgroundColor: AppColors.white_00,
                       child: Text('1',
                         style: TextStyle(
                             color: AppColors.black,
-                            fontSize: 12
+                            fontSize: 10.0,
                         ),),
                     ),
-                    Image.asset('assets/icon/cart.png',height: 30,width: 30,color: AppColors.white_00,),
+                    Image.asset('assets/icons/top_basket.png',height: 38.0,width: 38.0),
                   ],
                 ),
               )
@@ -81,11 +81,17 @@ class _DashBoardState extends State<DashBoard> {
             onTap: onTappedChanged,
             items: [
               BottomNavigationBarItem(
-                icon: new Icon(Icons.home),
+                icon: Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: Image.asset('assets/icons/bottom_menu.png',height: 25.0,width: 23.0,),
+                ),
                   title: Padding(padding: EdgeInsets.all(0))
               ),
               BottomNavigationBarItem(
-                icon: new Icon(Icons.favorite),
+                icon: Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: new Image.asset('assets/icons/heart_unfill.png',height: 25.0,width: 25.0,),
+                ),
                   title: Padding(padding: EdgeInsets.all(0))
               )
             ],

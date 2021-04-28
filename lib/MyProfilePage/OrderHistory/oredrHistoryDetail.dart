@@ -10,6 +10,7 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(110.0),
         child: AppBar(
@@ -29,36 +30,33 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
                       Navigator.pop(context,true);
                     },
                     child: Container(
-                      height: 60,
-                      width: 70,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/icon/Rectangle9.png'),
-                            fit: BoxFit.fill
-                        ),
-                      ),
+                      height: 60.0,
+                      width: 65.0,
+                      transform: Matrix4.translationValues(-3.0, 0, 0),
                       child: Center(
-                        child:Image.asset('assets/icons/back.png',
-                          height:19.0,
-                          width: 19.0,
-                          color: AppColors.primaryBackGroundColor,),
+                        child:Image.asset('assets/icons/back_arrrow.png',
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Expanded(child: Container()),
                 Padding(
-                  padding: const EdgeInsets.only(right: 60.0,top: 40.0),
+                  padding: const EdgeInsets.only(right: 60.0,top: 22.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/icon/wishlist_shopping2.png',color: AppColors.white_00,),
-                      SizedBox(height: 15,),
+                      Image.asset(
+                        'assets/icon/wishlist_shopping2.png',
+                        height: 35.0,width: 35.0,
+                        color: AppColors.white_00,
+                      ),
+                      SizedBox(height: 5,),
                       Text('Order Detail',style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'Montserrat-Thin',
-                          fontWeight: FontWeight.bold
+                        fontSize: 18,
+                        fontFamily: 'Roboto-Light',
                       ),),
 
                     ],
@@ -79,33 +77,11 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  // SizedBox(height: 80,),
-                 /* Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/icon/wishlist_shopping2.png',color: AppColors.white_00,),
-                          SizedBox(height: 15,),
-                          Text('Order Detail',style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: 'Montserrat-Thin',
-                              fontWeight: FontWeight.bold
-                          ),),
-
-                        ],
-                      ),
-                    ],
-                  ),*/
-                  SizedBox(height: 20,),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Text('Delivery Detail',style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold
+                    child: Text('  Delivery Detail',style: TextStyle(
+                        fontSize: 17.0,
+                      fontFamily: 'Roboto-Bold'
                     ),),
                   ),
                   SizedBox(height: 12.0,),
@@ -115,10 +91,10 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
                       width: width,
                       decoration: BoxDecoration(
                           color: AppColors.white_00,
-                          borderRadius: BorderRadius.circular(5.0)
+                          borderRadius: BorderRadius.circular(10.0)
                       ),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 30.0,vertical: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -128,18 +104,17 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               style: TextStyle(
-                                  color: AppColors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18
+                                  color: AppColors.appColor37,
+                                  fontFamily: 'Roboto-Medium',
+                                  fontSize: 16.0
                               ),),
                             SizedBox(height: 5,),
                             RichText(
                                 text: TextSpan(
                                     style: TextStyle(
-                                        color: AppColors.grey_60,
-                                        fontFamily: 'Roboto-Thin',
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16
+                                        color: AppColors.appColor38,
+                                        fontFamily: 'Roboto-Light',
+                                        fontSize: 12.5
                                     ),
                                     children: [
                                       TextSpan(
@@ -153,8 +128,8 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
                                 text: TextSpan(
                                     style: TextStyle(
                                         color: AppColors.black,
-                                        fontFamily: 'Roboto-Regular',
-                                        fontSize: 16
+                                        fontFamily: 'Roboto-Light',
+                                        fontSize: 14.0
                                     ),
                                     children: [
                                       TextSpan(
@@ -169,8 +144,8 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
                               maxLines: 1,
                               style: TextStyle(
                                   color: AppColors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18
+                                  fontFamily: 'Roboto-Bold',
+                                  fontSize: 17.0
                               ),),
 
                           ],
@@ -185,17 +160,26 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
                       width: width,
                       decoration: BoxDecoration(
                           color: AppColors.white_00,
-                          borderRadius: BorderRadius.circular(5.0)
+                          borderRadius: BorderRadius.circular(10.0)
                       ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(
-                            height: 140,
+                            height: 110,
                             width: 100,
-                            child: Image.asset('assets/icons/product2.png',
-                              fit: BoxFit.contain,),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10.0),
+                                bottomLeft: Radius.circular(10.0),
+                              ),
+                              child: Image.asset('assets/icons/product2.png',
+                                fit: BoxFit.contain,),
+                            ),
                           ),
                           Expanded(
                               child: Padding(
@@ -204,13 +188,14 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    SizedBox(height: 5.0,),
-                                    Text('Teraa Naturi Rain',
+
+                                    Text('Terra Naturi Rein',
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 1,
                                       style: TextStyle(
-                                          color: AppColors.black,
-                                          fontSize: 20
+                                          color: AppColors.appColor35,
+                                          fontSize: 17.0,
+                                          fontFamily: 'Roboto-Regular'
                                       ),),
                                     SizedBox(height: 10.0,),
                                     RichText(
@@ -218,11 +203,11 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
                                             style: TextStyle(
                                                 color: AppColors.black,
                                                 fontFamily: 'Roboto-Regular',
-                                                fontSize: 14
+                                                fontSize: 11
                                             ),
                                             children: [
                                               TextSpan(
-                                                  text: '75.99 '
+                                                  text: '10 '
                                               ),
                                               TextSpan(
                                                   text: 'QAR '
@@ -233,25 +218,33 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
                                             ]
                                         )
                                     ),
-                                    SizedBox(height: 5,),
-                                    RichText(
-                                        text: TextSpan(
-                                            style: TextStyle(
-                                                color: AppColors.black,
-                                                fontFamily: 'Roboto-Regular',
-                                                fontSize: 16
-                                            ),
-                                            children: [
-                                              TextSpan(
-                                                  text: '2 '
-                                              ),
-                                              TextSpan(
-                                                  text: 'QAR '
-                                              ),
-                                            ]
-                                        )
-                                    ),
+                                    SizedBox(height: 10.0,),
+                                    Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                            child: RichText(
+                                                text: TextSpan(
+                                                    style: TextStyle(
+                                                        color: AppColors.black,
+                                                        fontFamily: 'Roboto-Medium',
+                                                        fontSize: 14.0
+                                                    ),
+                                                    children: [
+                                                      TextSpan(
+                                                          text: '20 '
+                                                      ),
+                                                      TextSpan(
+                                                          text: 'QAR '
+                                                      ),
+                                                    ]
+                                                )
+                                            )),
 
+
+                                      ],
+                                    ),
                                   ],
                                 ),
                               )
@@ -264,8 +257,8 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: Text('Price Detail',style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold
+                        fontSize: 17.0,
+                        fontFamily: 'Roboto-Bold'
                     ),),
                   ),
                   SizedBox(height: 12.0,),
@@ -278,134 +271,145 @@ class _OrderHistoryDetailState extends State<OrderHistoryDetail> {
                           borderRadius: BorderRadius.circular(5.0)
                       ),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 8.0,vertical: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                    child: Text('Subtotal (1 Item)',
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
-                                      style: TextStyle(
-                                          color: AppColors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16
-                                      ),)),
-                                Text("＄100",
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      color: AppColors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 5),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                      child: Text('Subtotal (1 Item)',
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                            color: AppColors.black,
+                                            fontSize: 16,
+                                          fontFamily: 'Roboto-Regular'
+                                        ),)),
+                                  Text("＄100",
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                        color: AppColors.black,
+                                        fontSize: 16,
+                                        fontFamily: 'Roboto-Regular'
 
-                                  ),)
-                              ],
+                                    ),)
+                                ],
+                              ),
                             ),
-                            Divider(color: AppColors.grey_80,height: 25,),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                    child: Text('Discount',
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
-                                      style: TextStyle(
-                                          color: AppColors.appColor4,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16
-                                      ),)),
-                                Text("-＄20",
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      color: AppColors.appColor4,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold
-
-                                  ),)
-                              ],
+                            Divider(color: AppColors.appColor22,height: 20.0,thickness: 1,),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 5),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                      child: Text('Discount',
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                            color: AppColors.appColor39,
+                                            fontSize: 16,
+                                            fontFamily: 'Roboto-Regular'
+                                        ),)),
+                                  Text("-＄20",
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                        color: AppColors.appColor39,
+                                        fontSize: 16,
+                                        fontFamily: 'Roboto-Regular'
+                                    ),)
+                                ],
+                              ),
                             ),
-                            Divider(color: AppColors.grey_80,height: 25,),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                    child: Text('Delivery Fee',
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
-                                      style: TextStyle(
-                                          color: AppColors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16
-                                      ),)),
-                                Text("＄10",
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      color: AppColors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold
-
-                                  ),)
-                              ],
+                            Divider(color: AppColors.appColor22,height: 20.0,thickness: 1,),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 5),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                      child: Text('Delivery Fee',
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                            color: AppColors.black,
+                                            fontSize: 16,
+                                            fontFamily: 'Roboto-Regular'
+                                        ),)),
+                                  Text("＄10",
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                        color: AppColors.black,
+                                        fontSize: 16,
+                                        fontFamily: 'Roboto-Regular'
+                                    ),)
+                                ],
+                              ),
                             ),
-                            Divider(color: AppColors.grey_80,height: 25,),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                    child: Text('Tax',
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
-                                      style: TextStyle(
-                                          color: AppColors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16
-                                      ),)),
-                                Text("＄5",
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      color: AppColors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold
-
-                                  ),)
-                              ],
+                            Divider(color: AppColors.appColor22,height: 20.0,thickness: 1,),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 5),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                      child: Text('Tax',
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                            color: AppColors.black,
+                                            fontSize: 16,
+                                            fontFamily: 'Roboto-Regular'
+                                        ),)),
+                                  Text("＄5",
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                        color: AppColors.black,
+                                        fontSize: 16,
+                                        fontFamily: 'Roboto-Regular'
+                                    ),)
+                                ],
+                              ),
                             ),
-                            Divider(color: AppColors.grey_80,height: 25,),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                    child: Text('Est. Total',
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
-                                      style: TextStyle(
-                                          color: AppColors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18
-                                      ),)),
-                                Text("＄95",
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      color: AppColors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold
-
-                                  ),)
-                              ],
+                            Divider(color: AppColors.appColor22,height: 20.0,thickness: 1,),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 5),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                      child: Text('Est. Total',
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                            color: AppColors.black,
+                                            fontSize: 18,
+                                            fontFamily: 'Roboto-Bold'
+                                        ),)),
+                                  Text("＄95",
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                        color: AppColors.black,
+                                        fontSize: 18,
+                                        fontFamily: 'Roboto-Bold'
+                                    ),)
+                                ],
+                              ),
                             ),
                             SizedBox(height: 20,)
 

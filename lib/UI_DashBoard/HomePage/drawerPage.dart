@@ -5,6 +5,7 @@ import 'package:cutyapp/MyProfilePage/myWishList.dart';
 import 'package:cutyapp/MyProfilePage/termsCondtion.dart';
 import 'package:cutyapp/Values/AppColors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 class DrawerPage extends StatefulWidget {
@@ -35,10 +36,9 @@ class _DrawerPageState extends State<DrawerPage> {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: AppColors.white_00,
-      body: SingleChildScrollView(
-        child: Column(
-          // shrinkWrap: true,
-          // physics: ClampingScrollPhysics(),
+      body: SafeArea(
+        child: ListView(
+          shrinkWrap: true,
           children: [
             Container(
               color: AppColors.primaryBackGroundColor,
@@ -47,7 +47,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: 25.0,),
+                  // SizedBox(height: 10.0,),
                   Container(
                     color: AppColors.primaryBackGroundColor,
                     child: Padding(
@@ -73,7 +73,7 @@ class _DrawerPageState extends State<DrawerPage> {
                                     color: AppColors.white_00,
                                     shape: BoxShape.circle,
                                     image: DecorationImage(
-                                        image: AssetImage('assets/icons/user.png')
+                                        image: AssetImage('assets/icon/team_circle.png')
                                     )
                                 ),
                                 height: 75,
@@ -84,18 +84,17 @@ class _DrawerPageState extends State<DrawerPage> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text('Martin Roy ',style: TextStyle(
+                                  Text('Martin Roy  ',style: TextStyle(
                                       fontSize: 18,
                                       fontFamily: 'Roboto-Medium',
-                                      fontWeight: FontWeight.bold
                                   ),),
                                   GestureDetector(
                                       onTap: (){
                                         Navigator.push(context, MaterialPageRoute(builder: (context)=> EditProfile()));
                                       },
                                       child: Image.asset('assets/icons/edit.png',
-                                        height:14.0,
-                                        width: 14.0,
+                                        height:12.0,
+                                        width: 13.0,
                                         color: AppColors.white_00,))
                                 ],
                               ),
@@ -105,7 +104,6 @@ class _DrawerPageState extends State<DrawerPage> {
                                       style: TextStyle(
                                           color: AppColors.white_00,
                                           fontFamily: 'Roboto-Light',
-                                          fontWeight: FontWeight.bold,
                                           fontSize: 13
                                       ),
                                       children: [
@@ -115,58 +113,14 @@ class _DrawerPageState extends State<DrawerPage> {
                                       ]
                                   )
                               ),
-                              SizedBox(height: 50.0,),
-                              Text('General Setting',style: TextStyle(
+                              SizedBox(height: 30.0,),
+                              Text('General Setting',
+                                style: TextStyle(
                                 fontSize: 18.0,
-                              ),),
-                              SizedBox(height: 33,),
-                              /*ListTile(
-                                dense: true,
-                                title: Text('My WishList',
-                                  style: TextStyle(
-                                      color: AppColors.white_00,
-                                      fontFamily: 'Roboto-Thin',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16
-                                  ),),
-                                leading: Image.asset('assets/icons/heart_empty.png',
-                                  height:19.0,
-                                  width: 19.0,
-                                  color: AppColors.white_00,),
-                                onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> MyWishListPage()));
-                                },
-                              ),*/
+                                  fontFamily: 'Roboto-Medium',
 
-                           /*   GestureDetector(
-                                onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> MyWishListPage()));
-                                },
-                                child: Container(
-                                  height: 40.0,
-                                  width: width,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 15.0),
-                                    child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Image.asset('assets/icons/heart_empty.png',
-                                          height:19.0,
-                                          width: 19.0,
-                                          color: AppColors.white_00,),
-                                        SizedBox(width: 10.0,),
-                                        Text('My WishList',
-                                          style: TextStyle(
-                                              color: AppColors.white_00,
-                                              fontFamily: 'Roboto-Regular',
-                                              fontSize: 14
-                                          ),),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),*/
+                              ),),
+                              SizedBox(height: 27.0,),
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                                 child: Container(
@@ -192,8 +146,8 @@ class _DrawerPageState extends State<DrawerPage> {
                                         children: [
                                           SizedBox(width: 5.0,),
                                           Image.asset('assets/icons/heart_empty.png',
-                                            height:19.0,
-                                            width: 19.0,
+                                            height:17.0,
+                                            width: 17.0,
                                             color: AppColors.white_00,),
                                           SizedBox(width: 10.0,),
                                           Text('My WishList',
@@ -209,59 +163,6 @@ class _DrawerPageState extends State<DrawerPage> {
                                 ),
                               ),
                               SizedBox(height: 8.0,),
-                             /* GestureDetector(
-                                onTap: (){
-                                },
-                                child: Container(
-                                  height: 40.0,
-                                  width: width,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 15.0),
-                                    child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Image.asset('assets/icons/notification.png',
-                                          height:19.0,
-                                          width: 19.0,
-                                          color: AppColors.white_00,),
-                                        SizedBox(width: 10.0,),
-                                        Expanded(
-                                          child: Text('Get Notifications',
-                                            style: TextStyle(
-                                                color: AppColors.white_00,
-                                                fontFamily: 'Roboto-Regular',
-                                                fontSize: 14
-                                            ),),
-                                        ),
-                                        Container(
-                                          width: 40.0,
-                                          child: FlutterSwitch(
-                                            width: 40.0,
-                                            height: 25.0,
-                                            valueFontSize: 12.0,
-                                            toggleSize: 18.0,
-                                            value: isSwitched,
-                                            activeColor: AppColors.white_00,
-                                            inactiveColor: AppColors.white_00,
-                                            activeToggleColor: AppColors.primaryBackGroundColor,
-                                            inactiveToggleColor: AppColors.primaryBackGroundColor,
-                                            onToggle: (bool isOn) {
-                                              setState(() {
-                                                isSwitched = isOn;
-                                                Global.shared.isSwitched = isOn;
-                                                isOn =!isOn;
-                                                print(isSwitched);
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                        SizedBox(width: 14.0,),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),*/
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                                 child: Container(
@@ -287,8 +188,8 @@ class _DrawerPageState extends State<DrawerPage> {
                                         children: [
                                           SizedBox(width: 5.0,),
                                           Image.asset('assets/icons/notification.png',
-                                            height:19.0,
-                                            width: 19.0,
+                                            height:17.0,
+                                            width: 17.0,
                                             color: AppColors.white_00,),
                                           SizedBox(width: 10.0,),
                                           Expanded(
@@ -329,34 +230,6 @@ class _DrawerPageState extends State<DrawerPage> {
                                 ),
                               ),
                               SizedBox(height: 8.0,),
-                              /*GestureDetector(
-                                onTap: (){
-                                },
-                                child: Container(
-                                  height: 40.0,
-                                  width: width,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 15.0),
-                                    child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Image.asset('assets/icon/list.png',
-                                          height:19.0,
-                                          width: 19.0,
-                                          color: AppColors.white_00,),
-                                        SizedBox(width: 10.0,),
-                                        Text('Notify Messages',
-                                          style: TextStyle(
-                                              color: AppColors.white_00,
-                                              fontFamily: 'Roboto-Regular',
-                                              fontSize: 14
-                                          ),),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),*/
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                                 child: Container(
@@ -382,8 +255,8 @@ class _DrawerPageState extends State<DrawerPage> {
                                         children: [
                                           SizedBox(width: 5.0,),
                                           Image.asset('assets/icon/list.png',
-                                            height:19.0,
-                                            width: 19.0,
+                                            height:17.0,
+                                            width: 17.0,
                                             color: AppColors.white_00,),
                                           SizedBox(width: 10.0,),
                                           Text('Notify Messages',
@@ -399,35 +272,6 @@ class _DrawerPageState extends State<DrawerPage> {
                                 ),
                               ),
                               SizedBox(height: 8.0,),
-                              /*InkWell(
-                                onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderHistoryList()));
-                                },
-                                child: Container(
-                                  height: 40.0,
-                                  width: width,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 15.0),
-                                    child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Image.asset('assets/icon/clipboard_list.png',
-                                          height:19.0,
-                                          width: 19.0,
-                                          color: AppColors.white_00,),
-                                        SizedBox(width: 10.0,),
-                                        Text('Order History',
-                                          style: TextStyle(
-                                              color: AppColors.white_00,
-                                              fontFamily: 'Roboto-Regular',
-                                              fontSize: 14
-                                          ),),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),*/
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                                 child: Container(
@@ -453,8 +297,8 @@ class _DrawerPageState extends State<DrawerPage> {
                                         children: [
                                           SizedBox(width: 5.0,),
                                           Image.asset('assets/icon/clipboard_list.png',
-                                            height:19.0,
-                                            width: 19.0,
+                                            height:17.0,
+                                            width: 17.0,
                                             color: AppColors.white_00,),
                                           SizedBox(width: 10.0,),
                                           Text('Order History',
@@ -491,8 +335,9 @@ class _DrawerPageState extends State<DrawerPage> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Text('Help & Support',style: TextStyle(
-                        fontSize: 20,
-                        color: AppColors.black,
+                        fontSize: 18,
+                        fontFamily: 'Roboto-Medium',
+                        color: AppColors.appColor25,
                       ),),
                     ),
                   ),
@@ -509,8 +354,8 @@ class _DrawerPageState extends State<DrawerPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Image.asset('assets/icon/globe.png',
-                              height:19.0,
-                              width: 19.0,
+                              height:17.0,
+                              width: 17.0,
                               color: AppColors.black,),
                             SizedBox(width: 10.0,),
                             Text('Language',
@@ -538,8 +383,8 @@ class _DrawerPageState extends State<DrawerPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Image.asset('assets/icon/moon.png',
-                              height:19.0,
-                              width: 19.0,
+                              height:17.0,
+                              width: 17.0,
                               color: AppColors.black,),
                             SizedBox(width: 10.0,),
                             Expanded(
@@ -589,14 +434,15 @@ class _DrawerPageState extends State<DrawerPage> {
                       height: 40.0,
                       width: width,
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
+                        padding: const EdgeInsets.only(left: 12.0),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Image.asset('assets/icon/Heart.png',
-                              height:19.0,
-                              width: 19.0,
+                              height:20.0,
+                              width: 20.0,
+                              fit: BoxFit.fill,
                               color: AppColors.black,),
                             SizedBox(width: 10.0,),
                             Text('Privacy & Terms',
@@ -623,9 +469,10 @@ class _DrawerPageState extends State<DrawerPage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
+                            SizedBox(width: 4.0,),
                             Image.asset('assets/icon/logout.png',
-                              height:19.0,
-                              width: 19.0,
+                              height:17.0,
+                              width: 17.0,
                               color: AppColors.black,),
                             SizedBox(width: 10.0,),
                             Text('Logout',
@@ -639,28 +486,29 @@ class _DrawerPageState extends State<DrawerPage> {
                       ),
                     ),
                   ),
+                  SizedBox(height: 20.0,),
 
-                  SizedBox(height: 20,),
-
-                  Center(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset('assets/icon/whatsapp.png',height:23.0,width: 24.0,color: AppColors.appColor4,),
-                        Text('   CONTACT US',style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.appColor4,
-                            fontSize: 18.0,
-                            fontFamily: 'Roboto-Medium'
-                        ),),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 30,),
                 ],
               ),
             ),
+            SizedBox(height: 40.0,),
+            Container(
+              color: AppColors.white_00,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('assets/icons/whatsapp.png',height:21.0,width: 22.0,color: AppColors.appColor24,),
+                  Text('  CONTACT US',
+                    style: TextStyle(
+                      color: AppColors.appColor24,
+                      fontSize: 17.0,
+                      fontFamily: 'Roboto-Medium'
+                  ),),
+                ],
+              ),
+            ),
+            SizedBox(height: 35.0,),
           ],
         ),
       ),

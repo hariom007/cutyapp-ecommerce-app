@@ -131,16 +131,17 @@ class _FilterPageState extends State<FilterPage> {
                       ),
                       Text("   Filter",
                         style: TextStyle(
-                            color: AppColors.black,
-                            fontFamily: 'Montserrat-semibold',
-                            fontSize: 16
+                            color: AppColors.appColor15,
+                            fontFamily: 'Roboto-Regular',
+                            fontSize: 20,
+
                         ),),
 
                     ],
                   ),
                   SizedBox(height: 20,),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text("Prize Range",
                       style: TextStyle(
                           color: AppColors.black,
@@ -164,65 +165,64 @@ class _FilterPageState extends State<FilterPage> {
                       });
                     },
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Row(
-                            children: [
-                              RichText(
-                                text: TextSpan(
-                                  style: TextStyle(
-                                      fontFamily: 'Montserrat-SemiBold',
-                                      color: AppColors.black,
-                                      fontSize: 15
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: _currentRangeValues.start.round().toString(),
-                                    ),
-                                    TextSpan(
-                                        text: " QAR"
-                                    )
-                                  ],
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            RichText(
+                              text: TextSpan(
+                                style: TextStyle(
+                                    fontFamily: 'Roboto-Regular',
+                                    color: AppColors.appColor15,
+                                    fontSize: 15
                                 ),
-                              ),
-                              Spacer(),
-                              RichText(
-                                text: TextSpan(
-                                  style: TextStyle(
-                                      fontFamily: 'Montserrat-SemiBold',
-                                      color: AppColors.black,
-                                      fontSize: 15
+                                children: [
+                                  TextSpan(
+                                    text: _currentRangeValues.start.round().toString(),
                                   ),
-                                  children: [
-                                    TextSpan(
-                                      text: _currentRangeValues.end.round().toString(),
-                                    ),
-                                    TextSpan(
-                                        text: " QAR"
-                                    )
-                                  ],
-                                ),
+                                  TextSpan(
+                                      text: " QAR"
+                                  )
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                            Spacer(),
+                            RichText(
+                              text: TextSpan(
+                                style: TextStyle(
+                                    fontFamily: 'Roboto-Regular',
+                                    color: AppColors.appColor15,
+                                    fontSize: 15
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: _currentRangeValues.end.round().toString(),
+                                  ),
+                                  TextSpan(
+                                      text: " QAR"
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(height: 20.0,),
-                        Text("Category",
-                          style: TextStyle(
-                              color: AppColors.appColor15,
-                              fontFamily: 'Roboto-Medium',
-                              fontSize: 18
-                          ),),
-                        SizedBox(height: 10.0,),
+                      ),
+                      SizedBox(height: 20.0,),
+                      Text("Category",
+                        style: TextStyle(
+                            color: AppColors.appColor15,
+                            fontFamily: 'Roboto-Medium',
+                            fontSize: 18
+                        ),),
+                      SizedBox(height: 10.0,),
 
-                      ],
-                    ),
+                    ],
                   ),
                   CheckboxListTile(
                     value: _isChecked,

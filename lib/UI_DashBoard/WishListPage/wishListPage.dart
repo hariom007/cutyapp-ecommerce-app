@@ -1,3 +1,4 @@
+import 'package:cutyapp/MyNavigator/myNavigator.dart';
 import 'package:cutyapp/Values/AppColors.dart';
 import 'package:flutter/material.dart';
 
@@ -28,38 +29,34 @@ class _WishListPageState extends State<WishListPage> {
                   padding: const EdgeInsets.only(top: 5.0),
                   child: GestureDetector(
                     onTap: () {
+                      MyNavigator.goToDashBoard(context);
                     },
                     child: Container(
-                      height: 60,
-                      width: 70,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/icon/Rectangle9.png'),
-                            fit: BoxFit.fill
-                        ),
-                      ),
+                      height: 60.0,
+                      width: 65.0,
+                      transform: Matrix4.translationValues(-3.0, 0, 0),
                       child: Center(
-                        child: Image.asset('assets/icons/back.png',
-                          height:19.0,
-                          width: 19.0,
-                          color: AppColors.primaryBackGroundColor,),
+                        child:Image.asset('assets/icons/back_arrrow.png',
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Expanded(child: Container()),
                 Padding(
-                  padding: const EdgeInsets.only(right: 60.0,top: 40.0),
+                  padding: const EdgeInsets.only(right: 60.0,top: 22.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/icon/wishlist_shopping1.png',color: AppColors.white_00,),
-                      SizedBox(height: 15,),
-                      Text('My WishList',style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'Montserrat-Thin',
-                          fontWeight: FontWeight.bold
+                      Image.asset('assets/icon/wishlist_shopping1.png',
+                        color: AppColors.white_00,
+                      height: 33.0,width: 33.0,fit: BoxFit.fill,),
+                      SizedBox(height: 5.0,),
+                      Text('My Wishlist',style: TextStyle(
+                          fontSize: 20.0,
+                          fontFamily: 'Roboto-Light',
                       ),)
 
                     ],
@@ -79,33 +76,11 @@ class _WishListPageState extends State<WishListPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              /*SizedBox(height: 80,),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset('assets/icon/wishlist_shopping1.png',color: AppColors.white_00,),
-                      SizedBox(height: 15,),
-                      Text('My WishList',style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'Montserrat-Thin',
-                          fontWeight: FontWeight.bold
-                      ),)
-                    ],
-                  )
-                ],
-              ),*/
-              SizedBox(height: 10,),
               Text('You have 2 item in list',style: TextStyle(
-                  fontSize: 18,
-                  fontFamily: 'Montserrat-Thin',
-                  fontWeight: FontWeight.bold
+                  fontSize: 15.0,
+                  fontFamily: 'Roboto-Light',
               ),),
-              SizedBox(height: 30,),
+              SizedBox(height: 20,),
               Container(
                 width: width,
                 decoration: BoxDecoration(
@@ -117,14 +92,14 @@ class _WishListPageState extends State<WishListPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      height: 140,
+                      height: 120.0,
                       width: 100,
                       child: Image.asset('assets/icons/product3.png',
                       fit: BoxFit.contain,),
                     ),
                     Expanded(
                         child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
+                          padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 5.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -135,19 +110,23 @@ class _WishListPageState extends State<WishListPage> {
                                 children: [
                                   Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsets.only(top: 10),
-                                        child: Text('Teraa Naturi Rain',
+                                        padding: const EdgeInsets.only(top: 12.0),
+                                        child: Text('Terra Naturi Rein',
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                   style: TextStyle(
-                                    color: AppColors.black,
-                                    fontSize: 18
+                                    color: AppColors.appColor30,
+                                    fontFamily: 'Roboto-Regular',
+                                    fontSize: 17.0
                                   ),),
                                       )),
-                                  CircleAvatar(
-                                    radius: 10,
-                                    backgroundColor: AppColors.red_50,
-                                    child: Icon(Icons.clear,size: 10,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 2.0),
+                                    child: CircleAvatar(
+                                      radius: 10.0,
+                                      backgroundColor: AppColors.appColor31,
+                                      child: Icon(Icons.clear,size: 10,color: AppColors.white_00,),
+                                    ),
                                   )
                                 ],
                               ),
@@ -155,9 +134,9 @@ class _WishListPageState extends State<WishListPage> {
                               RichText(
                                   text: TextSpan(
                                       style: TextStyle(
-                                          color: AppColors.black,
-                                          fontFamily: 'Roboto-Regular',
-                                          fontSize: 16
+                                          color: AppColors.appColor30,
+                                          fontFamily: 'Roboto-Medium',
+                                          fontSize: 15.0
                                       ),
                                       children: [
                                         TextSpan(
@@ -169,28 +148,40 @@ class _WishListPageState extends State<WishListPage> {
                                       ]
                                   )
                               ),
-                              SizedBox(height: 20,),
+                              SizedBox(height: 10.0,),
                               Container(
-                                width: 200,
-                                padding: EdgeInsets.symmetric(horizontal: 30,vertical: 8),
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: AppColors.primaryBackGroundColor),
-                                  borderRadius: BorderRadius.circular(5.0)
-                                ),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Image.asset('assets/icon/cart.png',color: AppColors.primaryBackGroundColor,),
-                                    Text('   ADD TO CART',style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      color: AppColors.primaryBackGroundColor,
-                                      fontSize: 14,
-                                      fontFamily: 'Roboto-Regular'
-                                    ),),
+                                    Container(
+                                      width: width*0.35,
+                                      alignment: Alignment.topLeft,
+                                      padding: EdgeInsets.symmetric(horizontal: 0,vertical: 5.0),
+                                      decoration: BoxDecoration(
+                                          border: Border.all(color: AppColors.primaryBackGroundColor),
+                                          borderRadius: BorderRadius.circular(5.0)
+                                      ),
+                                      child: Row(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Image.asset('assets/icon/cart.png',
+                                            height: 20.0,
+                                            width: 20.0,
+                                            color: AppColors.primaryBackGroundColor,),
+                                          Text('   ADD TO CART',style: TextStyle(
+                                              color: AppColors.appColor32,
+                                              fontSize: 12.0,
+                                              fontFamily: 'Roboto-Regular'
+                                          ),),
+                                        ],
+                                      ),
+                                    ),
                                   ],
                                 ),
                               )
+
                             ],
                           ),
                         )
@@ -202,22 +193,22 @@ class _WishListPageState extends State<WishListPage> {
               Container(
                 width: width,
                 decoration: BoxDecoration(
-                color: AppColors.white_00,
-                  borderRadius: BorderRadius.circular(5.0)
+                    color: AppColors.white_00,
+                    borderRadius: BorderRadius.circular(5.0)
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      height: 140,
+                      height: 120.0,
                       width: 100,
                       child: Image.asset('assets/icons/product3.png',
-                      fit: BoxFit.contain,),
+                        fit: BoxFit.contain,),
                     ),
                     Expanded(
                         child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
+                          padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 5.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -228,19 +219,23 @@ class _WishListPageState extends State<WishListPage> {
                                 children: [
                                   Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsets.only(top: 10),
-                                        child: Text('Teraa Naturi Rain',
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                    fontSize: 18
-                                  ),),
+                                        padding: const EdgeInsets.only(top: 12.0),
+                                        child: Text('Terra Naturi Rein',
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                              color: AppColors.appColor30,
+                                              fontFamily: 'Roboto-Regular',
+                                              fontSize: 17.0
+                                          ),),
                                       )),
-                                  CircleAvatar(
-                                    radius: 10,
-                                    backgroundColor: AppColors.red_50,
-                                    child: Icon(Icons.clear,size: 10,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 2.0),
+                                    child: CircleAvatar(
+                                      radius: 10.0,
+                                      backgroundColor: AppColors.appColor31,
+                                      child: Icon(Icons.clear,size: 10,color: AppColors.white_00,),
+                                    ),
                                   )
                                 ],
                               ),
@@ -248,9 +243,9 @@ class _WishListPageState extends State<WishListPage> {
                               RichText(
                                   text: TextSpan(
                                       style: TextStyle(
-                                          color: AppColors.black,
-                                          fontFamily: 'Roboto-Regular',
-                                          fontSize: 16
+                                          color: AppColors.appColor30,
+                                          fontFamily: 'Roboto-Medium',
+                                          fontSize: 15.0
                                       ),
                                       children: [
                                         TextSpan(
@@ -262,28 +257,40 @@ class _WishListPageState extends State<WishListPage> {
                                       ]
                                   )
                               ),
-                              SizedBox(height: 20,),
+                              SizedBox(height: 10.0,),
                               Container(
-                                width: 200,
-                                padding: EdgeInsets.symmetric(horizontal: 30,vertical: 8),
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: AppColors.primaryBackGroundColor),
-                                  borderRadius: BorderRadius.circular(5.0)
-                                ),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Image.asset('assets/icon/cart.png',color: AppColors.primaryBackGroundColor,),
-                                    Text('   ADD TO CART',style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      color: AppColors.primaryBackGroundColor,
-                                      fontSize: 14,
-                                      fontFamily: 'Roboto-Regular'
-                                    ),),
+                                    Container(
+                                      width: width*0.35,
+                                      alignment: Alignment.topLeft,
+                                      padding: EdgeInsets.symmetric(horizontal: 0,vertical: 5.0),
+                                      decoration: BoxDecoration(
+                                          border: Border.all(color: AppColors.primaryBackGroundColor),
+                                          borderRadius: BorderRadius.circular(5.0)
+                                      ),
+                                      child: Row(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Image.asset('assets/icon/cart.png',
+                                            height: 20.0,
+                                            width: 20.0,
+                                            color: AppColors.primaryBackGroundColor,),
+                                          Text('   ADD TO CART',style: TextStyle(
+                                              color: AppColors.appColor32,
+                                              fontSize: 12.0,
+                                              fontFamily: 'Roboto-Regular'
+                                          ),),
+                                        ],
+                                      ),
+                                    ),
                                   ],
                                 ),
                               )
+
                             ],
                           ),
                         )
@@ -291,6 +298,7 @@ class _WishListPageState extends State<WishListPage> {
                   ],
                 ),
               ),
+
             ],
           ),
         ),

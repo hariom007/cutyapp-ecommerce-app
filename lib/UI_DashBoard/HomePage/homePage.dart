@@ -1,5 +1,4 @@
 import 'package:cutyapp/UI_DashBoard/HomePage/drawerPage.dart';
-import 'package:cutyapp/UI_DashBoard/HomePage/filterPage.dart';
 import 'package:cutyapp/UI_DashBoard/HomePage/productDetailPage.dart';
 import 'package:cutyapp/Values/AppColors.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +34,7 @@ class CheckBoxData {
     "checked": checked == null ? null : checked,
   };
 }
+
 class RadioData {
   int id;
   String displayId;
@@ -59,17 +59,23 @@ class RadioData {
 class _HomePageState extends State<HomePage> {
   RangeValues _currentRangeValues = const RangeValues(0, 1000);
 
+  bool val =false;
+  bool val2 =false;
 
   List<CheckBoxData> checkboxDataList = [
-    new CheckBoxData(id: '1', displayId: 'Category 1', checked: true),
-    new CheckBoxData(id: '2', displayId: 'Category 2', checked: false),
-    new CheckBoxData(id: '3', displayId: 'Category 3', checked: true),
+    new CheckBoxData(id: '1', displayId: 'Sub-Category 1', checked: true),
+    new CheckBoxData(id: '2', displayId: 'Sub-Category 2', checked: false),
+    new CheckBoxData(id: '3', displayId: 'Sub-Category 3', checked: true),
+    new CheckBoxData(id: '4', displayId: 'Sub-Category 4', checked: true),
+    new CheckBoxData(id: '5', displayId: 'Sub-Category 5', checked: true),
   ];
 
   List<RadioData> radioDataList = [
     new RadioData(id: 1, displayId: 'Sub-Category 1'),
     new RadioData(id: 2, displayId: 'Sub-Category 2'),
     new RadioData(id: 3, displayId: 'Sub-Category 3'),
+    new RadioData(id: 4, displayId: 'Sub-Category 4'),
+    new RadioData(id: 5, displayId: 'Sub-Category 5'),
   ];
 
   @override
@@ -129,6 +135,7 @@ class _HomePageState extends State<HomePage> {
                             return StatefulBuilder(
                               builder: (BuildContext context, StateSetter state) {
                                 return Container(
+                                  color: AppColors.white_00,
                                     height: height*0.86,
                                     child: Stack(
                                       children: [
@@ -143,32 +150,39 @@ class _HomePageState extends State<HomePage> {
                                                   Navigator.pop(context);
                                                 },
                                                 child: Container(
-                                                  height: 60,
-                                                  width: 70,
-                                                  padding: EdgeInsets.symmetric(horizontal: 10),
+                                                  height: 50.0,
+                                                  width: 60.0,
+                                                  transform: Matrix4.translationValues(-5, 0, 0),
+                                                  padding: EdgeInsets.symmetric(horizontal: 0),
                                                   decoration: BoxDecoration(
-                                                    image: DecorationImage(
-                                                        image: AssetImage('assets/icon/Rectangle2.png'),
-                                                        fit: BoxFit.fill
-                                                    ),
+                                                    color: AppColors.primaryBackGroundColor,
+                                                    borderRadius: BorderRadius.only(
+                                                      topRight: Radius.circular(21.0),
+                                                      bottomRight: Radius.circular(21.0)
+                                                    )
                                                   ),
                                                   child: Center(
-                                                    child:  Image.asset('assets/icons/back.png',),
+                                                    child:  ClipRRect(
+                                                      borderRadius: BorderRadius.circular(20.0),
+                                                        child: Image.asset('assets/icons/top_back_arrow.png',height: 40.0,)),
                                                   ),
                                                 ),
                                               ),
-                                              Text("   Filter",
-                                                style: TextStyle(
-                                                    color: AppColors.black,
-                                                    fontFamily: 'Montserrat-semibold',
-                                                    fontSize: 16
-                                                ),),
+                                              Padding(
+                                                padding: const EdgeInsets.only(top: 2.0),
+                                                child: Text(" Filter",
+                                                  style: TextStyle(
+                                                      color: AppColors.appColor15,
+                                                      fontFamily: 'Roboto-Medium',
+                                                      fontSize: 18.0
+                                                  ),),
+                                              ),
 
                                             ],
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 100.0),
+                                          padding: const EdgeInsets.only(top: 100.0,bottom: 40.0),
                                           child: SingleChildScrollView(
                                             child: Column(
                                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -207,14 +221,14 @@ class _HomePageState extends State<HomePage> {
                                                     mainAxisAlignment: MainAxisAlignment.start,
                                                     children: [
                                                       Padding(
-                                                        padding: EdgeInsets.symmetric(horizontal: 10),
+                                                        padding: EdgeInsets.symmetric(horizontal: 0),
                                                         child: Row(
                                                           children: [
                                                             RichText(
                                                               text: TextSpan(
                                                                 style: TextStyle(
-                                                                    fontFamily: 'Montserrat-SemiBold',
-                                                                    color: AppColors.black,
+                                                                    fontFamily: 'Roboto-Regular',
+                                                                    color: AppColors.appColor15,
                                                                     fontSize: 15
                                                                 ),
                                                                 children: [
@@ -231,8 +245,8 @@ class _HomePageState extends State<HomePage> {
                                                             RichText(
                                                               text: TextSpan(
                                                                 style: TextStyle(
-                                                                    fontFamily: 'Montserrat-SemiBold',
-                                                                    color: AppColors.black,
+                                                                    fontFamily: 'Roboto-Regular',
+                                                                    color: AppColors.appColor15,
                                                                     fontSize: 15
                                                                 ),
                                                                 children: [
@@ -280,7 +294,8 @@ class _HomePageState extends State<HomePage> {
                                                                   Expanded(
                                                                       child: Text(data.displayId,
                                                                         style: TextStyle(
-                                                                            color: AppColors.black
+                                                                            color: AppColors.appColor15,
+                                                                          fontFamily: 'Roboto-Medium'
                                                                         ),)
                                                                   ),
                                                                   Checkbox(
@@ -339,7 +354,8 @@ class _HomePageState extends State<HomePage> {
                                                             Expanded(
                                                                 child: Text(data.displayId,
                                                                   style: TextStyle(
-                                                                      color: AppColors.black
+                                                                      color: AppColors.appColor15,
+                                                                    fontFamily: 'Roboto-Medium'
                                                                   ),)
                                                             ),
                                                             Radio<int>(
@@ -363,56 +379,62 @@ class _HomePageState extends State<HomePage> {
                                                 ),
 
 
-                                                SizedBox(height: 10.0,),
-                                                Padding(
-                                                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                                                  child: Row(
-                                                    children: [
-                                                      Expanded(
-                                                        child: RaisedButton(
-                                                          onPressed: (){
-                                                          },
-                                                          padding: EdgeInsets.symmetric(vertical: 10,horizontal: 0),
-                                                          shape: RoundedRectangleBorder(
-                                                            borderRadius: BorderRadius.circular(6.0),
-                                                          ),
-                                                          color: AppColors.appColor3,
-                                                          child: Text('RESET',
-                                                              style: TextStyle(
-                                                                  fontFamily: 'Montserrat-Semibold',
-                                                                  fontWeight: FontWeight.bold,
-                                                                  fontSize: 16,
-                                                                  color: AppColors.white_00
-                                                              )
-                                                          ),
-                                                        ),),
-                                                      SizedBox(width: 10.0,),
-                                                      Expanded(
-                                                        child: RaisedButton(
-                                                          onPressed: (){
-                                                          },
-                                                          padding: EdgeInsets.symmetric(vertical: 10,horizontal: 0),
-                                                          shape: RoundedRectangleBorder(
-                                                            borderRadius: BorderRadius.circular(6.0),
-                                                          ),
-                                                          color: AppColors.primaryBackGroundColor,
-                                                          child: Text('RESET',
-                                                              style: TextStyle(
-                                                                  fontFamily: 'Montserrat-Semibold',
-                                                                  fontWeight: FontWeight.bold,
-                                                                  fontSize: 16,
-                                                                  color: AppColors.white_00
-                                                              )
-                                                          ),
-                                                        ),),
-                                                    ],
-                                                  ),
-                                                ),
                                                 SizedBox(height: 30,)
                                               ],
                                             ),
                                           ),
                                         ),
+                                        Positioned(
+                                          bottom: 0,
+                                          child:  Container(
+                                            color: AppColors.white_00,
+                                            height: 85.0,
+                                            width: width,
+                                            child: Padding(
+                                              padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 20.0),
+                                              child: Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: RaisedButton(
+                                                      onPressed: (){
+                                                      },
+                                                      padding: EdgeInsets.symmetric(vertical: 15.0,horizontal: 0),
+                                                      shape: RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.circular(6.0),
+                                                      ),
+                                                      color: AppColors.appColor3,
+                                                      child: Text('RESET',
+                                                          style: TextStyle(
+                                                              fontFamily: 'Roboto-Bold',
+                                                              fontSize: 14,
+                                                              color: AppColors.white_00
+                                                          )
+                                                      ),
+                                                    ),),
+                                                  SizedBox(width: 20.0,),
+                                                  Expanded(
+                                                    child: RaisedButton(
+                                                      onPressed: (){
+                                                      },
+                                                      padding: EdgeInsets.symmetric(vertical: 15.0,horizontal: 0),
+                                                      shape: RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.circular(6.0),
+                                                      ),
+                                                      color: AppColors.primaryBackGroundColor,
+                                                      child: Text('RESET',
+                                                          style: TextStyle(
+                                                              fontFamily: 'Roboto-Bold',
+                                                              fontWeight: FontWeight.bold,
+                                                              fontSize: 14.0,
+                                                              color: AppColors.white_00
+                                                          )
+                                                      ),
+                                                    ),),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        )
                                       ],
                                     )
                                 );
@@ -506,17 +528,31 @@ class _HomePageState extends State<HomePage> {
                                         )
                                     ),
                                     child: IconButton(
-                                      icon: Image.asset('assets/icons/heart_fill.png'),
+                                      icon: val==true ? Image.asset(
+                                        'assets/icons/heart_unfill.png',
+                                        height: 27.0,width: 27.0,
+                                      ) : Image.asset(
+                                        'assets/icons/heart_fill.png',
+                                        height: 27.0,width: 27.0,
+                                      ),
                                       onPressed: (){
-
+                                        setState(() {
+                                          if(val==false){
+                                            val = true;
+                                          }
+                                          else{
+                                            val = false;
+                                          }
+                                        });
                                       },
                                     ),
                                   ),
                                   Divider(
-                                    color: AppColors.grey_70,
+                                    color: AppColors.primaryBackGroundColor,
+                                    thickness: 0.5,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(10.0),
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       mainAxisAlignment: MainAxisAlignment.start,
@@ -535,25 +571,29 @@ class _HomePageState extends State<HomePage> {
                                                             style: TextStyle(
                                                                 color: AppColors.black,
                                                                 fontWeight: FontWeight.bold,
-                                                                fontFamily: 'Roboto-Regular',
-                                                                fontSize: 15
+                                                                fontFamily: 'Roboto-Medium',
+                                                                fontSize: 13
                                                             ),
                                                             children: [
                                                               TextSpan(
                                                                   text: '75.99 '
                                                               ),
                                                               TextSpan(
-                                                                  text: 'QAR '
+                                                                  text: 'QAR   '
                                                               ),
                                                             ]
                                                         )
                                                     ),
                                                     Container(
-                                                      color: AppColors.primaryBackGroundColor,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(3.0),
+                                                        color: AppColors.appColor26,
+                                                      ),
                                                       padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
                                                       child: Text('-50%',
                                                         style: TextStyle(
-                                                            fontSize: 12
+                                                          fontSize: 10.0,
+                                                          fontFamily: 'Roboto-Regular',
                                                         ),),
                                                     )
 
@@ -562,7 +602,8 @@ class _HomePageState extends State<HomePage> {
                                                 SizedBox(height: 3,),
                                                 Text('Baking Powder Clean',
                                                   style: TextStyle(
-                                                    fontSize: 16,
+                                                    fontSize: 14.0,
+                                                    fontFamily: 'Roboto-Regular',
                                                     color: AppColors.black,
                                                   ),
                                                   maxLines: 1,
@@ -571,11 +612,11 @@ class _HomePageState extends State<HomePage> {
                                             )
                                         ),
                                         Center(
-                                          child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                                          child: Icon(Icons.add_circle_outline,size:20.0,color: AppColors.appColor27,),
                                         )
                                       ],
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
@@ -607,17 +648,31 @@ class _HomePageState extends State<HomePage> {
                                         )
                                     ),
                                     child: IconButton(
-                                      icon: Image.asset('assets/icons/heart_unfill.png'),
+                                      icon: val2==true ? Image.asset(
+                                        'assets/icons/heart_fill.png',
+                                        height: 27.0,width: 27.0,
+                                      ) : Image.asset(
+                                        'assets/icons/heart_unfill.png',
+                                        height: 27.0,width: 27.0,
+                                      ),
                                       onPressed: (){
-
+                                        setState(() {
+                                          if(val2==false){
+                                            val2 = true;
+                                          }
+                                          else{
+                                            val2 = false;
+                                          }
+                                        });
                                       },
                                     ),
                                   ),
                                   Divider(
-                                    color: AppColors.grey_70,
+                                    color: AppColors.primaryBackGroundColor,
+                                    thickness: 0.5,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(10.0),
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       mainAxisAlignment: MainAxisAlignment.start,
@@ -636,25 +691,29 @@ class _HomePageState extends State<HomePage> {
                                                             style: TextStyle(
                                                                 color: AppColors.black,
                                                                 fontWeight: FontWeight.bold,
-                                                                fontFamily: 'Roboto-Regular',
-                                                                fontSize: 15
+                                                                fontFamily: 'Roboto-Medium',
+                                                                fontSize: 13
                                                             ),
                                                             children: [
                                                               TextSpan(
                                                                   text: '75.99 '
                                                               ),
                                                               TextSpan(
-                                                                  text: 'QAR '
+                                                                  text: 'QAR   '
                                                               ),
                                                             ]
                                                         )
                                                     ),
                                                     Container(
-                                                      color: AppColors.primaryBackGroundColor,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(3.0),
+                                                      color: AppColors.appColor26,
+                                                      ),
                                                       padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
                                                       child: Text('-50%',
                                                         style: TextStyle(
-                                                            fontSize: 12
+                                                            fontSize: 10.0,
+                                                          fontFamily: 'Roboto-Regular',
                                                         ),),
                                                     )
 
@@ -663,7 +722,8 @@ class _HomePageState extends State<HomePage> {
                                                 SizedBox(height: 3,),
                                                 Text('Baking Powder Clean',
                                                   style: TextStyle(
-                                                    fontSize: 16,
+                                                    fontSize: 14.0,
+                                                    fontFamily: 'Roboto-Regular',
                                                     color: AppColors.black,
                                                   ),
                                                   maxLines: 1,
@@ -672,7 +732,7 @@ class _HomePageState extends State<HomePage> {
                                             )
                                         ),
                                         Center(
-                                          child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                                          child: Icon(Icons.add_circle_outline,size:20.0,color: AppColors.appColor27,),
                                         )
                                       ],
                                     ),
@@ -716,17 +776,18 @@ class _HomePageState extends State<HomePage> {
                                         )
                                     ),
                                     child: IconButton(
-                                      icon: Image.asset('assets/icons/heart_unfill.png'),
+                                      icon: Image.asset('assets/icons/heart_unfill.png',height: 27.0,width: 27.0,),
                                       onPressed: (){
 
                                       },
                                     ),
                                   ),
                                   Divider(
-                                    color: AppColors.grey_70,
+                                    color: AppColors.primaryBackGroundColor,
+                                    thickness: 0.5,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(10.0),
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       mainAxisAlignment: MainAxisAlignment.start,
@@ -745,25 +806,29 @@ class _HomePageState extends State<HomePage> {
                                                             style: TextStyle(
                                                                 color: AppColors.black,
                                                                 fontWeight: FontWeight.bold,
-                                                                fontFamily: 'Roboto-Regular',
-                                                                fontSize: 15
+                                                                fontFamily: 'Roboto-Medium',
+                                                                fontSize: 13
                                                             ),
                                                             children: [
                                                               TextSpan(
                                                                   text: '75.99 '
                                                               ),
                                                               TextSpan(
-                                                                  text: 'QAR '
+                                                                  text: 'QAR   '
                                                               ),
                                                             ]
                                                         )
                                                     ),
                                                     Container(
-                                                      color: AppColors.primaryBackGroundColor,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(3.0),
+                                                        color: AppColors.appColor26,
+                                                      ),
                                                       padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
                                                       child: Text('-50%',
                                                         style: TextStyle(
-                                                            fontSize: 12
+                                                          fontSize: 10.0,
+                                                          fontFamily: 'Roboto-Regular',
                                                         ),),
                                                     )
 
@@ -772,7 +837,8 @@ class _HomePageState extends State<HomePage> {
                                                 SizedBox(height: 3,),
                                                 Text('Baking Powder Clean',
                                                   style: TextStyle(
-                                                    fontSize: 16,
+                                                    fontSize: 14.0,
+                                                    fontFamily: 'Roboto-Regular',
                                                     color: AppColors.black,
                                                   ),
                                                   maxLines: 1,
@@ -781,11 +847,11 @@ class _HomePageState extends State<HomePage> {
                                             )
                                         ),
                                         Center(
-                                          child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                                          child: Icon(Icons.add_circle_outline,size:20.0,color: AppColors.appColor27,),
                                         )
                                       ],
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
@@ -817,17 +883,18 @@ class _HomePageState extends State<HomePage> {
                                         )
                                     ),
                                     child: IconButton(
-                                      icon: Image.asset('assets/icons/heart_fill.png'),
+                                      icon: Image.asset('assets/icons/heart_fill.png',height: 27.0,width: 27.0,),
                                       onPressed: (){
 
                                       },
                                     ),
                                   ),
                                   Divider(
-                                    color: AppColors.grey_70,
+                                    color: AppColors.primaryBackGroundColor,
+                                    thickness: 0.5,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(10.0),
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       mainAxisAlignment: MainAxisAlignment.start,
@@ -846,25 +913,29 @@ class _HomePageState extends State<HomePage> {
                                                             style: TextStyle(
                                                                 color: AppColors.black,
                                                                 fontWeight: FontWeight.bold,
-                                                                fontFamily: 'Roboto-Regular',
-                                                                fontSize: 15
+                                                                fontFamily: 'Roboto-Medium',
+                                                                fontSize: 13
                                                             ),
                                                             children: [
                                                               TextSpan(
                                                                   text: '75.99 '
                                                               ),
                                                               TextSpan(
-                                                                  text: 'QAR '
+                                                                  text: 'QAR   '
                                                               ),
                                                             ]
                                                         )
                                                     ),
                                                     Container(
-                                                      color: AppColors.primaryBackGroundColor,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(3.0),
+                                                        color: AppColors.appColor26,
+                                                      ),
                                                       padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
                                                       child: Text('-50%',
                                                         style: TextStyle(
-                                                            fontSize: 12
+                                                          fontSize: 10.0,
+                                                          fontFamily: 'Roboto-Regular',
                                                         ),),
                                                     )
 
@@ -873,7 +944,8 @@ class _HomePageState extends State<HomePage> {
                                                 SizedBox(height: 3,),
                                                 Text('Baking Powder Clean',
                                                   style: TextStyle(
-                                                    fontSize: 16,
+                                                    fontSize: 14.0,
+                                                    fontFamily: 'Roboto-Regular',
                                                     color: AppColors.black,
                                                   ),
                                                   maxLines: 1,
@@ -882,7 +954,7 @@ class _HomePageState extends State<HomePage> {
                                             )
                                         ),
                                         Center(
-                                          child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                                          child: Icon(Icons.add_circle_outline,size:20.0,color: AppColors.appColor27,),
                                         )
                                       ],
                                     ),
@@ -926,17 +998,18 @@ class _HomePageState extends State<HomePage> {
                                         )
                                     ),
                                     child: IconButton(
-                                      icon: Image.asset('assets/icons/heart_fill.png'),
+                                      icon: Image.asset('assets/icons/heart_fill.png',height: 27.0,width: 27.0,),
                                       onPressed: (){
 
                                       },
                                     ),
                                   ),
                                   Divider(
-                                    color: AppColors.grey_70,
+                                    color: AppColors.primaryBackGroundColor,
+                                    thickness: 0.5,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(10.0),
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       mainAxisAlignment: MainAxisAlignment.start,
@@ -955,25 +1028,29 @@ class _HomePageState extends State<HomePage> {
                                                             style: TextStyle(
                                                                 color: AppColors.black,
                                                                 fontWeight: FontWeight.bold,
-                                                                fontFamily: 'Roboto-Regular',
-                                                                fontSize: 15
+                                                                fontFamily: 'Roboto-Medium',
+                                                                fontSize: 13
                                                             ),
                                                             children: [
                                                               TextSpan(
                                                                   text: '75.99 '
                                                               ),
                                                               TextSpan(
-                                                                  text: 'QAR '
+                                                                  text: 'QAR   '
                                                               ),
                                                             ]
                                                         )
                                                     ),
                                                     Container(
-                                                      color: AppColors.primaryBackGroundColor,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(3.0),
+                                                        color: AppColors.appColor26,
+                                                      ),
                                                       padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
                                                       child: Text('-50%',
                                                         style: TextStyle(
-                                                            fontSize: 12
+                                                          fontSize: 10.0,
+                                                          fontFamily: 'Roboto-Regular',
                                                         ),),
                                                     )
 
@@ -982,7 +1059,8 @@ class _HomePageState extends State<HomePage> {
                                                 SizedBox(height: 3,),
                                                 Text('Baking Powder Clean',
                                                   style: TextStyle(
-                                                    fontSize: 16,
+                                                    fontSize: 14.0,
+                                                    fontFamily: 'Roboto-Regular',
                                                     color: AppColors.black,
                                                   ),
                                                   maxLines: 1,
@@ -991,7 +1069,7 @@ class _HomePageState extends State<HomePage> {
                                             )
                                         ),
                                         Center(
-                                          child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                                          child: Icon(Icons.add_circle_outline,size:20.0,color: AppColors.appColor27,),
                                         )
                                       ],
                                     ),
@@ -1027,17 +1105,18 @@ class _HomePageState extends State<HomePage> {
                                         )
                                     ),
                                     child: IconButton(
-                                      icon: Image.asset('assets/icons/heart_unfill.png'),
+                                      icon: Image.asset('assets/icons/heart_unfill.png',height: 27.0,width: 27.0,),
                                       onPressed: (){
 
                                       },
                                     ),
                                   ),
                                   Divider(
-                                    color: AppColors.grey_70,
+                                    color: AppColors.primaryBackGroundColor,
+                                    thickness: 0.5,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(10.0),
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       mainAxisAlignment: MainAxisAlignment.start,
@@ -1056,25 +1135,29 @@ class _HomePageState extends State<HomePage> {
                                                             style: TextStyle(
                                                                 color: AppColors.black,
                                                                 fontWeight: FontWeight.bold,
-                                                                fontFamily: 'Roboto-Regular',
-                                                                fontSize: 15
+                                                                fontFamily: 'Roboto-Medium',
+                                                                fontSize: 13
                                                             ),
                                                             children: [
                                                               TextSpan(
                                                                   text: '75.99 '
                                                               ),
                                                               TextSpan(
-                                                                  text: 'QAR '
+                                                                  text: 'QAR   '
                                                               ),
                                                             ]
                                                         )
                                                     ),
                                                     Container(
-                                                      color: AppColors.primaryBackGroundColor,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(3.0),
+                                                        color: AppColors.appColor26,
+                                                      ),
                                                       padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
                                                       child: Text('-50%',
                                                         style: TextStyle(
-                                                            fontSize: 12
+                                                          fontSize: 10.0,
+                                                          fontFamily: 'Roboto-Regular',
                                                         ),),
                                                     )
 
@@ -1083,7 +1166,8 @@ class _HomePageState extends State<HomePage> {
                                                 SizedBox(height: 3,),
                                                 Text('Baking Powder Clean',
                                                   style: TextStyle(
-                                                    fontSize: 16,
+                                                    fontSize: 14.0,
+                                                    fontFamily: 'Roboto-Regular',
                                                     color: AppColors.black,
                                                   ),
                                                   maxLines: 1,
@@ -1092,11 +1176,11 @@ class _HomePageState extends State<HomePage> {
                                             )
                                         ),
                                         Center(
-                                          child: Icon(Icons.add_circle_outline,color: AppColors.primaryBackGroundColor,),
+                                          child: Icon(Icons.add_circle_outline,size:20.0,color: AppColors.appColor27,),
                                         )
                                       ],
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),

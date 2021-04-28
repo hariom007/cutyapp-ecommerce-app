@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: 120,),
+                  SizedBox(height:height*0.135,),
                   Text('Login / Sign Up',
                     style: TextStyle(
                         fontFamily: 'Montserrat-SemiBold',
@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                                             height: 30.0,
                                             child: Image.asset('assets/icons/qatar.png'),
                                           ),
-                                          Text("  +974 ",
+                                          Text("  +974   ",
                                             style: TextStyle(
                                                 fontSize: 15,
                                                 color: AppColors.black,
@@ -200,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   Spacer(),
-                  Image.asset('assets/icons/cuty3.png',height: 200,width: 200,fit: BoxFit.fill,)
+                  Image.asset('assets/icons/cuty3.png',height: height*0.2,width: 200,fit: BoxFit.fill,)
                 ],
               ),
             ),

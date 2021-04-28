@@ -31,36 +31,31 @@ class _EditProfileState extends State<EditProfile> {
                       Navigator.pop(context,true);
                     },
                     child: Container(
-                      height: 60,
-                      width: 70,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/icon/Rectangle9.png'),
-                              fit: BoxFit.fill
-                          ),
-                      ),
+                      height: 60.0,
+                      width: 65.0,
+                      transform: Matrix4.translationValues(-3.0, 0, 0),
                       child: Center(
-                        child: Image.asset('assets/icons/back.png',
-                          height:19.0,
-                          width: 19.0,
-                          color: AppColors.primaryBackGroundColor,),
+                        child:Image.asset('assets/icons/back_arrrow.png',
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Expanded(child: Container()),
                 Padding(
-                  padding: const EdgeInsets.only(right: 60.0,top: 40.0),
+                  padding: const EdgeInsets.only(right: 60.0,top: 22.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/icons/person.png',height: 35.0,width: 35.0,),
+                      Image.asset('assets/icons/person.png',
+                        height: 35.0,width: 35.0,
+                      ),
                       SizedBox(height: 5,),
                       Text('Profile',style: TextStyle(
                           fontSize: 18,
-                          fontFamily: 'Montserrat-Thin',
-                          fontWeight: FontWeight.bold
+                          fontFamily: 'Roboto-Light',
                       ),),
 
                     ],
@@ -75,192 +70,57 @@ class _EditProfileState extends State<EditProfile> {
       ),
       body: Stack(
         children: [
-          SingleChildScrollView(
-            physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  /*Center(
-                    child: Container(
-                      transform: Matrix4.translationValues(0,20, 0),
-                      child: CircleAvatar(
-                        radius: 15.0,
-                        backgroundColor: AppColors.white_00,
-                        child: Icon(Icons.edit),
-                      ),
-                    ),
-                  ),*/
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: AppColors.white_00,
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                    image: AssetImage('assets/icons/user.png')
+          Padding(
+            padding: const EdgeInsets.only(bottom: 25.0),
+            child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: AppColors.white_00,
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/icon/team_circle.png'),
+                                    fit: BoxFit.fill
+                                  ),
+                                  border: Border.all(color: AppColors.black,width: 0.5)
+                              ),
+                              height: 110,
+                              width: 110,
+                              child: Container(
+                                height: 20,
+                                alignment: Alignment.centerRight,
+                                width: 20,
+                                transform: Matrix4.translationValues(5,-30,0),
+                                child: CircleAvatar(
+                                  radius: 15.0,
+                                  backgroundColor: AppColors.white_00,
+                                  child: Icon(Icons.edit_outlined,color: AppColors.black,size: 20,),
                                 ),
-                                border: Border.all(color: AppColors.black,width: 0.5)
-                            ),
-                            height: 110,
-                            width: 110,
-                            child: Container(
-                              height: 20,
-                              alignment: Alignment.centerRight,
-                              width: 20,
-                              transform: Matrix4.translationValues(5,-30,0),
-                              child: CircleAvatar(
-                                radius: 15.0,
-                                backgroundColor: AppColors.white_00,
-                                child: Icon(Icons.edit,color: AppColors.black,size: 20,),
                               ),
                             ),
-                          ),
 
-                          SizedBox(height: 20,),
-                          Text('Full Name',
-                          style: TextStyle(
-                              color: AppColors.white_00,
-                              fontSize: 14,
-                              fontFamily: 'Roboto-Thin',
-                            fontWeight: FontWeight.bold
-                          ),),
-                          SizedBox(height: 15,),
-                          Material(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0)
-                            ),
-                            elevation: 2.0,
-                            color: AppColors.white_00,
-                            child: TextField(
-                              autofocus: false,
-                              // validator: validateMobile,
-                              keyboardType: TextInputType.phone,
-                              // controller: mobileNumberController,
-                              decoration: InputDecoration(
-                                // hintText: "Enter Mobile number",
-                                  isDense: true,
-                                  /* hintStyle: TextStyle(
-                                          color: AppColors.grey_20,
-                                          fontFamily: 'Montserrat-Semibold',
-                                          fontSize: 14
-                                      ),*/
-                                  border: InputBorder.none,
-                                  contentPadding: EdgeInsets.symmetric(vertical: 16.0,horizontal: 10)
-                              ),
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: 'Montserrat-Semibold',
-                                  color: AppColors.black,
-                                  fontWeight: FontWeight.w700
-                              ),
-
-                            )
-                          ),
-                          SizedBox(height: 25,),
-                          Text('Email',
-                          style: TextStyle(
-                              color: AppColors.white_00,
-                              fontSize: 14,
-                              fontFamily: 'Roboto-Thin',
-                            fontWeight: FontWeight.bold
-                          ),),
-                          SizedBox(height: 15,),
-                          Material(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0)
-                            ),
-                            elevation: 2.0,
-                            color: AppColors.white_00,
-                            child: TextField(
-                              autofocus: false,
-                              // validator: validateMobile,
-                              keyboardType: TextInputType.phone,
-                              // controller: mobileNumberController,
-                              decoration: InputDecoration(
-                                // hintText: "Enter Mobile number",
-                                  isDense: true,
-                                  /* hintStyle: TextStyle(
-                                          color: AppColors.grey_20,
-                                          fontFamily: 'Montserrat-Semibold',
-                                          fontSize: 14
-                                      ),*/
-                                  border: InputBorder.none,
-                                  contentPadding: EdgeInsets.symmetric(vertical: 16.0,horizontal: 10)
-                              ),
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: 'Montserrat-Semibold',
-                                  color: AppColors.black,
-                                  fontWeight: FontWeight.w700
-                              ),
-
-                            )
-                          ),
-                          SizedBox(height: 25,),
-                          Text('Phone',
-                          style: TextStyle(
-                              color: AppColors.white_00,
-                              fontSize: 14,
-                              fontFamily: 'Roboto-Thin',
-                            fontWeight: FontWeight.bold
-                          ),),
-                          SizedBox(height: 15,),
-                          Material(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0)
-                            ),
-                            elevation: 2.0,
-                            color: AppColors.white_00,
-                            child: TextField(
-                              autofocus: false,
-                              // validator: validateMobile,
-                              keyboardType: TextInputType.phone,
-                              // controller: mobileNumberController,
-                              decoration: InputDecoration(
-                                // hintText: "Enter Mobile number",
-                                  isDense: true,
-                                  /* hintStyle: TextStyle(
-                                          color: AppColors.grey_20,
-                                          fontFamily: 'Montserrat-Semibold',
-                                          fontSize: 14
-                                      ),*/
-                                  border: InputBorder.none,
-                                  contentPadding: EdgeInsets.symmetric(vertical: 16.0,horizontal: 10)
-                              ),
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: 'Montserrat-Semibold',
-                                  color: AppColors.black,
-                                  fontWeight: FontWeight.w700
-                              ),
-
-                            )
-                          ),
-                          SizedBox(height: 35,),
-                          Text('Change Password',
-                            style: TextStyle(
-                                color: AppColors.white_00,
-                                fontSize: 20,
-                                fontFamily: 'Roboto-regular',
-                                fontWeight: FontWeight.bold
-                            ),),
-                          SizedBox(height: 25,),
-                          Text('New Password',
+                            SizedBox(height: 20,),
+                            Text('Full Name',
                             style: TextStyle(
                                 color: AppColors.white_00,
                                 fontSize: 14,
                                 fontFamily: 'Roboto-Thin',
-                                fontWeight: FontWeight.bold
+                              fontWeight: FontWeight.bold
                             ),),
-                          SizedBox(height: 15,),
-                          Material(
+                            SizedBox(height: 15,),
+                            Material(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0)
                               ),
@@ -275,10 +135,10 @@ class _EditProfileState extends State<EditProfile> {
                                   // hintText: "Enter Mobile number",
                                     isDense: true,
                                     /* hintStyle: TextStyle(
-                                          color: AppColors.grey_20,
-                                          fontFamily: 'Montserrat-Semibold',
-                                          fontSize: 14
-                                      ),*/
+                                            color: AppColors.grey_20,
+                                            fontFamily: 'Montserrat-Semibold',
+                                            fontSize: 14
+                                        ),*/
                                     border: InputBorder.none,
                                     contentPadding: EdgeInsets.symmetric(vertical: 16.0,horizontal: 10)
                                 ),
@@ -290,17 +150,17 @@ class _EditProfileState extends State<EditProfile> {
                                 ),
 
                               )
-                          ),
-                          SizedBox(height: 25,),
-                          Text('Confirm Password',
+                            ),
+                            SizedBox(height: 25,),
+                            Text('Email',
                             style: TextStyle(
                                 color: AppColors.white_00,
                                 fontSize: 14,
                                 fontFamily: 'Roboto-Thin',
-                                fontWeight: FontWeight.bold
+                              fontWeight: FontWeight.bold
                             ),),
-                          SizedBox(height: 15,),
-                          Material(
+                            SizedBox(height: 15,),
+                            Material(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0)
                               ),
@@ -315,10 +175,10 @@ class _EditProfileState extends State<EditProfile> {
                                   // hintText: "Enter Mobile number",
                                     isDense: true,
                                     /* hintStyle: TextStyle(
-                                          color: AppColors.grey_20,
-                                          fontFamily: 'Montserrat-Semibold',
-                                          fontSize: 14
-                                      ),*/
+                                            color: AppColors.grey_20,
+                                            fontFamily: 'Montserrat-Semibold',
+                                            fontSize: 14
+                                        ),*/
                                     border: InputBorder.none,
                                     contentPadding: EdgeInsets.symmetric(vertical: 16.0,horizontal: 10)
                                 ),
@@ -330,69 +190,177 @@ class _EditProfileState extends State<EditProfile> {
                                 ),
 
                               )
-                          ),
-                          SizedBox(height: 25,),
+                            ),
+                            SizedBox(height: 25,),
+                            Text('Phone',
+                            style: TextStyle(
+                                color: AppColors.white_00,
+                                fontSize: 14,
+                                fontFamily: 'Roboto-Thin',
+                              fontWeight: FontWeight.bold
+                            ),),
+                            SizedBox(height: 15,),
+                            Material(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0)
+                              ),
+                              elevation: 2.0,
+                              color: AppColors.white_00,
+                              child: TextField(
+                                autofocus: false,
+                                // validator: validateMobile,
+                                keyboardType: TextInputType.phone,
+                                // controller: mobileNumberController,
+                                decoration: InputDecoration(
+                                  // hintText: "Enter Mobile number",
+                                    isDense: true,
+                                    /* hintStyle: TextStyle(
+                                            color: AppColors.grey_20,
+                                            fontFamily: 'Montserrat-Semibold',
+                                            fontSize: 14
+                                        ),*/
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.symmetric(vertical: 16.0,horizontal: 10)
+                                ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontFamily: 'Montserrat-Semibold',
+                                    color: AppColors.black,
+                                    fontWeight: FontWeight.w700
+                                ),
 
-                        ],
-                      ),
-                    ),
-                  ),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Container(
-                        width: width,
-                        child: RaisedButton(
-                          onPressed: (){
-                          },
-                          padding: EdgeInsets.symmetric(vertical: 15),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          color: AppColors.white_00,
-                          child: Text('UPDATE PROFILE',
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat-Semibold',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                  color: AppColors.black
                               )
-                          ),
+                            ),
+                            SizedBox(height: 35,),
+                            Text('Change Password',
+                              style: TextStyle(
+                                  color: AppColors.white_00,
+                                  fontSize: 20,
+                                  fontFamily: 'Roboto-regular',
+                                  fontWeight: FontWeight.bold
+                              ),),
+                            SizedBox(height: 25,),
+                            Text('New Password',
+                              style: TextStyle(
+                                  color: AppColors.white_00,
+                                  fontSize: 14,
+                                  fontFamily: 'Roboto-Thin',
+                                  fontWeight: FontWeight.bold
+                              ),),
+                            SizedBox(height: 15,),
+                            Material(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30.0)
+                                ),
+                                elevation: 2.0,
+                                color: AppColors.white_00,
+                                child: TextField(
+                                  autofocus: false,
+                                  // validator: validateMobile,
+                                  keyboardType: TextInputType.phone,
+                                  // controller: mobileNumberController,
+                                  decoration: InputDecoration(
+                                    // hintText: "Enter Mobile number",
+                                      isDense: true,
+                                      /* hintStyle: TextStyle(
+                                            color: AppColors.grey_20,
+                                            fontFamily: 'Montserrat-Semibold',
+                                            fontSize: 14
+                                        ),*/
+                                      border: InputBorder.none,
+                                      contentPadding: EdgeInsets.symmetric(vertical: 16.0,horizontal: 10)
+                                  ),
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      fontFamily: 'Montserrat-Semibold',
+                                      color: AppColors.black,
+                                      fontWeight: FontWeight.w700
+                                  ),
+
+                                )
+                            ),
+                            SizedBox(height: 25,),
+                            Text('Confirm Password',
+                              style: TextStyle(
+                                  color: AppColors.white_00,
+                                  fontSize: 14,
+                                  fontFamily: 'Roboto-Thin',
+                                  fontWeight: FontWeight.bold
+                              ),),
+                            SizedBox(height: 15,),
+                            Material(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30.0)
+                                ),
+                                elevation: 2.0,
+                                color: AppColors.white_00,
+                                child: TextField(
+                                  autofocus: false,
+                                  // validator: validateMobile,
+                                  keyboardType: TextInputType.phone,
+                                  // controller: mobileNumberController,
+                                  decoration: InputDecoration(
+                                    // hintText: "Enter Mobile number",
+                                      isDense: true,
+                                      /* hintStyle: TextStyle(
+                                            color: AppColors.grey_20,
+                                            fontFamily: 'Montserrat-Semibold',
+                                            fontSize: 14
+                                        ),*/
+                                      border: InputBorder.none,
+                                      contentPadding: EdgeInsets.symmetric(vertical: 16.0,horizontal: 10)
+                                  ),
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      fontFamily: 'Montserrat-Semibold',
+                                      color: AppColors.black,
+                                      fontWeight: FontWeight.w700
+                                  ),
+
+                                )
+                            ),
+                            SizedBox(height: 25,),
+
+                          ],
                         ),
                       ),
                     ),
-                  ),
 
 
-                  SizedBox(height: 35,),
 
-                ],
+                    SizedBox(height: 35,),
+
+                  ],
+                ),
               ),
             ),
           ),
-          /*Positioned(
-            top: 60,
-            left: 0,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pop(context,true);
-              },
+          Positioned(
+            bottom: 10.0,
+            child: Container(
+              width: width,
+              color: AppColors.primaryBackGroundColor,
+              height: 70.0,
               child: Container(
-                height: 60,
-                width: 70,
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/icon/Rectangle9.png'),
-                    fit: BoxFit.fill
-                  )
-                ),
-                child: Center(
-                  child: Icon(Icons.arrow_back_ios_outlined,size: 20,color: AppColors.primaryBackGroundColor,),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20.0),
+                child: RaisedButton(
+                  onPressed: (){
+                  },
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  color: AppColors.white_00,
+                  child: Text('UPDATE PROFILE',
+                    style: TextStyle(
+                        color: AppColors.black,
+                        fontSize: 14.0,
+                        fontFamily: 'Roboto-Medium'
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),*/
+          ),
         ],
       ),
     );

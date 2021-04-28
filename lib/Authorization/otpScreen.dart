@@ -23,7 +23,7 @@ class _OTPScreenState extends State<OTPScreen> {
               height: height,
               child: Column(
                 children: [
-                  SizedBox(height: 150,),
+                  SizedBox(height: height*0.135,),
                   Center(
                     child: Text('Enter OTP',
                       style: TextStyle(
@@ -128,7 +128,7 @@ class _OTPScreenState extends State<OTPScreen> {
                     width: width,
                     child: Image.asset(
                       'assets/icons/cuty4.png',
-                      height: 200,width: 200,fit: BoxFit.contain,),
+                      height: height*0.2,width: 200,fit: BoxFit.contain,),
                   ),
                 ],
               ),
