@@ -2,6 +2,7 @@
 // class AddNewAddress extends StatefulWidget {
 
 import 'package:cutyapp/MyNavigator/myNavigator.dart';
+import 'package:cutyapp/UI_DashBoard/CheckOut/thankYouPage.dart';
 import 'package:cutyapp/Values/AppColors.dart';
 import 'package:flutter/material.dart';
 
@@ -494,7 +495,7 @@ class _AddNewAddressState extends State<AddNewAddress> {
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20.0),
                 child: RaisedButton(
                   onPressed: (){
-                    MyNavigator.goToDashBoard(context);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> ThankYouPage()));
                   },
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5.0),

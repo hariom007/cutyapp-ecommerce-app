@@ -1,3 +1,4 @@
+import 'package:cutyapp/UI_DashBoard/ShoppingCart/shoppingCart.dart';
 import 'package:cutyapp/UI_DashBoard/WishListPage/wishListPage.dart';
 import 'package:cutyapp/Values/AppColors.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class _DashBoardState extends State<DashBoard> {
               ),
               child: FloatingActionButton(
                 onPressed: (){
-
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ShoppingCart()));
                 },
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
